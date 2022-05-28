@@ -1,0 +1,24 @@
+{
+  "name": "ts-pyl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild --bundle src/index.ts --outfile=www/main.js",
+    "start": "npm run build -- --servedir=www",
+    "watch": "npm run build -- --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "esbuild": "^0.12.19",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
+  }
+}

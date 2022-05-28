@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="main.js"></script>
+  <style>
+    :root {
+      --box-unit: 100px;
+      --board-gap: 1px;
+      --panel-border-radius: 8px;
+    }
+    body {
+      background-color: rgb(47, 46, 46);
+    }
+    #board {
+      display: grid;
+      gap: var(--board-gap);
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      width: calc(var(--box-unit) * 6 + calc(var(--board-gap) * 6));
+      background-color: black;
+    }
+    #center-panel {
+      grid-column: span 4 / span 4;
+      grid-row: span 3 / span 3;
+      background-color: green;
+      border-radius: var(--panel-border-radius);
+      align-content: center;
+      justify-items: center;
+      display: grid;
+    }
+    .panel {
+      width: var(--box-unit);
+      height: var(--box-unit);
+      background-color: none;
+      border-radius: var(--panel-border-radius);
+    }
+    .panel-active {
+      background-color: yellow;
+    }
+    .inner-panel {
+      background-color: blue;
+      margin: 8px;
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+      border-radius: calc(var(--panel-border-radius) / 2);
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+      display: grid;
+      color: white;
+      text-shadow: 2px 2px 2px black;
+      filter: brightness(100%);
+      transition: filter 0.15s;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+    .panel-line-two {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    .fadeout {
+      filter: brightness(40%);
+      transition: filter 0.15s ease-in-out;
+    }
+    .panel-cash {
+      background-image: url("images/coinstacks.png");
+      background-size: calc(var(--box-unit) - 16px) calc(var(--box-unit) - 16px);
+    }
+  </style>
+</head>
+<body>
+  <div id="board">
+    <div id="panel-0" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-1" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-2" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-3" class="panel panel-active"><div class="inner-panel"></div></div>
+    <div id="panel-4" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-5" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-17" class="panel"><div class="inner-panel"></div></div>
+    <div id="center-panel">
+      <div>TS-PYL</div>
+    </div>
+    <div id="panel-6" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-16" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-7" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-15" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-8" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-9" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-10" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-11" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-12" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-13" class="panel"><div class="inner-panel"></div></div>
+    <div id="panel-14" class="panel"><div class="inner-panel"></div></div>
+  </div>
+</body>
+</html>
