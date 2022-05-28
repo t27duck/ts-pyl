@@ -15,6 +15,9 @@ export class Board {
   ) {
     this.panels = panels;
     this.patterns = patterns;
+    this.panels.forEach(panel => {
+      panel.displaySlide();
+    });
   }
 
   // Getters

@@ -2,24 +2,36 @@ import { Slide } from "./Slide";
 
 export class Panel {
   private currentSlideIndex: number = 0;
-  element: HTMLElement | null;
-  innerElement: HTMLElement | null | undefined;
+  private htmlElement: HTMLElement | null = null;
+  private innerHtmlElement: HTMLElement | null | undefined;
 
   constructor(
-    identifier: string,
+    private identifier: string,
     private slides: Slide[],
   ) {
     this.slides = slides;
-    this.element = document.querySelector(identifier);
-    this.innerElement = this.element?.querySelector(".inner-panel");
+    this.identifier = identifier;
     this.currentSlideIndex = Math.floor(Math.random() * this.slides.length);
-    this.displaySlide();
   }
 
   // Getters
 
   get currentSlide(): Slide {
     return this.slides[this.currentSlideIndex];
+  }
+
+  get element(): HTMLElement | null {
+    if (!this.htmlElement) {
+      this.htmlElement = document.querySelector(this.identifier);
+    }
+    return this.htmlElement;
+  }
+
+  get innerElement(): HTMLElement | null | undefined {
+    if (!this.innerHtmlElement) {
+      this.innerHtmlElement = this.element?.querySelector(".inner-panel");
+    }
+    return this.innerHtmlElement;
   }
 
   // Methods
