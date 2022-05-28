@@ -17,21 +17,20 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       slides: [
         new Slide({
           type: "cash",
-          text: "$500",
-          color: "green",
+          text: "$350",
+          color: "#435E95",
           value: 500
         }),
         new Slide({
-          type: "cash",
-          text: "$1000",
-          color: "red",
-          value: 500
+          type: "whammy",
+          text: "Whammy",
+          color: "#ffff99"
         }),
         new Slide({
-          type: "cash",
-          text: "$750",
-          color: "blue",
-          value: 500
+          type: "moveonespace",
+          text: "Move One Space",
+          color: "#085A39",
+          choices: [2, 18]
         }),
       ]
     },
@@ -39,22 +38,22 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       identifier: "#panel-1",
       slides: [
         new Slide({
-          type: "cash_and_spin",
+          type: "cash",
           text: "$500",
-          color: "green",
+          color: "#316384",
           value: 500
         }),
         new Slide({
           type: "cash",
-          text: "$500",
-          color: "red",
-          value: 500
+          text: "$750",
+          color: "#435E95",
+          value: 750
         }),
         new Slide({
-          type: "cash_and_spin",
-          text: "$500",
-          color: "blue",
-          value: 500
+          type: "prize",
+          text: "A Prize",
+          color: "#54642D",
+          value: 10
         }),
       ]
     },
@@ -63,21 +62,20 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       slides: [
         new Slide({
           type: "cash",
-          text: "$500",
-          color: "green",
-          value: 500
+          text: "$250",
+          color: "#0C3E83",
+          value: 259
         }),
         new Slide({
           type: "cash",
-          text: "$500",
-          color: "red",
-          value: 500
+          text: "$400",
+          color: "#316384",
+          value: 400
         }),
         new Slide({
-          type: "cash",
-          text: "$500",
-          color: "blue",
-          value: 500
+          type: "whammy",
+          text: "Whammy",
+          color: "#ffff99"
         }),
       ]
     },
@@ -86,21 +84,21 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       slides: [
         new Slide({
           type: "cash",
-          text: "$500",
-          color: "green",
+          text: "$1000",
+          color: "#316384",
+          value: 1000
+        }),
+        new Slide({
+          type: "cash",
+          text: "$1250",
+          color: "#54642D",
           value: 500
         }),
         new Slide({
           type: "cash",
-          text: "$500",
-          color: "red",
-          value: 500
-        }),
-        new Slide({
-          type: "cash",
-          text: "$500",
-          color: "blue",
-          value: 500
+          text: "$1500",
+          color: "#AF5C54",
+          value: 1500
         }),
       ]
     },
@@ -109,21 +107,20 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       slides: [
         new Slide({
           type: "cash",
-          text: "$500",
-          color: "green",
-          value: 500
+          text: "$300",
+          color: "#AF5C54",
+          value: 300
         }),
         new Slide({
-          type: "cash",
-          text: "$500",
-          color: "red",
-          value: 500
+          type: "prize",
+          text: "A Prize",
+          color: "#a73500",
+          value: 10
         }),
         new Slide({
-          type: "cash",
-          text: "$500",
-          color: "blue",
-          value: 500
+          type: "whammy",
+          text: "Whammy",
+          color: "#ffff99"
         }),
       ]
     },

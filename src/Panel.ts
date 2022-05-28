@@ -57,15 +57,20 @@ export class Panel {
   }
 
   displaySlide(): void {
-    if (this.element) {
-    }
     if (this.innerElement) {
+      this.innerElement.classList.remove("panel-cash", "panel-whammy", "panel-moveonespace");
       if (this.currentSlide.type == "cash" || this.currentSlide.type == "cash_and_spin") {
         this.innerElement.classList.add("panel-cash");
-      } else {
-        this.innerElement.classList.remove("panel-cash");
+      } else if (this.currentSlide.type == "whammy") {
+        this.innerElement.classList.add("panel-whammy");
+      } else if (this.currentSlide.type == "moveonespace") {
+        this.innerElement.classList.add("panel-moveonespace");
       }
-      this.innerElement.innerHTML = this.currentSlide.text;
+      if (this.currentSlide.type === "whammy" || this.currentSlide.type === "moveonespace") {
+        this.innerElement.innerHTML = "";
+      } else {
+        this.innerElement.innerHTML = this.currentSlide.text;
+      }
       this.innerElement.style.backgroundColor = this.currentSlide.color;
     }
   }

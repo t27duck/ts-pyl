@@ -4,5 +4,6 @@ export type SlideConfig = {
   text: string,
   secondaryText?: string,
   color: string,
-  value: number
+  value?: number,
+  choices?: number[]
 };
