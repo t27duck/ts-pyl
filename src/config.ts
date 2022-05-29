@@ -1,7 +1,8 @@
 import { Slide } from "./Slide";
 
 function shuffle(array: Array<any>): Array<any> {
-  let currentIndex = array.length;
+  let clonedArray = [...array];
+  let currentIndex = clonedArray.length;
   let temporaryValue;
   let randomIndex;
 
@@ -11,11 +12,11 @@ function shuffle(array: Array<any>): Array<any> {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
     // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+    temporaryValue = clonedArray[currentIndex];
+    clonedArray[currentIndex] = clonedArray[randomIndex];
+    clonedArray[randomIndex] = temporaryValue;
   }
-  return array;
+  return clonedArray;
 }
 
 export function patterns(): Array<number[]> {
