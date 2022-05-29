@@ -29,7 +29,7 @@ export function patterns(): Array<number[]> {
   ];
 }
 
-const prizes = [
+const prizesRound1 = [
   { text: "Sleeper Sofa", value: 899 },
   { text: "Portable TV", value: 370 },
   { text: "Reno", value: 753 },
@@ -70,14 +70,68 @@ const prizes = [
   { text: "Scottsdale Arizona", value: 526 },
   { text: "Flokati Rug", value: 350 },
   { text: "Reclining Rocker", value: 329 },
-  { text: "Watches", value: 345 }
+  { text: "Watches", value: 345 },
+  { text: "Punch Set", value: 585 }
+];
+
+const prizesRound2 = [
+  { text: "Sail Boat", value: 1379 },
+  { text: "Virgin Islands", value: 3166 },
+  { text: "Key Biscayne", value: 1570 },
+  { text: "New Orleans", value: 1360 },
+  { text: "Home Robot", value: 1250 },
+  { text: "London", value: 2180 },
+  { text: "Game Table", value: 1995 },
+  { text: "Bermuda", value: 2908 },
+  { text: "Car", value: 5341 },
+  { text: "Big Screen TV", value: 3800 },
+  { text: "Water Bike", value: 3435 },
+  { text: "Switzerland", value: 3798 },
+  { text: "Tent Trailer", value: 5384 },
+  { text: "Video Recorder & Camera", value: 2345 },
+  { text: "Carribean Cruise", value: 3310 },
+  { text: "Seattle Wash.", value: 1050 },
+  { text: "Motorcycle", value: 2398 },
+  { text: "Hong Kong", value: 4328 },
+  { text: "Tokyo", value: 3484 },
+  { text: "Rome", value: 2828 },
+  { text: "Cancun", value: 1288 },
+  { text: "Dallas", value: 1952 },
+  { text: "Boston", value: 1958 },
+  { text: "Portland Oregon", value: 1300 },
+  { text: "Canadian Rockies", value: 2116 },
+  { text: "Mexican Cruise", value: 2190 },
+  { text: "Waikiki", value: 1038 },
+  { text: "Puerto Vallarta", value: 1387 },
+  { text: "Palm Springs", value: 1435 },
+  { text: "British Tour", value: 2534 },
+  { text: "Home Bar", value: 2995 },
+  { text: "Mexico City", value: 1650 },
+  { text: "African Safari", value: 6038 },
+  { text: "Stereo", value: 1550 },
+  { text: "Orlando", value: 2018 },
+  { text: "New York", value: 2932 },
+  { text: "Tahiti", value: 3130 },
+  { text: "Puerto Rico", value: 1164 },
+  { text: "Piano", value: 2295 },
+  { text: "Golf Clubs", value: 1060 },
+  { text: "Singapore", value: 2900 },
+  { text: "Amsterdam", value: 2458 },
+  { text: "European Tour", value: 2374 },
+  { text: "Billiard Table", value: 2223 },
+  { text: "San Diego", value: 1084 },
+  { text: "Surf Jet", value: 2350 },
+  { text: "Motorboat", value: 5562 },
+  { text: "New England", value: 2236 },
+  { text: "Acapulco", value: 1488 },
+  { text: "French Chateaux Country", value: 2494 }
 ];
 
 let prizePool: Array<any> = [];
 
 export function extractPrize(): { text: string, value: number } {
   if (prizePool.length === 0) {
-    prizePool = shuffle(prizes);
+    prizePool = shuffle(prizesRound1);
   }
 
   return prizePool.shift();
