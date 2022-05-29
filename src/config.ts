@@ -32,6 +32,7 @@ const prizes = [
   { text: "Sleeper Sofa", value: 899 },
   { text: "Portable TV", value: 370 },
   { text: "Reno", value: 753 },
+  { text: "Bedroom Set", value: 698 },
   { text: "Paging System", value: 299 },
   { text: "Dinnerware", value: 500 },
   { text: "Diamond Pendant", value: 375 },
@@ -57,9 +58,18 @@ const prizes = [
   { text: "Stereo", value: 420 },
   { text: "Electric Typewriter", value: 615 },
   { text: "Reclining Rocker", value: 329 },
-  { text: "Sleeper Sofa", value: 899 },
-  { text: "Portable TV", value: 370 },
-  { text: "Reno", value: 753 }
+  { text: "Car Stereo", value: 440 },
+  { text: "Coffee Set", value: 605 },
+  { text: "Luggage", value: 778 },
+  { text: "Home Gym", value: 595 },
+  { text: "Exercise Bench", value: 407 },
+  { text: "Flatwear", value: 550 },
+  { text: "Telescope", value: 459 },
+  { text: "Video Recorder", value: 799 },
+  { text: "Scottsdale Arizona", value: 526 },
+  { text: "Flokati Rug", value: 350 },
+  { text: "Reclining Rocker", value: 329 },
+  { text: "Watches", value: 345 }
 ];
 
 let prizePool: Array<any> = [];
