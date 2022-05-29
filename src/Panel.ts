@@ -58,15 +58,19 @@ export class Panel {
 
   displaySlide(): void {
     if (this.innerElement) {
-      this.innerElement.classList.remove("panel-cash", "panel-whammy", "panel-moveonespace");
-      if (this.currentSlide.type == "cash" || this.currentSlide.type == "cash_and_spin") {
+      this.innerElement.classList.remove("panel-cash", "panel-whammy", "panel-moveonespace", "panel-advancetwospaces", "panel-backtwospaces");
+      if (this.currentSlide.type == "cash" || this.currentSlide.type == "cash_and_spin" || this.currentSlide.type == "bigbucks") {
         this.innerElement.classList.add("panel-cash");
       } else if (this.currentSlide.type == "whammy") {
         this.innerElement.classList.add("panel-whammy");
       } else if (this.currentSlide.type == "moveonespace") {
         this.innerElement.classList.add("panel-moveonespace");
+      } else if (this.currentSlide.type == "advancetwospaces") {
+        this.innerElement.classList.add("panel-advancetwospaces");
+      } else if (this.currentSlide.type == "backtwospaces") {
+        this.innerElement.classList.add("panel-backtwospaces");
       }
-      if (this.currentSlide.type === "whammy" || this.currentSlide.type === "moveonespace") {
+      if (this.currentSlide.type === "whammy" || this.currentSlide.type === "moveonespace" || this.currentSlide.type === "backtwospaces" || this.currentSlide.type === "advancetwospaces") {
         this.innerElement.innerHTML = "";
       } else {
         this.innerElement.innerHTML = this.currentSlide.text;
