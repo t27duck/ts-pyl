@@ -14,7 +14,7 @@ export class Slide {
   }
 
   get text(): string {
-    if (this.type == "cash_and_spin") {
+    if (this.type == "cashandspin") {
       return `${this.slideConfig.text}<br /><span class="panel-line-two">+<br />One Spin</span>`;
     }
 
@@ -27,5 +27,9 @@ export class Slide {
 
   get color(): string {
     return this.slideConfig.color;
+  }
+
+  get hideText(): boolean {
+    return this.slideConfig.hideText === true;
   }
 }

@@ -5,5 +5,6 @@ export type SlideConfig = {
   secondaryText?: string,
   color: string,
   value?: number,
+  hideText?: boolean | undefined,
   choices?: number[]
 };

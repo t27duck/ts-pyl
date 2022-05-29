@@ -23,11 +23,13 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         }),
         new Slide({
           type: "moveonespace",
+          hideText: true,
           text: "Move One Space",
           color: "#085A39",
           choices: [2, 18]
@@ -74,6 +76,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         }),
@@ -119,6 +122,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         })
@@ -141,6 +145,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "backtwospaces",
+          hideText: true,
           text: "Go Back Two Spaces",
           color: "#085A39"
         }),
@@ -163,6 +168,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         })
@@ -208,6 +214,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         })
@@ -223,7 +230,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           value: 300
         }),
         new Slide({
-          type: "cash_and_spin",
+          type: "cashandspin",
           text: "$500",
           color: "#D2DE4B",
           value: 500
@@ -253,6 +260,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "advancetwospaces",
+          hideText: true,
           text: "Advance Two Spaces",
           color: "#085A39"
         })
@@ -269,6 +277,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         }),
@@ -319,6 +328,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         })
@@ -364,6 +374,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         })
@@ -386,6 +397,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
         }),
         new Slide({
           type: "whammy",
+          hideText: true,
           text: "A Whammy",
           color: "#ffff99"
         })
@@ -395,19 +407,19 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       identifier: "#panel-17",
       slides: [
         new Slide({
-          type: "cash_and_spin",
+          type: "cashandspin",
           text: "$100",
           color: "#435E95",
           value: 100
         }),
         new Slide({
-          type: "cash_and_spin",
+          type: "cashandspin",
           text: "$200",
           color: "#A5C3F3",
           value: 200
         }),
         new Slide({
-          type: "cash_and_spin",
+          type: "cashandspin",
           text: "$300",
           color: "#54642D",
           value: 300
