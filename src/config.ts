@@ -1,5 +1,23 @@
 import { Slide } from "./Slide";
 
+function shuffle(array: Array<any>): Array<any> {
+  let currentIndex = array.length;
+  let temporaryValue;
+  let randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
 export function patterns(): Array<number[]> {
   return [
     [3, 16, 13, 10, 18, 8, 6, 14, 7, 5, 15, 11, 17, 2, 12, 1, 9, 4],
@@ -8,6 +26,50 @@ export function patterns(): Array<number[]> {
     [17, 10, 15, 13, 2, 8, 18, 16, 12, 3, 5, 11, 7, 4, 1, 9, 14, 6],
     [18, 16, 10, 5, 11, 9, 2, 13, 17, 7, 4, 15, 12, 8, 6, 3, 1, 14]
   ];
+}
+
+const prizes = [
+  { text: "Sleeper Sofa", value: 899 },
+  { text: "Portable TV", value: 370 },
+  { text: "Reno", value: 753 },
+  { text: "Paging System", value: 299 },
+  { text: "Dinnerware", value: 500 },
+  { text: "Diamond Pendant", value: 375 },
+  { text: "Exercise Cycles", value: 480 },
+  { text: "Las Vegas", value: 526 },
+  { text: "Cutlery", value: 375 },
+  { text: "Earrings", value: 329 },
+  { text: "Small Appliances", value: 286 },
+  { text: "Bracelet", value: 550 },
+  { text: "Stainless Cookware", value: 700 },
+  { text: "Binoculars", value: 300 },
+  { text: "Car Stereo", value: 440 },
+  { text: "Coffee Set", value: 605 },
+  { text: "Bracelet", value: 500 },
+  { text: "Luggage", value: 778 },
+  { text: "Concord Calif.", value: 657 },
+  { text: "Silver Gifts", value: 400 },
+  { text: "Monterey Calif.", value: 689 },
+  { text: "Bumper Pool", value: 1001 },
+  { text: "Food Factory", value: 440 },
+  { text: "Sailboard", value: 749 },
+  { text: "Bicycles", value: 470 },
+  { text: "Stereo", value: 420 },
+  { text: "Electric Typewriter", value: 615 },
+  { text: "Reclining Rocker", value: 329 },
+  { text: "Sleeper Sofa", value: 899 },
+  { text: "Portable TV", value: 370 },
+  { text: "Reno", value: 753 }
+];
+
+let prizePool: Array<any> = [];
+
+export function extractPrize(): { text: string, value: number } {
+  if (prizePool.length === 0) {
+    prizePool = shuffle(prizes);
+  }
+
+  return prizePool.shift();
 }
 
 export function panels(): { identifier: string, slides: Slide[] }[] {

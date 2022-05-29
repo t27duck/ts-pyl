@@ -1,10 +1,22 @@
 import { SlideConfig } from "./types";
+import { extractPrize } from "./config";
 
 export class Slide {
   constructor(
     private slideConfig: SlideConfig
   ) {
     this.slideConfig = slideConfig;
+    this.resolvePrizeValues();
+  }
+
+  // Methods
+
+  resolvePrizeValues(): void {
+    if (this.type === "prize") {
+      const prize = extractPrize();
+      this.slideConfig.text = prize.text;
+      this.slideConfig.value = prize.value;
+    }
   }
 
   // Getters
