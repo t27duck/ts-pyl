@@ -6,5 +6,6 @@ export type SlideConfig = {
   color: string,
   value?: number,
   hideText?: boolean | undefined,
-  choices?: number[]
+  choices?: number[],
+  className?: string
 };

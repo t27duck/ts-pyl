@@ -44,4 +44,8 @@ export class Slide {
   get hideText(): boolean {
     return this.slideConfig.hideText === true;
   }
+
+  get className(): string | undefined {
+    return this.slideConfig.className;
+  }
 }

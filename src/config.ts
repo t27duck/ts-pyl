@@ -152,7 +152,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         }),
         new Slide({
           type: "moveonespace",
@@ -205,7 +206,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         }),
       ]
     },
@@ -251,7 +253,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         })
       ]
     },
@@ -297,7 +300,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         })
       ]
     },
@@ -343,7 +347,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-running"
         })
       ]
     },
@@ -406,7 +411,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         }),
         new Slide({
           type: "bigbucks",
@@ -457,7 +463,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         })
       ]
     },
@@ -503,7 +510,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         })
       ]
     },
@@ -526,7 +534,8 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           type: "whammy",
           hideText: true,
           text: "A Whammy",
-          color: "#ffff99"
+          color: "#ffff99",
+          className: "panel-whammy-leaning"
         })
       ]
     },
