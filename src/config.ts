@@ -140,7 +140,7 @@ export function extractPrize(): { text: string, value: number } {
 export function panels(): { identifier: string, slides: Slide[] }[] {
   return [
     {
-      identifier: "#panel-0",
+      identifier: "#panel-1",
       slides: [
         new Slide({
           type: "cash",
@@ -165,7 +165,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-1",
+      identifier: "#panel-2",
       slides: [
         new Slide({
           type: "cash",
@@ -188,7 +188,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-2",
+      identifier: "#panel-3",
       slides: [
         new Slide({
           type: "cash",
@@ -212,7 +212,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-3",
+      identifier: "#panel-4",
       slides: [
         new Slide({
           type: "cash",
@@ -235,7 +235,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-4",
+      identifier: "#panel-5",
       slides: [
         new Slide({
           type: "cash",
@@ -259,7 +259,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-5",
+      identifier: "#panel-6",
       slides: [
         new Slide({
           type: "cash",
@@ -282,7 +282,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-6",
+      identifier: "#panel-7",
       slides: [
         new Slide({
           type: "cash",
@@ -306,7 +306,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-7",
+      identifier: "#panel-8",
       slides: [
         new Slide({
           type: "cash",
@@ -329,7 +329,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-8",
+      identifier: "#panel-9",
       slides: [
         new Slide({
           type: "cash",
@@ -353,7 +353,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-9",
+      identifier: "#panel-10",
       slides: [
         new Slide({
           type: "cash",
@@ -376,7 +376,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-10",
+      identifier: "#panel-11",
       slides: [
         new Slide({
           type: "cash",
@@ -399,7 +399,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-11",
+      identifier: "#panel-12",
       slides: [
         new Slide({
           type: "cash",
@@ -422,7 +422,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-12",
+      identifier: "#panel-13",
       slides: [
         new Slide({
           type: "cash",
@@ -445,7 +445,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-13",
+      identifier: "#panel-14",
       slides: [
         new Slide({
           type: "cash",
@@ -469,7 +469,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-14",
+      identifier: "#panel-15",
       slides: [
         new Slide({
           type: "cash",
@@ -492,7 +492,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-15",
+      identifier: "#panel-16",
       slides: [
         new Slide({
           type: "cash",
@@ -516,7 +516,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-16",
+      identifier: "#panel-17",
       slides: [
         new Slide({
           type: "cash",
@@ -540,7 +540,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
       ]
     },
     {
-      identifier: "#panel-17",
+      identifier: "#panel-18",
       slides: [
         new Slide({
           type: "cashandspin",
