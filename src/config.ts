@@ -254,7 +254,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-leaning"
+          className: "panel-whammy-hammer"
         })
       ]
     },
