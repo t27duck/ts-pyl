@@ -153,7 +153,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-leaning"
+          className: "panel-whammy-superhero"
         }),
         new Slide({
           type: "moveonespace",
@@ -207,7 +207,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-leaning"
+          className: "panel-whammy-jumping"
         }),
       ]
     },
@@ -412,7 +412,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-leaning"
+          className: "panel-whammy-standing"
         }),
         new Slide({
           type: "bigbucks",
@@ -464,7 +464,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-leaning"
+          className: "panel-whammy-raisingarms"
         })
       ]
     },
@@ -511,7 +511,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-leaning"
+          className: "panel-whammy-taunting"
         })
       ]
     },
@@ -535,7 +535,7 @@ export function panels(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-leaning"
+          className: "panel-whammy-hammer"
         })
       ]
     },
