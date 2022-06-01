@@ -30,6 +30,10 @@ export class Slide {
       return `${this.slideConfig.text}<br /><span class="panel-line-two">+<br />One Spin</span>`;
     }
 
+    if (this.type == "pickacorner") {
+      return this.slideConfig.text.split(" ").join("<br />");
+    }
+
     if (this.slideConfig.secondaryText) {
       return `${this.slideConfig.text}<br /><span class="panel-line-two">${this.slideConfig.secondaryText}</span>`;
     }

@@ -1,9 +1,9 @@
 import { Board } from "./Board";
 import { Panel } from "./Panel";
-import { panels, patterns } from "./config";
+import { panelsRound1, panelsRound2, patterns } from "./config";
 
 function init() {
-  const boardPanels: Panel[] = panels().map(panel => new Panel(panel.identifier, panel.slides));
+  const boardPanels: Panel[] = panelsRound1().map(panel => new Panel(panel.identifier, panel.slides));
 
   const board = new Board(boardPanels, patterns());
 
