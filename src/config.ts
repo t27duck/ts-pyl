@@ -160,6 +160,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
+          className: "panel-moveonespace-corner",
           choices: [2, 18]
         })
       ]
@@ -774,6 +775,7 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
+          className: "panel-moveonespace-vertical",
           choices: [8, 10]
         })
       ]
@@ -892,6 +894,7 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
+          className: "panel-moveonespace-horizontal",
           choices: [13, 15]
         })
       ]
