@@ -9,6 +9,7 @@
       --box-unit: 100px;
       --board-gap: 1px;
       --panel-border-radius: 8px;
+      --full-width: calc(var(--box-unit) * 6 + calc(var(--board-gap) * 6))
     }
     body {
       background-color: rgb(47, 46, 46);
@@ -17,7 +18,7 @@
       display: grid;
       gap: var(--board-gap);
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      width: calc(var(--box-unit) * 6 + calc(var(--board-gap) * 6));
+      width: var(--full-width);
       background-color: black;
     }
     #center-panel {
@@ -115,6 +116,39 @@
     .panel-pickacorner {
       font-size: 1.2rem !important;
     }
+    #players {
+      width: var(--full-width);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+      background-color: blanchedalmond;
+    }
+    .player {
+    }
+    .player-score {
+      font-size: 1.5rem;
+      font-weight: bolder;
+      text-align: right;
+      background-color: green;
+      color: white;
+      padding: 0.25rem 0.5rem;
+    }
+    .player-spin-area {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      font-size: 1.5rem;
+      color: white;
+      text-align: right;
+    }
+    .player-spin-area > div {
+      padding: 0.25rem 0.5rem;
+    }
+    .player-earned-spins {
+      background-color: darkgoldenrod;
+    }
+    .player-passed-spins {
+      background-color: red;
+    }
   </style>
 </head>
 <body>
@@ -140,6 +174,33 @@
     <div id="panel-12" class="panel"><div class="inner-panel"></div></div>
     <div id="panel-11" class="panel"><div class="inner-panel"></div></div>
     <div id="panel-10" class="panel"><div class="inner-panel"></div></div>
+  </div>
+
+  <div id="players">
+    <div id="player-1" class="player">
+      <div class="player-score"></div>
+      <div class="player-spin-area">
+        <div class="player-earned-spins"></div>
+        <div class="player-spin-sign"></div>
+        <div class="player-passed-spins">0</div>
+      </div>
+    </div>
+    <div id="player-2" class="player">
+      <div class="player-score">0</div>
+      <div class="player-spin-area">
+        <div class="player-earned-spins">0</div>
+        <div class="player-spin-sign"></div>
+        <div class="player-passed-spins">0</div>
+      </div>
+    </div>
+    <div id="player-3" class="player">
+      <div class="player-score">0</div>
+      <div class="player-spin-area">
+        <div class="player-earned-spins">0</div>
+        <div class="player-spin-sign"></div>
+        <div class="player-passed-spins">0</div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
