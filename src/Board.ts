@@ -1,4 +1,6 @@
 import { Panel } from "./Panel";
+import { panelLayouts } from "./panelLayouts";
+import { patterns } from "./config";
 
 export class Board {
   private currentPanelIndex: number = 0;
@@ -8,16 +10,15 @@ export class Board {
   private bounces: number = 0;
   private spinInterval: number | undefined;
   private stopped: boolean = false;
+  private panels: Panel[];
+  private patterns: Array<number[]>
 
   constructor(
-    private panels: Panel[],
-    private patterns: Array<number[]>
+    private round: number
   ) {
-    this.panels = panels;
-    this.patterns = patterns;
-    this.panels.forEach(panel => {
-      panel.displaySlide();
-    });
+    this.round = round;
+    this.panels = panelLayouts[this.round].map(panel => new Panel(panel.identifier, panel.slides));
+    this.patterns = patterns();
   }
 
   // Getters
@@ -64,6 +65,12 @@ export class Board {
       } else {
         panel.element?.classList.remove("panel-active");
       }
+    });
+  }
+
+  displayPanels(): void {
+    this.panels.forEach(panel => {
+      panel.displaySlide();
     });
   }
 

@@ -56,17 +56,22 @@ export class Panel {
     return this.currentSlide;
   }
 
-  displaySlide(): void {
+  displaySlide(display: string = ""): void {
     if (this.innerElement) {
-      this.innerElement.setAttribute("class", `inner-panel panel-${this.currentSlide.type}`);
-      if (this.currentSlide.className) {
-        this.innerElement.classList.add(this.currentSlide.className);
-      }
-      if (this.currentSlide.hideText) {
+      if (display === "backgroundOnly") {
         this.innerElement.innerHTML = "";
       } else {
-        this.innerElement.innerHTML = this.currentSlide.text;
+        this.innerElement.setAttribute("class", `inner-panel panel-${this.currentSlide.type}`);
+        if (this.currentSlide.className) {
+          this.innerElement.classList.add(this.currentSlide.className);
+        }
+        if (this.currentSlide.hideText) {
+          this.innerElement.innerHTML = "";
+        } else {
+          this.innerElement.innerHTML = this.currentSlide.text;
+        }
       }
+
       this.innerElement.style.backgroundColor = this.currentSlide.color;
     }
   }
