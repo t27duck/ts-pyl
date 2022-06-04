@@ -22,7 +22,17 @@ export class Game {
   spin(): void {
     this._players.currentPlayer?.useSpin();
     this._board?.spin();
+    document.addEventListener("keyup", this.handleKeyUp);
   }
 
+  stop(): void {
+    document.removeEventListener("keyup", this.handleKeyUp);
+    this._board?.stop();
+  }
 
+  handleKeyUp = (event: KeyboardEvent): void => {
+    if (event.code === "Space" || event.key === "Space") {
+      this.stop();
+    }
+  }
 }
