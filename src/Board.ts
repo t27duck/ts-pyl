@@ -31,7 +31,6 @@ export class Board {
 
   spin(): void {
     this.stopped = false;
-    document.addEventListener("keyup", this.handleKeyUp);
     this.spinInterval = setInterval(() => {
       if (!this.stopped) {
         this.nextLight();
@@ -47,10 +46,21 @@ export class Board {
 
   stop(): void {
     this.stopped = true;
-    document.removeEventListener("keyup", this.handleKeyUp);
     if (this.spinInterval) {
       clearInterval(this.spinInterval);
+      setTimeout(() => this.flashCurrentPanel(), 300);
     }
+  }
+
+  flashCurrentPanel(): void {
+    let flashCount = 0;
+    const flashInterval = setInterval(() => {
+      this.currentPanel.element?.classList.toggle("panel-active");
+      flashCount++;
+      if (flashCount > 7) {
+        clearInterval(flashInterval);
+      }
+    }, 200);
   }
 
   nextLight(): void {
@@ -62,6 +72,7 @@ export class Board {
     this.panels.forEach((panel, index) => {
       if (this.currentPattern[this.currentPatternIndex] - 1 == index) {
         panel.element?.classList.add("panel-active");
+        this.currentPanelIndex = index;
       } else {
         panel.element?.classList.remove("panel-active");
       }
@@ -83,11 +94,5 @@ export class Board {
         panel.innerElement?.classList.remove("fadeout");
       }, 200);
     });
-  }
-
-  handleKeyUp = (event: KeyboardEvent): void => {
-    if (event.code === "Space" || event.key === "Space") {
-      this.stop();
-    }
   }
 }
