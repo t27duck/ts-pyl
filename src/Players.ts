@@ -25,7 +25,7 @@ export class Players {
 
   refreshPlayerOutputs(): void {
     this._players.forEach(player => {
-      player.displayEarnedSpins();
+      player.displaySpins();
       player.displayScore();
     });
   }

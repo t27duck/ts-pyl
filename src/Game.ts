@@ -9,7 +9,7 @@ export class Game {
   constructor(
   ) {
     this.reconfigureBoard();
-    this._board?.spin();
+    this.spin();
   }
 
   // Methods
@@ -17,6 +17,11 @@ export class Game {
   reconfigureBoard(): void {
     this._board = new Board(this.round);
     this._board.displayPanels();
+  }
+
+  spin(): void {
+    this._players.currentPlayer?.useSpin();
+    this._board?.spin();
   }
 
 
