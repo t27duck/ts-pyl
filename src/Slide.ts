@@ -45,6 +45,10 @@ export class Slide {
     return this.slideConfig.color;
   }
 
+  get value(): number {
+    return this.slideConfig.value || 0;
+  }
+
   get hideText(): boolean {
     return this.slideConfig.hideText === true;
   }

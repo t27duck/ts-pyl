@@ -73,4 +73,9 @@ export class Player {
     }
     this.displaySpins();
   }
+
+  addScore(score: number): void {
+    this._score += score;
+    this.displayScore();
+  }
 }
