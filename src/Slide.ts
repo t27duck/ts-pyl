@@ -41,6 +41,15 @@ export class Slide {
     return this.slideConfig.text;
   }
 
+  get description(): string {
+    switch (this.type) {
+      case "cashandspin":
+        return `$${this.value} and a Spin`;
+      default:
+        return this.slideConfig.text;
+    }
+  }
+
   get color(): string {
     return this.slideConfig.color;
   }
@@ -51,6 +60,10 @@ export class Slide {
 
   get hideText(): boolean {
     return this.slideConfig.hideText === true;
+  }
+
+  get choices(): number[] {
+    return this.slideConfig.choices || [];
   }
 
   get className(): string | undefined {

@@ -10,21 +10,25 @@ export class Board {
   private bounces: number = 0;
   private spinInterval: number | undefined;
   private stopped: boolean = false;
-  private panels: Panel[];
+  private _panels: Panel[];
   private patterns: Array<number[]>
 
   constructor(
     private round: number
   ) {
     this.round = round;
-    this.panels = panelLayouts[this.round].map(panel => new Panel(panel.identifier, panel.slides));
+    this._panels = panelLayouts[this.round].map(panel => new Panel(panel.identifier, panel.slides));
     this.patterns = patterns();
   }
 
   // Getters
 
   get currentPanel(): Panel {
-    return this.panels[this.currentPanelIndex];
+    return this._panels[this.currentPanelIndex];
+  }
+
+  get panels(): Panel[] {
+    return this._panels;
   }
 
   // Methods
@@ -69,7 +73,7 @@ export class Board {
       this.currentPatternIndex = 0;
       this.currentPattern = this.patterns[Math.floor(Math.random() * this.patterns.length)];
     }
-    this.panels.forEach((panel, index) => {
+    this._panels.forEach((panel, index) => {
       if (this.currentPattern[this.currentPatternIndex] - 1 == index) {
         panel.element?.classList.add("panel-active");
         this.currentPanelIndex = index;
@@ -80,13 +84,13 @@ export class Board {
   }
 
   displayPanels(): void {
-    this.panels.forEach(panel => {
+    this._panels.forEach(panel => {
       panel.displaySlide();
     });
   }
 
   rotatePanels(): void {
-    this.panels.forEach(panel => {
+    this._panels.forEach(panel => {
       panel.innerElement?.classList.add("fadeout");
       setTimeout(() => {
         panel.next();
