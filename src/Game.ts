@@ -43,6 +43,10 @@ export class Game {
       case "cash":
         this._players.currentPlayer?.addScore(slide.value);
         break;
+      case "cashandspin":
+        this._players.currentPlayer?.addScore(slide.value);
+        this._players.currentPlayer?.addAddEarnedSpins(1);
+        break;
       default:
         this._players.currentPlayer?.addScore(slide.value);
     }

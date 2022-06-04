@@ -78,4 +78,9 @@ export class Player {
     this._score += score;
     this.displayScore();
   }
+
+  addAddEarnedSpins(earnedSpins: number): void {
+    this._earnedSpins += earnedSpins;
+    this.displaySpins();
+  }
 }
