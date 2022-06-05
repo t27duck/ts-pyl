@@ -1,5 +1,7 @@
 import { Slide } from "./Slide";
 
+export const PANDEL_SLIDE_TRANSITION_DURATION = 200;
+
 function shuffle(array: Array<any>): Array<any> {
   let clonedArray = [...array];
   let currentIndex = clonedArray.length;

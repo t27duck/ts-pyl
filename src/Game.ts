@@ -1,6 +1,7 @@
 import { Board } from "./Board";
 import { Players } from "./Players";
 import { Slide } from "./Slide";
+import { PANDEL_SLIDE_TRANSITION_DURATION } from "./config";
 
 export class Game {
   round: number = 0;
@@ -28,15 +29,15 @@ export class Game {
     document.addEventListener("keyup", this.handleKeyUp);
   }
 
-  stop(): void {
+  stopBoard(): void {
     document.removeEventListener("keyup", this.handleKeyUp);
     this._board.stop();
+    setTimeout(() => this.processResult(), PANDEL_SLIDE_TRANSITION_DURATION);
   }
 
   handleKeyUp = (event: KeyboardEvent): void => {
     if (event.code === "Space" || event.key === "Space") {
-      this.stop();
-      this.processResult();
+      this.stopBoard();
     }
   }
 

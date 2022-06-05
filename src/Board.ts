@@ -1,6 +1,6 @@
 import { Panel } from "./Panel";
 import { panelLayouts } from "./panelLayouts";
-import { patterns } from "./config";
+import { patterns, PANDEL_SLIDE_TRANSITION_DURATION } from "./config";
 
 export class Board {
   private currentPanelIndex: number = 0;
@@ -132,7 +132,7 @@ export class Board {
         panel.next();
         panel.displaySlide();
         panel.innerElement?.classList.remove("fadeout");
-      }, 200);
+      }, PANDEL_SLIDE_TRANSITION_DURATION);
     });
   }
 }
