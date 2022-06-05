@@ -70,27 +70,29 @@ export class Board {
     const flashInterval = setInterval(() => {
       panel.element?.classList.toggle("panel-active");
       flashCount++;
-      if (flashCount > 7) {
+      if (flashCount > 10) {
         clearInterval(flashInterval);
         panel.element?.classList.toggle("panel-active");
       }
-    }, 200);
+    }, 160);
   }
 
   flashPanelList(panelIndexes: number[]): void {
     let currentIndex = 0;
     this.currentInterval = setInterval(() => {
-      panelIndexes.forEach((panelIndex, index) => {
-        if (index == currentIndex) {
-          this._panels[panelIndex - 1].element?.classList.add("panel-active");
-        } else {
-          this._panels[panelIndex - 1].element?.classList.remove("panel-active");
-        }
-      });
+      if (this.currentInterval) {
+        panelIndexes.forEach((panelIndex, index) => {
+          if (index == currentIndex) {
+            this._panels[panelIndex - 1].element?.classList.add("panel-active");
+          } else {
+            this._panels[panelIndex - 1].element?.classList.remove("panel-active");
+          }
+        });
 
-      currentIndex++;
-      if (currentIndex >= panelIndexes.length) {
-        currentIndex = 0;
+        currentIndex++;
+        if (currentIndex >= panelIndexes.length) {
+          currentIndex = 0;
+        }
       }
     }, 800);
   }

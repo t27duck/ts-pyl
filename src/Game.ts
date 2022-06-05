@@ -44,9 +44,9 @@ export class Game {
     const panelIndex = target.dataset.panelIndex;
     if (panelIndex) {
       const realPanelIndex = parseInt(panelIndex) - 1;
-      this.processResult(realPanelIndex, false);
       this._board.clearCurrentInterval();
       this._board.flashCurrentPanel(realPanelIndex);
+      this.processResult(realPanelIndex, false);
     }
   }
 
@@ -76,11 +76,11 @@ export class Game {
       case "moveonespace":
         this.displayStopMessage(slide.description, withStopMessage);
         this._board.flashPanelList(slide.choices);
-        slide.choices.forEach(panelIndex => {
+        slide.choices.forEach(pIndex => {
           const button = document.createElement("button");
-          button.innerText = this._board.panels[panelIndex - 1].currentSlide.description;
+          button.innerText = this._board.panels[pIndex - 1].currentSlide.description;
           button.classList.add("choice-button");
-          button.dataset.panelIndex = panelIndex.toString();
+          button.dataset.panelIndex = pIndex.toString();
           button.addEventListener("click", this.handleMoveChoice);
           this._centerPanel?.appendChild(button);
         });
