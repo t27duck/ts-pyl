@@ -65,6 +65,7 @@ export class Game {
         this.displayStopMessage(slide.description, withStopMessage);
         break;
       case "moveonespace":
+        this.displayStopMessage(slide.description, withStopMessage);
         slide.choices.forEach(panelId => {
           const button = document.createElement("button");
           button.innerText = this._board.panels[panelId - 1].currentSlide.description;
