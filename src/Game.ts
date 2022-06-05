@@ -74,6 +74,10 @@ export class Game {
         this._players.currentPlayer?.clearScore();
         this.displayStopMessage(slide.description, withStopMessage);
         break;
+      case "prize":
+        this._players.currentPlayer?.addScore(slide.value);
+        this.displayStopMessage(`${slide.description} worth $${slide.value}`, withStopMessage);
+        break;
       case "backtwospaces":
       case "advancetwospaces":
         this.displayStopMessage(`${slide.description} to...`, withStopMessage);
