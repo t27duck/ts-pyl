@@ -27,6 +27,7 @@ export class Players {
     this._players.forEach(player => {
       player.displaySpins();
       player.displayScore();
+      player.displayWhammies();
     });
   }
 }

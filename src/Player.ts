@@ -65,6 +65,18 @@ export class Player {
     }
   }
 
+  displayWhammies(): void {
+    if (this.element) {
+      this.element.querySelectorAll(".player-whammy-icon").forEach((whammyIcon, index) => {
+        if (index < this._whammies) {
+          whammyIcon.classList.remove("player-whammy-icon-hidden");
+        } else {
+          whammyIcon.classList.add("player-whammy-icon-hidden");
+        }
+      });
+    }
+  }
+
   useSpin(): void {
     if (this._passedSpins > 0) {
       this._passedSpins--;
@@ -79,8 +91,18 @@ export class Player {
     this.displayScore();
   }
 
+  clearScore(): void {
+    this._score = 0;
+    this.displayScore();
+  }
+
   addAddEarnedSpins(earnedSpins: number): void {
     this._earnedSpins += earnedSpins;
     this.displaySpins();
+  }
+
+  addWhammy(amount: number = 1): void {
+    this._whammies += amount;
+    this.displayWhammies();
   }
 }

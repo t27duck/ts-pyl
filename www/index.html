@@ -157,6 +157,32 @@
     .player-passed-spins {
       background-color: red;
     }
+    .player-whammy-area {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      height: 45px;
+    }
+    .player-whammy {
+      width: 42px;
+      height: 44px;
+      overflow: hidden;
+    }
+    .player-whammy-icon {
+      background-color: darkgoldenrod;
+      background-image: url("images/whammy-jumping.png");
+      background-size: 42px 42px;
+      border: 1px solid black;
+      height: 42px;
+      top: 0;
+      position: relative;
+      transition: all .2s ease-out;
+    }
+    .player-whammy-icon-hidden {
+      top: 100%;
+    }
   </style>
 </head>
 <body>
@@ -186,6 +212,12 @@
 
   <div id="players">
     <div id="player-1" class="player">
+      <div class="player-whammy-area">
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+      </div>
       <div class="player-score"></div>
       <div class="player-spin-area">
         <div class="player-earned-spins"></div>
@@ -194,6 +226,12 @@
       </div>
     </div>
     <div id="player-2" class="player">
+      <div class="player-whammy-area">
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+      </div>
       <div class="player-score">0</div>
       <div class="player-spin-area">
         <div class="player-earned-spins">0</div>
@@ -202,6 +240,12 @@
       </div>
     </div>
     <div id="player-3" class="player">
+      <div class="player-whammy-area">
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+        <div class="player-whammy"><div class="player-whammy-icon player-whammy-icon-hidden"></div></div>
+      </div>
       <div class="player-score">0</div>
       <div class="player-spin-area">
         <div class="player-earned-spins">0</div>

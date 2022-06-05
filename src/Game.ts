@@ -67,6 +67,11 @@ export class Game {
         this._players.currentPlayer?.addAddEarnedSpins(1);
         this.displayStopMessage(slide.description, withStopMessage);
         break;
+      case "whammy":
+        this._players.currentPlayer?.addWhammy();
+        this._players.currentPlayer?.clearScore();
+        this.displayStopMessage(slide.description, withStopMessage);
+        break;
       case "pickacorner":
       case "moveonespace":
         this.displayStopMessage(slide.description, withStopMessage);
