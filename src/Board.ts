@@ -70,9 +70,9 @@ export class Board {
     const flashInterval = setInterval(() => {
       panel.element?.classList.toggle("panel-active");
       flashCount++;
-      if (flashCount > 10) {
+      if (flashCount > 8) {
         clearInterval(flashInterval);
-        panel.element?.classList.toggle("panel-active");
+        panel.element?.classList.add("panel-active");
       }
     }, 160);
   }

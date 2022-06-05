@@ -58,6 +58,10 @@ export class Slide {
     return this.slideConfig.value || 0;
   }
 
+  get target(): number {
+    return this.slideConfig.target || 0;
+  }
+
   get hideText(): boolean {
     return this.slideConfig.hideText === true;
   }

@@ -141,7 +141,8 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           type: "backtwospaces",
           hideText: true,
           text: "Go Back Two Spaces",
-          color: "#085A39"
+          color: "#085A39",
+          target: 4
         }),
       ]
     },
@@ -258,7 +259,8 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           type: "advancetwospaces",
           hideText: true,
           text: "Advance Two Spaces",
-          color: "#085A39"
+          color: "#085A39",
+          target: 13
         })
       ]
     },
@@ -567,7 +569,8 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           type: "backtwospaces",
           hideText: true,
           text: "Go Back Two Spaces",
-          color: "#085A39"
+          color: "#085A39",
+          target: 4
         }),
       ]
     },
@@ -687,7 +690,8 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           type: "advancetwospaces",
           hideText: true,
           text: "Advance Two Spaces",
-          color: "#085A39"
+          color: "#085A39",
+          target: 13
         })
       ]
     },

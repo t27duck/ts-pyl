@@ -1,5 +1,6 @@
 import { Board } from "./Board";
 import { Players } from "./Players";
+import { Slide } from "./Slide";
 
 export class Game {
   round: number = 0;
@@ -51,7 +52,7 @@ export class Game {
   }
 
   processResult(panelIndex: number | undefined = undefined, withStopMessage: boolean = true): void {
-    let slide;
+    let slide: Slide;
     if (panelIndex) {
       slide = this._board.panels[panelIndex].currentSlide;
     } else {
@@ -71,6 +72,15 @@ export class Game {
         this._players.currentPlayer?.addWhammy();
         this._players.currentPlayer?.clearScore();
         this.displayStopMessage(slide.description, withStopMessage);
+        break;
+      case "backtwospaces":
+      case "advancetwospaces":
+        this.displayStopMessage(`${slide.description} to...`, withStopMessage);
+        setTimeout(() => {
+          const targetIndex = slide.target - 1
+          this.processResult(targetIndex, false);
+          this._board.flashCurrentPanel(targetIndex);
+        }, 1800);
         break;
       case "pickacorner":
       case "moveonespace":
@@ -95,9 +105,9 @@ export class Game {
     const message = document.createElement("div");
     message.classList.add("message");
     if (withStop) {
-      message.innerText += `Stopped on... ${description}!`;
+      message.innerText += `Stopped on... ${description}`;
     } else {
-      message.innerText = `${description}!`;
+      message.innerText = `${description}`;
     }
     if (this._centerPanel) {
       this._centerPanel.innerHTML = "";
