@@ -41,16 +41,19 @@ export class Game {
 
   handleMoveChoice = (event: Event): void => {
     const target = event.target as HTMLButtonElement;
-    const panelId = target.dataset.panelId;
-    if (panelId) {
-      this.processResult(parseInt(panelId) - 1, false);
+    const panelIndex = target.dataset.panelIndex;
+    if (panelIndex) {
+      const realPanelIndex = parseInt(panelIndex) - 1;
+      this.processResult(realPanelIndex, false);
+      this._board.clearCurrentInterval();
+      this._board.flashCurrentPanel(realPanelIndex);
     }
   }
 
-  processResult(panelId: number | undefined = undefined, withStopMessage: boolean = true): void {
+  processResult(panelIndex: number | undefined = undefined, withStopMessage: boolean = true): void {
     let slide;
-    if (panelId) {
-      slide = this._board.panels[panelId].currentSlide;
+    if (panelIndex) {
+      slide = this._board.panels[panelIndex].currentSlide;
     } else {
       slide = this._board.currentPanel.currentSlide;
     }
@@ -64,13 +67,15 @@ export class Game {
         this._players.currentPlayer?.addAddEarnedSpins(1);
         this.displayStopMessage(slide.description, withStopMessage);
         break;
+      case "pickacorner":
       case "moveonespace":
         this.displayStopMessage(slide.description, withStopMessage);
-        slide.choices.forEach(panelId => {
+        this._board.flashPanelList(slide.choices);
+        slide.choices.forEach(panelIndex => {
           const button = document.createElement("button");
-          button.innerText = this._board.panels[panelId - 1].currentSlide.description;
+          button.innerText = this._board.panels[panelIndex - 1].currentSlide.description;
           button.classList.add("choice-button");
-          button.dataset.panelId = panelId.toString();
+          button.dataset.panelIndex = panelIndex.toString();
           button.addEventListener("click", this.handleMoveChoice);
           this._centerPanel?.appendChild(button);
         });

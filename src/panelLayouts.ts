@@ -560,7 +560,8 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           type: "pickacorner",
           text: "Pick A Corner",
           color: "#085A39",
-          value: 11
+          value: 11,
+          choices: [1, 10, 15]
         }),
         new Slide({
           type: "backtwospaces",

@@ -12,6 +12,7 @@ export class Board {
   private stopped: boolean = false;
   private _panels: Panel[];
   private patterns: Array<number[]>
+  private currentInterval: number | undefined;
 
   constructor(
     private round: number
@@ -56,15 +57,48 @@ export class Board {
     }
   }
 
-  flashCurrentPanel(): void {
+  flashCurrentPanel(panelIndex: number | null = null): void {
     let flashCount = 0;
+    const panel = panelIndex ? this._panels[panelIndex] : this.currentPanel;
+
+    this._panels.forEach(p => {
+      if (panel != p) {
+        p.element?.classList.remove("panel-active");
+      }
+    });
+
     const flashInterval = setInterval(() => {
-      this.currentPanel.element?.classList.toggle("panel-active");
+      panel.element?.classList.toggle("panel-active");
       flashCount++;
       if (flashCount > 7) {
         clearInterval(flashInterval);
+        panel.element?.classList.toggle("panel-active");
       }
     }, 200);
+  }
+
+  flashPanelList(panelIndexes: number[]): void {
+    let currentIndex = 0;
+    this.currentInterval = setInterval(() => {
+      panelIndexes.forEach((panelIndex, index) => {
+        if (index == currentIndex) {
+          this._panels[panelIndex - 1].element?.classList.add("panel-active");
+        } else {
+          this._panels[panelIndex - 1].element?.classList.remove("panel-active");
+        }
+      });
+
+      currentIndex++;
+      if (currentIndex >= panelIndexes.length) {
+        currentIndex = 0;
+      }
+    }, 800);
+  }
+
+  clearCurrentInterval(): void {
+    if (this.currentInterval) {
+      clearInterval(this.currentInterval);
+    }
   }
 
   nextLight(): void {
