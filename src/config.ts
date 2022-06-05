@@ -1,6 +1,6 @@
 import { Slide } from "./Slide";
 
-export const PANDEL_SLIDE_TRANSITION_DURATION = 200;
+export const BOARD_STOP_RESULT_DELAY = 100;
 export const BOARD_LIGHT_BOUNCE_DURATION = 250;
 export const BOARD_STOP_FLASH_PANEL_DELAY = 300;
 export const BOARD_PANEL_FLASH_DURATION = 160;

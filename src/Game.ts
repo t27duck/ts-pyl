@@ -1,7 +1,7 @@
 import { Board } from "./Board";
 import { Players } from "./Players";
 import { Slide } from "./Slide";
-import { PANDEL_SLIDE_TRANSITION_DURATION } from "./config";
+import { BOARD_STOP_RESULT_DELAY } from "./config";
 
 export class Game {
   round: number = 0;
@@ -32,7 +32,7 @@ export class Game {
   stopBoard(): void {
     document.removeEventListener("keyup", this.handleKeyUp);
     this._board.stop();
-    setTimeout(() => this.processResult(), PANDEL_SLIDE_TRANSITION_DURATION);
+    setTimeout(() => this.processResult(), BOARD_STOP_RESULT_DELAY);
   }
 
   handleKeyUp = (event: KeyboardEvent): void => {

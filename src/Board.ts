@@ -2,12 +2,12 @@ import { Panel } from "./Panel";
 import { panelLayouts } from "./panelLayouts";
 import {
   patterns,
-  PANDEL_SLIDE_TRANSITION_DURATION,
   BOARD_LIGHT_BOUNCE_DURATION,
   BOARD_STOP_FLASH_PANEL_DELAY,
   BOARD_PANEL_FLASH_DURATION,
   BOARD_FLASH_CHOOSE_PANEL_DURATION
 } from "./config";
+import { enter, leave } from "./el-transition";
 
 export class Board {
   private currentPanelIndex: number = 0;
@@ -134,6 +134,14 @@ export class Board {
 
   rotatePanels(): void {
     this._panels.forEach(panel => {
+      enter(panel.element, "slide").then(() => {
+        panel.next();
+        panel.displaySlide();
+        leave(panel.element, "slide");
+      });
+    });
+    /*
+    this._panels.forEach(panel => {
       panel.innerElement?.classList.add("fadeout");
       setTimeout(() => {
         panel.next();
@@ -141,5 +149,6 @@ export class Board {
         panel.innerElement?.classList.remove("fadeout");
       }, PANDEL_SLIDE_TRANSITION_DURATION);
     });
+    */
   }
 }

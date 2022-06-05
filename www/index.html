@@ -60,10 +60,6 @@
       font-size: 0.85rem;
       text-transform: uppercase;
     }
-    .fadeout {
-      filter: brightness(40%);
-      transition: filter 0.15s ease-in-out;
-    }
     .panel-cash, .panel-cashandspin, .panel-bigbucks {
       background-image: url("images/coinstacks.png");
       background-size: calc(var(--box-unit) - 16px) calc(var(--box-unit) - 16px);
@@ -182,6 +178,33 @@
     }
     .player-whammy-icon-hidden {
       top: 100%;
+    }
+    .hidden {}
+    .slide-enter {
+      transition-property: opacity;
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      transition-duration: 100ms;
+    }
+
+    .slide-enter-start {
+      filter: brightness(100%);
+    }
+    .slide-enter-end {
+      filter: brightness(40%);
+    }
+
+    .slide-leave {
+      transition-property: opacity;
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+
+    .slide-leave-start {
+      filter: brightness(40%);
+    }
+
+    .slide-leave-end {
+      filter: brightness(100%);
     }
   </style>
 </head>
