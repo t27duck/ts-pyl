@@ -1,6 +1,13 @@
 import { Panel } from "./Panel";
 import { panelLayouts } from "./panelLayouts";
-import { patterns, PANDEL_SLIDE_TRANSITION_DURATION } from "./config";
+import {
+  patterns,
+  PANDEL_SLIDE_TRANSITION_DURATION,
+  BOARD_LIGHT_BOUNCE_DURATION,
+  BOARD_STOP_FLASH_PANEL_DELAY,
+  BOARD_PANEL_FLASH_DURATION,
+  BOARD_FLASH_CHOOSE_PANEL_DURATION
+} from "./config";
 
 export class Board {
   private currentPanelIndex: number = 0;
@@ -46,14 +53,14 @@ export class Board {
           this.bounces++;
         }
       }
-    }, 250);
+    }, BOARD_LIGHT_BOUNCE_DURATION);
   }
 
   stop(): void {
     this.stopped = true;
     if (this.spinInterval) {
       clearInterval(this.spinInterval);
-      setTimeout(() => this.flashCurrentPanel(), 300);
+      setTimeout(() => this.flashCurrentPanel(), BOARD_STOP_FLASH_PANEL_DELAY);
     }
   }
 
@@ -74,7 +81,7 @@ export class Board {
         clearInterval(flashInterval);
         panel.element?.classList.add("panel-active");
       }
-    }, 160);
+    }, BOARD_PANEL_FLASH_DURATION);
   }
 
   flashPanelList(panelIndexes: number[]): void {
@@ -94,7 +101,7 @@ export class Board {
           currentIndex = 0;
         }
       }
-    }, 800);
+    }, BOARD_FLASH_CHOOSE_PANEL_DURATION);
   }
 
   clearCurrentInterval(): void {
