@@ -402,7 +402,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           hideText: true,
           text: "A Whammy",
           color: "#ffff99",
-          className: "panel-whammy-hammer"
+          className: "panel-whammy-flex"
         })
       ]
     },
