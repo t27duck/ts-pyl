@@ -80,12 +80,20 @@ export class Game {
         break;
       case "backtwospaces":
       case "advancetwospaces":
-        this.displayStopMessage(`${slide.description} to...`, withStopMessage);
+          this.displayStopMessage(`${slide.description} to...`, withStopMessage);
+          setTimeout(() => {
+            const targetIndex = slide.target - 1
+            this.processResult(targetIndex, false);
+            this._board.flashCurrentPanel(targetIndex);
+          }, 1800);
+          break;
+      case "bigbucks":
+        this.displayStopMessage(`${slide.description}!`, withStopMessage);
         setTimeout(() => {
           const targetIndex = slide.target - 1
           this.processResult(targetIndex, false);
           this._board.flashCurrentPanel(targetIndex);
-        }, 1800);
+        }, 1500);
         break;
       case "pickacorner":
       case "moveonespace":
@@ -112,7 +120,7 @@ export class Game {
     if (withStop) {
       message.innerText += `Stopped on... ${description}`;
     } else {
-      message.innerText = `${description}`;
+      message.innerText = `${description}!`;
     }
     if (this._centerPanel) {
       this._centerPanel.innerHTML = "";

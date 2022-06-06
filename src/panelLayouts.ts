@@ -283,7 +283,8 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
         new Slide({
           type: "bigbucks",
           text: "Big Bucks",
-          color: "#4A7318"
+          color: "#4A7318",
+          target: 4
         }),
       ]
     },
@@ -714,7 +715,8 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
         new Slide({
           type: "bigbucks",
           text: "Big Bucks",
-          color: "#4A7318"
+          color: "#4A7318",
+          target: 4
         }),
       ]
     },
