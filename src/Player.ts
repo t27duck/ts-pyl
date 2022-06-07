@@ -47,6 +47,10 @@ export class Player {
     return this._scoreElement;
   }
 
+  get whammies(): number {
+    return this._whammies;
+  }
+
   // Methods
 
   displaySpins(): void {

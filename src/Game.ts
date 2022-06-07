@@ -52,6 +52,23 @@ export class Game {
     }
   }
 
+  handleCashOrLoseWhammyChoice = (event: Event): void => {
+    const target = event.target as HTMLButtonElement;
+    const choice = target.dataset.choice;
+    if (!choice) {
+      return;
+    }
+
+    if (choice === "whammy") {
+      this._players.currentPlayer?.addWhammy(-1);
+      this.displayStopMessage(`Lose One Whammy`, false);
+    } else {
+      const value = parseInt(choice);
+      this._players.currentPlayer?.addScore(value);
+      this.displayStopMessage(`$${value}`, false);
+    }
+  }
+
   processResult(panelIndex: number | undefined = undefined, withStopMessage: boolean = true): void {
     let slide: Slide;
     if (panelIndex) {
@@ -93,7 +110,28 @@ export class Game {
           const targetIndex = slide.target - 1
           this.processResult(targetIndex, false);
           this._board.flashCurrentPanel(targetIndex);
-        }, 1500);
+        }, 1800);
+        break;
+      case "cashorlosewhammy":
+        if (this._players.currentPlayer?.whammies && this._players.currentPlayer?.whammies > 0) {
+          this.displayStopMessage(`${slide.description}!`, withStopMessage);
+          let button = document.createElement("button");
+          button.innerText = `$${slide.value}`;
+          button.classList.add("choice-button");
+          button.dataset.choice = slide.value.toString();
+          button.addEventListener("click", this.handleCashOrLoseWhammyChoice);
+          this._centerPanel?.appendChild(button);
+
+          button = document.createElement("button");
+          button.innerText = "Lose 1 Whammy";
+          button.classList.add("choice-button");
+          button.dataset.choice = "whammy";
+          button.addEventListener("click", this.handleCashOrLoseWhammyChoice);
+          this._centerPanel?.appendChild(button);
+        } else {
+          this._players.currentPlayer?.addScore(slide.value);
+          this.displayStopMessage(`$${slide.value}!`, withStopMessage);
+        }
         break;
       case "pickacorner":
       case "moveonespace":

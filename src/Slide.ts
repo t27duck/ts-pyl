@@ -45,6 +45,8 @@ export class Slide {
     switch (this.type) {
       case "cashandspin":
         return `$${this.value} and a Spin`;
+      case "cashorlosewhammy":
+        return `$${this.value} or Lose One Whammy`;
       default:
         return this.slideConfig.text;
     }
