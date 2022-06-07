@@ -65,7 +65,7 @@ export class Player {
 
   displayScore(): void {
     if (this.scoreElement) {
-      this.scoreElement.innerHTML = this._score.toString();
+      this.scoreElement.innerHTML = `$${this._score}`;
     }
   }
 
