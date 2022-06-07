@@ -37,7 +37,7 @@ body {
   border-radius: var(--panel-border-radius);
 }
 .panel-active {
-  background-image: radial-gradient(yellow 35%, #9fb71a 35%);
+  background-image: radial-gradient(yellow 42%, #9fb71a 42%);
   background-position: 0 0;
   background-size: 10px 10px;
 }
