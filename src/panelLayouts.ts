@@ -774,7 +774,7 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
       slides: [
         new Slide({
           type: "cashandspin",
-          text: "$100",
+          text: "$1000",
           color: "#A5C3F3",
           value: 1000
         }),
