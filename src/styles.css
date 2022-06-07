@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Franklin Gothic Condensed";
+  src: url("fonts/Franklin Gothic Condensed.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --box-unit: 100px;
   --board-gap: 1px;
@@ -64,6 +71,7 @@ body {
   text-transform: uppercase;
 }
 .panel-cash, .panel-cashandspin, .panel-bigbucks {
+  font-family: "Franklin Gothic Condensed";
   background-image: url("images/coinstacks.png");
   background-size: calc(var(--box-unit) - 16px) calc(var(--box-unit) - 16px);
 }
