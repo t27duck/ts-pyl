@@ -29,5 +29,6 @@ export class Players {
       player.displayScore();
       player.displayWhammies();
     });
+    this._currentPlayer?.scoreElement?.classList.add("player-buzzed");
   }
 }

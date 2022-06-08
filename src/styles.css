@@ -139,6 +139,7 @@ body {
   background-color: blanchedalmond;
 }
 .player {
+  margin: 0.1rem;
 }
 .player-score {
   font-family: "Eggcrate Regular";
@@ -147,6 +148,12 @@ body {
   background-color: green;
   color: white;
   padding: 0.25rem 0.5rem;
+  border: 3px solid blanchedalmond;
+  border-radius: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+.player-buzzed {
+  border-color: red;
 }
 .player-spin-area {
   font-family: "Eggcrate Regular";
@@ -155,6 +162,7 @@ body {
   font-size: 1.5rem;
   color: white;
   text-align: right;
+  margin: 0 0.2rem;
 }
 .player-spin-area > div {
   padding: 0.25rem 0.5rem;
