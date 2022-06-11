@@ -104,6 +104,12 @@ export class Board {
     }, BOARD_FLASH_CHOOSE_PANEL_DURATION);
   }
 
+  allLightsOn(): void {
+    this._panels.forEach(panel => {
+      panel.element?.classList.add("panel-active");
+    });
+  }
+
   clearCurrentInterval(): void {
     if (this.currentInterval) {
       clearInterval(this.currentInterval);
@@ -126,9 +132,9 @@ export class Board {
     });
   }
 
-  displayPanels(): void {
+  displayPanels(display: string = ""): void {
     this._panels.forEach(panel => {
-      panel.displaySlide();
+      panel.displaySlide(display);
     });
   }
 

@@ -11,8 +11,8 @@ export class Game {
 
   constructor(
   ) {
-    this._board.displayPanels();
-    this.spin();
+    this._board.displayPanels("backgroundOnly");
+    this._board.allLightsOn();
     this._centerPanel = document.getElementById("center-panel");
   }
 
