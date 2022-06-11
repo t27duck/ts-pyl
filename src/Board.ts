@@ -140,15 +140,5 @@ export class Board {
         leave(panel.element, "slide");
       });
     });
-    /*
-    this._panels.forEach(panel => {
-      panel.innerElement?.classList.add("fadeout");
-      setTimeout(() => {
-        panel.next();
-        panel.displaySlide();
-        panel.innerElement?.classList.remove("fadeout");
-      }, PANDEL_SLIDE_TRANSITION_DURATION);
-    });
-    */
   }
 }
