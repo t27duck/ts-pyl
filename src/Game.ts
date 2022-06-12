@@ -30,9 +30,10 @@ export class Game {
     }
   }
 
-  startRound(): void {
+  async startRound() {
     this._players.determineCurrentPlayer();
     this._players.refreshPlayerOutputs();
+    await this._board.revealPanels();
     this.spin();
   }
 
