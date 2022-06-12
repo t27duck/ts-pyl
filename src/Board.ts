@@ -161,11 +161,14 @@ export class Board {
 
   rotatePanels(): void {
     this._panels.forEach(panel => {
-      enter(panel.element, "slide").then(() => {
-        panel.next();
-        panel.displaySlide();
-        leave(panel.element, "slide");
-      });
+      const innerElement = panel.innerElement;
+      if (innerElement) {
+        enter(innerElement, "slide").then(() => {
+          panel.next();
+          panel.displaySlide();
+          leave(innerElement, "slide");
+        });
+      }
     });
   }
 }
