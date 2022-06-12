@@ -23,9 +23,11 @@ export class Game {
   // Methods
 
   resetRound(round: number): void {
-    this.round = round;
-    this._board.resetRound(round);
-    this._board.displayPanels("backgroundOnly");
+    if (round !== this.round) {
+      this.round = round;
+      this._board.resetRound(round);
+      this._board.displayPanels("backgroundOnly");
+    }
   }
 
   startRound(): void {
