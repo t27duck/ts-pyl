@@ -109,7 +109,7 @@ export class Board {
     }, BOARD_FLASH_CHOOSE_PANEL_DURATION);
   }
 
-  async revealPanels() {
+  async revealPanels(): Promise<void> {
     let interval: number;
     let panelIndex = 0;
     return new Promise<void>((resolve) => {

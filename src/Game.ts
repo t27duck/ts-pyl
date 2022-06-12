@@ -2,7 +2,7 @@ import { Board } from "./Board";
 import { Players } from "./Players";
 import { Slide } from "./Slide";
 import { Setup } from "./Setup";
-import { BOARD_STOP_RESULT_DELAY } from "./config";
+import { BOARD_STOP_RESULT_DELAY, sleep } from "./config";
 
 export class Game {
   round: number = 0;
@@ -85,6 +85,7 @@ export class Game {
       this._players.currentPlayer?.addScore(value);
       this.displayStopMessage(`$${value}`, false);
     }
+    this.proceedWithRound();
   }
 
   processResult(panelIndex: number | undefined = undefined, withStopMessage: boolean = true): void {
@@ -98,20 +99,24 @@ export class Game {
       case "cash":
         this._players.currentPlayer?.addScore(slide.value);
         this.displayStopMessage(slide.description, withStopMessage);
+        this.proceedWithRound();
         break;
       case "cashandspin":
         this._players.currentPlayer?.addScore(slide.value);
         this._players.currentPlayer?.addAddEarnedSpins(1);
         this.displayStopMessage(slide.description, withStopMessage);
+        this.proceedWithRound();
         break;
       case "whammy":
         this._players.currentPlayer?.addWhammy();
         this._players.currentPlayer?.clearScore();
         this.displayStopMessage(slide.description, withStopMessage);
+        this.proceedWithRound();
         break;
       case "prize":
         this._players.currentPlayer?.addScore(slide.value);
         this.displayStopMessage(`${slide.description} worth $${slide.value}`, withStopMessage);
+        this.proceedWithRound();
         break;
       case "backtwospaces":
       case "advancetwospaces":
@@ -120,6 +125,7 @@ export class Game {
             const targetIndex = slide.target - 1
             this.processResult(targetIndex, false);
             this._board.flashCurrentPanel(targetIndex);
+            this.proceedWithRound();
           }, 1800);
           break;
       case "bigbucks":
@@ -128,6 +134,7 @@ export class Game {
           const targetIndex = slide.target - 1
           this.processResult(targetIndex, false);
           this._board.flashCurrentPanel(targetIndex);
+          this.proceedWithRound();
         }, 1800);
         break;
       case "cashorlosewhammy":
@@ -149,6 +156,7 @@ export class Game {
         } else {
           this._players.currentPlayer?.addScore(slide.value);
           this.displayStopMessage(`$${slide.value}!`, withStopMessage);
+          this.proceedWithRound();
         }
         break;
       case "pickacorner":
@@ -167,6 +175,7 @@ export class Game {
       default:
         this._players.currentPlayer?.addScore(slide.value);
         this.displayStopMessage(slide.description, withStopMessage);
+        this.proceedWithRound();
     }
   }
 
@@ -182,5 +191,47 @@ export class Game {
       this._centerPanel.innerHTML = "";
       this._centerPanel.appendChild(message);
     }
+  }
+
+  async proceedWithRound() {
+    await sleep(2000);
+    const message = document.createElement("div");
+    const buttons = [] as Array<HTMLButtonElement>;
+    message.classList.add("message");
+
+    if (this._players.currentPlayer?.canSpin) {
+      message.innerText = "Press your luck or pass?";
+      let button = document.createElement("button");
+      button.innerText = "Press my luck!";
+      button.classList.add("choice-button");
+      button.addEventListener("click", this.pressMyLuck);
+      buttons.push(button);
+
+      // TODO: Options for passing to other player if there's a choice
+      button = document.createElement("button");
+      button.innerText = "Pass!";
+      button.classList.add("choice-button");
+      button.addEventListener("click", this.pressMyLuck);
+      buttons.push(button);
+    }
+
+    if (this._centerPanel) {
+      this._centerPanel.innerHTML = "";
+      this._centerPanel.appendChild(message);
+      if (buttons) {
+        buttons.forEach(button => {
+          if (this._centerPanel) {
+            this._centerPanel.appendChild(button);
+          }
+        });
+      }
+    }
+  }
+
+  pressMyLuck = (event: Event): void => {
+    if (this._centerPanel) {
+      this._centerPanel.innerHTML = "";
+    }
+    this.spin();
   }
 }

@@ -1,5 +1,7 @@
 import { Slide } from "./Slide";
 
+export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
 export const BOARD_STOP_RESULT_DELAY = 100;
 export const BOARD_LIGHT_BOUNCE_DURATION = 250;
 export const BOARD_STOP_FLASH_PANEL_DELAY = 300;

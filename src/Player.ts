@@ -55,6 +55,10 @@ export class Player {
     return this._earnedSpins;
   }
 
+  get canSpin(): boolean {
+    return this.whammies < 4 && this._passedSpins == 0 && this._earnedSpins > 0;
+  }
+
   // Setters
 
   set earnedSpins(value: number) {
