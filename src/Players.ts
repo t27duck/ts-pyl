@@ -33,7 +33,7 @@ export class Players {
       player.displaySpins();
       player.displayScore();
       player.displayWhammies();
-      player.scoreElement?.classList.remove("player-buzzed");
+      player.scoreElement.classList.remove("player-buzzed");
     });
     this._currentPlayer?.scoreElement?.classList.add("player-buzzed");
   }

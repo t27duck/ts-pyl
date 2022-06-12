@@ -3,10 +3,10 @@ export class Player {
   private _earnedSpins: number = 0
   private _passedSpins: number = 0
   private _whammies: number = 0;
-  private _element: HTMLElement | null = null;
-  private _earnedSpinsElement: HTMLElement | null | undefined = null;
-  private _passedSpinsElement: HTMLElement | null | undefined = null;
-  private _scoreElement: HTMLElement | null | undefined = null;
+  private _element: HTMLElement | undefined = undefined;
+  private _earnedSpinsElement: HTMLElement | undefined = undefined;
+  private _passedSpinsElement: HTMLElement | undefined = undefined;
+  private _scoreElement: HTMLElement | undefined = undefined;
 
   constructor(
     private identifier: string,
@@ -15,33 +15,33 @@ export class Player {
   }
 
   // Getters
-  get element(): HTMLElement | null {
+  get element(): HTMLElement {
     if (!this._element) {
-      this._element = document.querySelector(this.identifier);
+      this._element = document.querySelector(this.identifier) as HTMLElement;
     }
 
     return this._element;
   }
 
-  get earnedSpinsElement(): HTMLElement | null | undefined {
+  get earnedSpinsElement(): HTMLElement {
     if (!this._earnedSpinsElement) {
-      this._earnedSpinsElement = this.element?.querySelector(".player-earned-spins");
+      this._earnedSpinsElement = this.element?.querySelector(".player-earned-spins") as HTMLElement;
     }
 
     return this._earnedSpinsElement;
   }
 
-  get passedSpinsElement(): HTMLElement | null | undefined {
+  get passedSpinsElement(): HTMLElement {
     if (!this._passedSpinsElement) {
-      this._passedSpinsElement = this.element?.querySelector(".player-passed-spins");
+      this._passedSpinsElement = this.element?.querySelector(".player-passed-spins") as HTMLElement;
     }
 
     return this._passedSpinsElement;
   }
 
-  get scoreElement(): HTMLElement | null | undefined {
+  get scoreElement(): HTMLElement {
     if (!this._scoreElement) {
-      this._scoreElement = this.element?.querySelector(".player-score");
+      this._scoreElement = this.element?.querySelector(".player-score") as HTMLElement;
     }
 
     return this._scoreElement;
@@ -72,31 +72,22 @@ export class Player {
   // Methods
 
   displaySpins(): void {
-    if (this.earnedSpinsElement) {
-      this.earnedSpinsElement.innerHTML = this._earnedSpins.toString();
-    }
-
-    if (this.passedSpinsElement) {
-      this.passedSpinsElement.innerHTML = this._passedSpins.toString();
-    }
+    this.earnedSpinsElement.innerHTML = this._earnedSpins.toString();
+    this.passedSpinsElement.innerHTML = this._passedSpins.toString();
   }
 
   displayScore(): void {
-    if (this.scoreElement) {
-      this.scoreElement.innerHTML = `$${this._score}`;
-    }
+    this.scoreElement.innerHTML = `$${this._score}`;
   }
 
   displayWhammies(): void {
-    if (this.element) {
-      this.element.querySelectorAll(".player-whammy-icon").forEach((whammyIcon, index) => {
-        if (index < this._whammies) {
-          whammyIcon.classList.remove("player-whammy-icon-hidden");
-        } else {
-          whammyIcon.classList.add("player-whammy-icon-hidden");
-        }
-      });
-    }
+    this.element.querySelectorAll(".player-whammy-icon").forEach((whammyIcon, index) => {
+      if (index < this._whammies) {
+        whammyIcon.classList.remove("player-whammy-icon-hidden");
+      } else {
+        whammyIcon.classList.add("player-whammy-icon-hidden");
+      }
+    });
   }
 
   useSpin(): void {
