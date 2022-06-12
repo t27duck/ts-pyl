@@ -213,6 +213,13 @@ export class Game {
       button.classList.add("choice-button");
       button.addEventListener("click", this.pressMyLuck);
       buttons.push(button);
+    } else if ((this._players.currentPlayer?.passedSpins || "0") > 0) {
+      message.innerText = `You have spins in your passed column. You must use them.`;
+      let button = document.createElement("button");
+      button.innerText = "Press my luck!";
+      button.classList.add("choice-button");
+      button.addEventListener("click", this.pressMyLuck);
+      buttons.push(button);
     }
 
     if (this._centerPanel) {
