@@ -1,7 +1,7 @@
 export class Player {
   private _score: number = 0;
   private _earnedSpins: number = 0
-  private _passedSpins: number = 10
+  private _passedSpins: number = 0
   private _whammies: number = 0;
   private _element: HTMLElement | null = null;
   private _earnedSpinsElement: HTMLElement | null | undefined = null;
