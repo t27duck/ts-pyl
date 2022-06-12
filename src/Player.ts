@@ -51,6 +51,12 @@ export class Player {
     return this._whammies;
   }
 
+  // Setters
+
+  set earnedSpins(value: number) {
+    this._earnedSpins = value;
+  }
+
   // Methods
 
   displaySpins(): void {

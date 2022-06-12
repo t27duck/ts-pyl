@@ -1,6 +1,7 @@
 import { Board } from "./Board";
 import { Players } from "./Players";
 import { Slide } from "./Slide";
+import { Setup } from "./Setup";
 import { BOARD_STOP_RESULT_DELAY } from "./config";
 
 export class Game {
@@ -8,19 +9,28 @@ export class Game {
   private _board: Board = new Board(this.round);
   private _players: Players = new Players();
   private _centerPanel: HTMLElement | null;
+  private _setup: Setup;
 
   constructor(
   ) {
     this._board.displayPanels("backgroundOnly");
     this._board.allLightsOn();
     this._centerPanel = document.getElementById("center-panel");
+    this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this)
+    this._setup.show();
   }
 
   // Methods
 
-  reconfigureBoard(): void {
-    this._board = new Board(this.round);
-    this._board.displayPanels();
+  resetRound(round: number): void {
+    this.round = round;
+    this._board.resetRound(round);
+    this._board.displayPanels("backgroundOnly");
+  }
+
+  resetSpins(spins: Array<number>): void {
+    this._players.resetSpins(spins);
+    this._players.refreshPlayerOutputs();
   }
 
   spin(): void {

@@ -41,6 +41,11 @@ export class Board {
 
   // Methods
 
+  resetRound(round: number): void {
+    this.round = round;
+    this._panels = panelLayouts[this.round].map(panel => new Panel(panel.identifier, panel.slides));
+  }
+
   spin(): void {
     this.stopped = false;
     this.spinInterval = setInterval(() => {

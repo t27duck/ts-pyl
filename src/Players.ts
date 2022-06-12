@@ -31,4 +31,10 @@ export class Players {
     });
     this._currentPlayer?.scoreElement?.classList.add("player-buzzed");
   }
+
+  resetSpins(spins: Array<number>): void {
+    this._players.forEach((player, index) => {
+      player.earnedSpins = spins[index];
+    });
+  }
 }
