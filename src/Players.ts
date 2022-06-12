@@ -10,8 +10,6 @@ export class Players {
       new Player("#player-2"),
       new Player("#player-3")
     ];
-
-    this._currentPlayer = this._players[0];
     this.refreshPlayerOutputs();
   }
 
