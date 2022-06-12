@@ -28,9 +28,14 @@ export class Game {
     this._board.displayPanels("backgroundOnly");
   }
 
+  startRound(): void {
+    this._players.determineCurrentPlayer();
+    this._players.refreshPlayerOutputs();
+    this.spin();
+  }
+
   resetSpins(spins: Array<number>): void {
     this._players.resetSpins(spins);
-    this._players.refreshPlayerOutputs();
   }
 
   spin(): void {

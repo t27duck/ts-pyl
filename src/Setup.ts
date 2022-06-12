@@ -28,5 +28,6 @@ export class Setup {
     const p2Spins = parseInt((document.getElementById("select-player-2-spins") as HTMLSelectElement).value);
     const p3Spins = parseInt((document.getElementById("select-player-3-spins") as HTMLSelectElement).value);
     this.game.resetSpins([p1Spins, p2Spins, p3Spins]);
+    this.game.startRound();
   }
 }
