@@ -1,5 +1,6 @@
 import { Board } from "./Board";
 import { Players } from "./Players";
+import { Player } from "./Player";
 import { Slide } from "./Slide";
 import { Setup } from "./Setup";
 import { BOARD_STOP_RESULT_DELAY, sleep } from "./config";
@@ -18,6 +19,12 @@ export class Game {
     this._centerPanel = document.getElementById("center-panel");
     this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this)
     this._setup.show();
+  }
+
+  // Getters
+
+  get currentPlayer(): Player {
+    return this._players.currentPlayer as Player;
   }
 
   // Methods
@@ -42,7 +49,7 @@ export class Game {
   }
 
   spin(): void {
-    this._players.currentPlayer?.useSpin();
+    this.currentPlayer.useSpin();
     this._board.spin();
     document.addEventListener("keyup", this.handleKeyUp);
   }
@@ -78,11 +85,11 @@ export class Game {
     }
 
     if (choice === "whammy") {
-      this._players.currentPlayer?.addWhammy(-1);
+      this.currentPlayer.addWhammy(-1);
       this.displayStopMessage(`Lose One Whammy`, false);
     } else {
       const value = parseInt(choice);
-      this._players.currentPlayer?.addScore(value);
+      this.currentPlayer.addScore(value);
       this.displayStopMessage(`$${value}`, false);
     }
     this.proceedWithRound();
@@ -97,29 +104,29 @@ export class Game {
     }
     switch (slide.type) {
       case "cash":
-        this._players.currentPlayer?.addScore(slide.value);
+        this.currentPlayer.addScore(slide.value);
         this.displayStopMessage(slide.description, withStopMessage);
         this.proceedWithRound();
         break;
       case "cashandspin":
-        this._players.currentPlayer?.addScore(slide.value);
-        this._players.currentPlayer?.addAddEarnedSpins(1);
+        this.currentPlayer.addScore(slide.value);
+        this.currentPlayer.addAddEarnedSpins(1);
         this.displayStopMessage(slide.description, withStopMessage);
         this.proceedWithRound();
         break;
       case "whammy":
-        this._players.currentPlayer?.addWhammy();
-        this._players.currentPlayer?.clearScore();
+        this.currentPlayer.addWhammy();
+        this.currentPlayer.clearScore();
         this.displayStopMessage(slide.description, withStopMessage);
-        const passedSpins = this._players.currentPlayer?.passedSpins || 0;
-        if ((this._players.currentPlayer?.whammies || 10) < 4 && passedSpins > 0) {
-          this._players.currentPlayer?.addAddEarnedSpins(passedSpins)
-          this._players.currentPlayer?.addAddPassedSpins(-passedSpins)
+        const passedSpins = this.currentPlayer.passedSpins;
+        if (this.currentPlayer.whammies < 4 && passedSpins > 0) {
+          this.currentPlayer.addAddEarnedSpins(passedSpins)
+          this.currentPlayer.addAddPassedSpins(-passedSpins)
         }
         this.proceedWithRound();
         break;
       case "prize":
-        this._players.currentPlayer?.addScore(slide.value);
+        this.currentPlayer.addScore(slide.value);
         this.displayStopMessage(`${slide.description} worth $${slide.value}`, withStopMessage);
         this.proceedWithRound();
         break;
@@ -143,7 +150,7 @@ export class Game {
         }, 1800);
         break;
       case "cashorlosewhammy":
-        if (this._players.currentPlayer?.whammies && this._players.currentPlayer?.whammies > 0) {
+        if (this.currentPlayer.whammies > 0) {
           this.displayStopMessage(`${slide.description}!`, withStopMessage);
           let button = document.createElement("button");
           button.innerText = `$${slide.value}`;
@@ -159,7 +166,7 @@ export class Game {
           button.addEventListener("click", this.handleCashOrLoseWhammyChoice);
           this._centerPanel?.appendChild(button);
         } else {
-          this._players.currentPlayer?.addScore(slide.value);
+          this.currentPlayer.addScore(slide.value);
           this.displayStopMessage(`$${slide.value}!`, withStopMessage);
           this.proceedWithRound();
         }
@@ -178,7 +185,7 @@ export class Game {
         });
         break;
       default:
-        this._players.currentPlayer?.addScore(slide.value);
+        this.currentPlayer.addScore(slide.value);
         this.displayStopMessage(slide.description, withStopMessage);
         this.proceedWithRound();
     }
@@ -204,7 +211,7 @@ export class Game {
     const buttons = [] as Array<HTMLButtonElement>;
     message.classList.add("message");
 
-    if (this._players.currentPlayer?.canSpin) {
+    if (this.currentPlayer.canSpin) {
       message.innerText = "Press your luck or pass?";
       let button = document.createElement("button");
       button.innerText = "Press my luck!";
@@ -218,7 +225,7 @@ export class Game {
       button.classList.add("choice-button");
       button.addEventListener("click", this.pressMyLuck);
       buttons.push(button);
-    } else if ((this._players.currentPlayer?.passedSpins || "0") > 0) {
+    } else if ((this.currentPlayer.passedSpins || "0") > 0) {
       message.innerText = `You have spins in your passed column. You must use them.`;
       let button = document.createElement("button");
       button.innerText = "Press my luck!";
