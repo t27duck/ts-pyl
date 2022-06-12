@@ -111,6 +111,11 @@ export class Game {
         this._players.currentPlayer?.addWhammy();
         this._players.currentPlayer?.clearScore();
         this.displayStopMessage(slide.description, withStopMessage);
+        const passedSpins = this._players.currentPlayer?.passedSpins || 0;
+        if ((this._players.currentPlayer?.whammies || 10) < 4 && passedSpins > 0) {
+          this._players.currentPlayer?.addAddEarnedSpins(passedSpins)
+          this._players.currentPlayer?.addAddPassedSpins(-passedSpins)
+        }
         this.proceedWithRound();
         break;
       case "prize":

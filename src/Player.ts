@@ -1,7 +1,7 @@
 export class Player {
   private _score: number = 0;
   private _earnedSpins: number = 0
-  private _passedSpins: number = 0
+  private _passedSpins: number = 10
   private _whammies: number = 0;
   private _element: HTMLElement | null = null;
   private _earnedSpinsElement: HTMLElement | null | undefined = null;
@@ -120,6 +120,11 @@ export class Player {
 
   addAddEarnedSpins(earnedSpins: number): void {
     this._earnedSpins += earnedSpins;
+    this.displaySpins();
+  }
+
+  addAddPassedSpins(passedSpins: number): void {
+    this._passedSpins += passedSpins;
     this.displaySpins();
   }
 
