@@ -58,7 +58,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           type: "cash",
           text: "$250",
           color: "#0C3E83",
-          value: 259
+          value: 250
         }),
         new Slide({
           type: "cash",
