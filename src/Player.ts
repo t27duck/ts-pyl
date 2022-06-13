@@ -47,6 +47,10 @@ export class Player {
     return this._scoreElement;
   }
 
+  get score(): number {
+    return this._score;
+  }
+
   get whammies(): number {
     return this._whammies;
   }
@@ -61,6 +65,10 @@ export class Player {
 
   get canSpin(): boolean {
     return this.whammies < 4 && this._passedSpins == 0 && this._earnedSpins > 0;
+  }
+
+  get totalSpins(): number {
+    return this._earnedSpins + this._passedSpins;
   }
 
   // Setters
