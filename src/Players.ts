@@ -19,34 +19,38 @@ export class Players {
     return this._currentPlayer;
   }
 
+  get currentPlayerNumber(): number {
+    if (!this._currentPlayer) {
+      return 0;
+    }
+    return this._players.indexOf(this._currentPlayer) + 1;
+  }
+
   // Methods
 
-  determineCurrentPlayer(): void {
+  determineCurrentPlayer(round: number): void {
     const spinCounts = this._players.map(player => player.totalSpins);
-    let scores = this._players.map(player => player.score);
     this._currentPlayer = null;
 
+    // If no one has spins, the round is pretty much over
     if (spinCounts.every(spinCount => spinCount === 0)) {
       return;
     }
 
     const maxSpinCountIndex = spinCounts.indexOf(Math.max(...spinCounts));
-    let maxScoreIndex = spinCounts.indexOf(Math.max(...scores));
 
-    if (scores.every(score => score === 0)) {
+    // Round 1 is based solely on spin count
+    // Alternatively, is there's noone with a score
+    if (round === 0 || this._players.every(player => player.score === 0)) {
       this._currentPlayer = this._players[maxSpinCountIndex];
       return;
     }
 
-    while (true) {
-      if (this._players[maxScoreIndex].totalSpins === 0) {
-        scores.splice(maxScoreIndex, 1);
-        maxScoreIndex = spinCounts.indexOf(Math.max(...scores));
-      } else {
-        this._currentPlayer = this._players[maxScoreIndex];
-        break;
-      }
-    }
+    // Garanteed a player with a spin; pick the one with the highest score
+    const playersWithSpins = this._players.filter(player => player.totalSpins > 0);
+    const scores = playersWithSpins.map(player => player.score);
+    const maxScoreIndex = scores.indexOf(Math.max(...scores));
+    this._currentPlayer = this._players[maxScoreIndex];
   }
 
   refreshPlayerOutputs(): void {
@@ -56,7 +60,9 @@ export class Players {
       player.displayWhammies();
       player.scoreElement.classList.remove("player-buzzed");
     });
-    this._currentPlayer?.scoreElement?.classList.add("player-buzzed");
+    if (this._currentPlayer) {
+      this._currentPlayer.scoreElement.classList.add("player-buzzed");
+    }
   }
 
   resetSpins(spins: Array<number>): void {

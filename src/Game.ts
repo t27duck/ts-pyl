@@ -38,10 +38,17 @@ export class Game {
   }
 
   async startRound() {
-    this._players.determineCurrentPlayer();
     this._players.refreshPlayerOutputs();
+    let message = document.createElement("div");
+    message.classList.add("message");
+    message.innerText = `Welcome to round ${this.round + 1}!`;
+    if (this._centerPanel) {
+      this._centerPanel.innerHTML = "";
+      this._centerPanel.appendChild(message);
+    }
+
     await this._board.revealPanels();
-    this.spin();
+    this.proceedWithNextPlayer();
   }
 
   resetSpins(spins: Array<number>): void {
@@ -232,6 +239,9 @@ export class Game {
       button.classList.add("choice-button");
       button.addEventListener("click", this.pressMyLuck);
       buttons.push(button);
+    } else {
+      this.proceedWithNextPlayer();
+      return;
     }
 
     if (this._centerPanel) {
@@ -247,10 +257,51 @@ export class Game {
     }
   }
 
+  proceedWithNextPlayer(): void {
+    this._players.determineCurrentPlayer(this.round);
+    this._players.refreshPlayerOutputs();
+
+    if (this.currentPlayer) {
+      this.newPlayerTurn();
+    } else {
+      this.endOfRound();
+    }
+  }
+
   pressMyLuck = (event: Event): void => {
     if (this._centerPanel) {
       this._centerPanel.innerHTML = "";
     }
     this.spin();
+  }
+
+  newPlayerTurn(): void {
+    const message = document.createElement("div");
+    message.classList.add("message");
+    message.innerText = `Player ${this._players.currentPlayerNumber}, it's your turn.`;
+    const button = document.createElement("button");
+    button.innerText = "Press my luck!";
+    button.classList.add("choice-button");
+    button.addEventListener("click", this.pressMyLuck);
+    if (this._centerPanel) {
+      this._centerPanel.innerHTML = "";
+      this._centerPanel.appendChild(message);
+      this._centerPanel.appendChild(button);
+    }
+  }
+
+  endOfRound(): void {
+    const message = document.createElement("div");
+    message.classList.add("message");
+    message.innerText = `That's round ${this.round + 1}!`;
+    const button = document.createElement("button");
+    button.innerText = "Press my luck!";
+    button.classList.add("choice-button");
+    button.addEventListener("click", this.pressMyLuck);
+    if (this._centerPanel) {
+      this._centerPanel.innerHTML = "";
+      this._centerPanel.appendChild(message);
+      this._centerPanel.appendChild(button);
+    }
   }
 }
