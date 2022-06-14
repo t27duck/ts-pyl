@@ -24,9 +24,9 @@ export class Setup {
     const round = parseInt((document.getElementById("select-round") as HTMLSelectElement).value);
     this.game.resetRound(round);
 
-    const p1Spins = parseInt((document.getElementById("select-player-1-spins") as HTMLSelectElement).value);
-    const p2Spins = parseInt((document.getElementById("select-player-2-spins") as HTMLSelectElement).value);
-    const p3Spins = parseInt((document.getElementById("select-player-3-spins") as HTMLSelectElement).value);
+    const p1Spins = parseInt((document.getElementById("select-player-1-spins") as HTMLInputElement).value);
+    const p2Spins = parseInt((document.getElementById("select-player-2-spins") as HTMLInputElement).value);
+    const p3Spins = parseInt((document.getElementById("select-player-3-spins") as HTMLInputElement).value);
     this.game.resetSpins([p1Spins, p2Spins, p3Spins]);
     this.game.startRound();
   }
