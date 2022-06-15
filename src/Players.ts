@@ -2,7 +2,8 @@ import { Player } from "./Player";
 
 export class Players {
   private _players: Player[] = [];
-  private _currentPlayer: Player | null = null;
+  private _currentPlayer: Player | undefined = undefined;
+  private _playerOrder: Player[] = [];
 
   constructor() {
     this._players = [
@@ -15,7 +16,7 @@ export class Players {
 
   // Getters
 
-  get currentPlayer(): Player | null {
+  get currentPlayer(): Player | undefined {
     return this._currentPlayer;
   }
 
@@ -28,12 +29,34 @@ export class Players {
 
   // Methods
 
+  setPlayerOrder(): void {
+    const playerStructure = this._players.map(player => player);
+
+    // Sort by score low to high
+    // and then by total spins low to high
+    playerStructure.sort((a: Player, b: Player): number => {
+      if (a.score < b.score) { return -1; }
+      if (a.score > b.score) { return 1; }
+
+      if (a.totalSpins < b.totalSpins) { return -1; }
+      if (a.totalSpins > b.totalSpins) { return 1; }
+      return 0;
+    });
+
+    this._playerOrder = playerStructure;
+  }
+
   determineCurrentPlayer(round: number): void {
+    if (this._playerOrder.length !== 0) {
+      this._currentPlayer = this._playerOrder.shift();
+      return;
+    }
+
     const spinCounts = this._players.map(player => player.totalSpins);
-    this._currentPlayer = null;
+    this._currentPlayer = undefined;
 
     // If no one has spins, the round is pretty much over
-    if (spinCounts.every(spinCount => spinCount === 0)) {
+    if (spinCounts.every(spinCount => spinCount <= 0)) {
       return;
     }
 

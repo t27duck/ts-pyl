@@ -48,6 +48,7 @@ export class Game {
     }
 
     await this._board.revealPanels();
+    this._players.setPlayerOrder();
     this.proceedWithNextPlayer();
   }
 
@@ -293,7 +294,7 @@ export class Game {
   endOfRound(): void {
     const message = document.createElement("div");
     message.classList.add("message");
-    message.innerText = `That's round ${this.round + 1}!`;
+    message.innerText = `That's the end of round ${this.round + 1}!`;
     const button = document.createElement("button");
     button.innerText = "Press my luck!";
     button.classList.add("choice-button");

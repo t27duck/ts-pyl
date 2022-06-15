@@ -43,9 +43,9 @@ export class Setup {
     this.selectRound.value = this.currentRound.toString();
     if (this.currentRound === 0) {
       this.selectRound.disabled = false;
-      this.player1Spins.value = "3";
-      this.player2Spins.value = "5";
-      this.player3Spins.value = "4";
+      this.player1Spins.value = "2";
+      this.player2Spins.value = "4";
+      this.player3Spins.value = "3";
     } else  {
       this.selectRound.disabled = true;
       this.player1Spins.value = "3";
