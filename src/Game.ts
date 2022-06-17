@@ -241,7 +241,7 @@ export class Game {
       } else {
         // TODO: Play against the house
       }
-    } else if ((this.currentPlayer.passedSpins || "0") > 0) {
+    } else if (this.currentPlayer.passedSpins > 0) {
       message.innerText = `You have spins in your passed column. You must use them.`;
       let button = document.createElement("button");
       button.innerText = "Press my luck!";
@@ -311,7 +311,11 @@ export class Game {
   newPlayerTurn(): void {
     const message = document.createElement("div");
     message.classList.add("message");
-    message.innerText = `${this._players.currentPlayerName}, it's your turn.`;
+    let messageText = `${this._players.currentPlayerName}, it's your turn.`;
+    if (this.currentPlayer.passedSpins > 0) {
+      messageText = `${messageText}<br />You have spins in your passed column. You must use them.`;
+    }
+    message.innerHTML = messageText;
     const button = document.createElement("button");
     button.innerText = "Press my luck!";
     button.classList.add("choice-button");
