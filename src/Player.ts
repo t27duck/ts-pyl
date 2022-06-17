@@ -10,11 +10,18 @@ export class Player {
 
   constructor(
     private identifier: string,
+    private _name: string
   ) {
     this.identifier = identifier;
+    this._name = _name;
   }
 
   // Getters
+
+  get name(): string {
+    return this._name;
+  }
+
   get element(): HTMLElement {
     if (!this._element) {
       this._element = document.querySelector(this.identifier) as HTMLElement;
@@ -69,6 +76,10 @@ export class Player {
 
   get totalSpins(): number {
     return this._earnedSpins + this._passedSpins;
+  }
+
+  get outOfGame(): boolean {
+    return this._whammies >= 4;
   }
 
   // Setters

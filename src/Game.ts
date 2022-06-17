@@ -228,12 +228,18 @@ export class Game {
       button.addEventListener("click", this.pressMyLuck);
       buttons.push(button);
 
-      // TODO: Options for passing to other player if there's a choice
-      button = document.createElement("button");
-      button.innerText = "Pass!";
-      button.classList.add("choice-button");
-      button.addEventListener("click", this.pressMyLuck);
-      buttons.push(button);
+      const passablePlayers = this._players.passablePlayers();
+      if (passablePlayers.length > 0) {
+        passablePlayers.forEach(player => {
+          button = document.createElement("button");
+          button.innerText = `Pass to ${player.name}`;
+          button.classList.add("choice-button");
+          button.addEventListener("click", this.pressMyLuck);
+          buttons.push(button);
+        });
+      } else {
+        // TODO: Play against the house
+      }
     } else if ((this.currentPlayer.passedSpins || "0") > 0) {
       message.innerText = `You have spins in your passed column. You must use them.`;
       let button = document.createElement("button");

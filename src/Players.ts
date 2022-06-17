@@ -7,9 +7,9 @@ export class Players {
 
   constructor() {
     this._players = [
-      new Player("#player-1"),
-      new Player("#player-2"),
-      new Player("#player-3")
+      new Player("#player-1", "Player 1"),
+      new Player("#player-2", "Player 2"),
+      new Player("#player-3", "Player 3")
     ];
     this.refreshPlayerOutputs();
   }
@@ -28,10 +28,25 @@ export class Players {
   }
 
   get currentPlayerName(): string {
-    return `Player ${this.currentPlayerNumber}`;
+    return this._currentPlayer?.name || "";
   }
 
   // Methods
+
+  passablePlayers(): Player[] {
+    const passablePlayers = this._players.filter(player => player !== this.currentPlayer && !player.outOfGame);
+    if (passablePlayers.length > 1) {
+      if (passablePlayers[0].score === passablePlayers[1].score) {
+        return passablePlayers;
+      } else if (passablePlayers[0].score > passablePlayers[1].score) {
+        return [passablePlayers[0]];
+      } else {
+        return [passablePlayers[1]];
+      }
+    }
+
+    return passablePlayers;
+  }
 
   setPlayerOrder(): void {
     const playerStructure = this._players.filter(player => player.totalSpins > 0).map(player => player);
