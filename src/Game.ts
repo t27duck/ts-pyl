@@ -298,6 +298,13 @@ export class Game {
     }
   }
 
+  nextRound = (event: Event): void => {
+    if (this.round === 0) {
+      this.resetRound(1);
+      this._setup.show(this.round);
+    }
+  }
+
   displayMessage(messageString: string): void {
     const message = document.createElement("div");
     message.classList.add("message");
@@ -332,9 +339,9 @@ export class Game {
     message.classList.add("message");
     message.innerText = `That's the end of round ${this.round + 1}!`;
     const button = document.createElement("button");
-    button.innerText = "Press my luck!";
+    button.innerText = "Continue...";
     button.classList.add("choice-button");
-    button.addEventListener("click", this.pressMyLuck);
+    button.addEventListener("click", this.nextRound);
     if (this._centerPanel) {
       this._centerPanel.innerHTML = "";
       this._centerPanel.appendChild(message);

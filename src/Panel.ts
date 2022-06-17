@@ -60,6 +60,7 @@ export class Panel {
     if (this.innerElement) {
       if (display === "backgroundOnly") {
         this.innerElement.innerHTML = "";
+        this.innerElement.setAttribute("class", "inner-panel");
       } else {
         this.innerElement.setAttribute("class", `inner-panel panel-${this.currentSlide.type}`);
         if (this.currentSlide.className) {
