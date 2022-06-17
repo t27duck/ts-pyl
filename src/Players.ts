@@ -30,7 +30,7 @@ export class Players {
   // Methods
 
   setPlayerOrder(): void {
-    const playerStructure = this._players.map(player => player);
+    const playerStructure = this._players.filter(player => player.totalSpins > 0).map(player => player);
 
     // Sort by score low to high
     // and then by total spins low to high
@@ -52,28 +52,18 @@ export class Players {
       return;
     }
 
-    const spinCounts = this._players.map(player => player.totalSpins);
     this._currentPlayer = undefined;
 
     // If no one has spins, the round is pretty much over
-    if (spinCounts.every(spinCount => spinCount <= 0)) {
+    if (this._players.every(player => player.totalSpins <= 0)) {
       return;
     }
 
-    const maxSpinCountIndex = spinCounts.indexOf(Math.max(...spinCounts));
+    this.setPlayerOrder();
 
-    // Round 1 is based solely on spin count
-    // Alternatively, is there's noone with a score
-    if (round === 0 || this._players.every(player => player.score === 0)) {
-      this._currentPlayer = this._players[maxSpinCountIndex];
-      return;
+    if (this._playerOrder.length !== 0) {
+      this._currentPlayer = this._playerOrder.shift();
     }
-
-    // Garanteed a player with a spin; pick the one with the highest score
-    const playersWithSpins = this._players.filter(player => player.totalSpins > 0);
-    const scores = playersWithSpins.map(player => player.score);
-    const maxScoreIndex = scores.indexOf(Math.max(...scores));
-    this._currentPlayer = this._players[maxScoreIndex];
   }
 
   refreshPlayerOutputs(): void {
