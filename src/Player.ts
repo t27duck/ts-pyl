@@ -10,16 +10,22 @@ export class Player {
 
   constructor(
     private identifier: string,
-    private _name: string
+    private _name: string,
+    private _number: number
   ) {
     this.identifier = identifier;
     this._name = _name;
+    this._number = _number;
   }
 
   // Getters
 
   get name(): string {
     return this._name;
+  }
+
+  get number(): number {
+    return this._number;
   }
 
   get element(): HTMLElement {
@@ -86,6 +92,10 @@ export class Player {
 
   set earnedSpins(value: number) {
     this._earnedSpins = value;
+  }
+
+  set passedSpins(value: number) {
+    this._passedSpins = value;
   }
 
   // Methods

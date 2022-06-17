@@ -233,8 +233,9 @@ export class Game {
         passablePlayers.forEach(player => {
           button = document.createElement("button");
           button.innerText = `Pass to ${player.name}`;
+          button.dataset.playerNumber = player.number.toString();
           button.classList.add("choice-button");
-          button.addEventListener("click", this.pressMyLuck);
+          button.addEventListener("click", this.pass);
           buttons.push(button);
         });
       } else {
@@ -281,6 +282,30 @@ export class Game {
       this._centerPanel.innerHTML = "";
     }
     this.spin();
+  }
+
+  pass = (event: Event): void => {
+    const target = event.target as HTMLButtonElement;
+    const playerNumber = target.dataset.playerNumber;
+    if (playerNumber) {
+      const passedPlayer = this._players.getPlayerByNumber(parseInt(playerNumber));
+      if (passedPlayer) {
+        passedPlayer.passedSpins += this.currentPlayer.earnedSpins;
+        this.currentPlayer.earnedSpins = 0;
+        this.displayMessage(`You have passed your spins to ${passedPlayer.name}`);
+        setTimeout(() => { this.proceedWithNextPlayer(); }, 2000);
+      }
+    }
+  }
+
+  displayMessage(messageString: string): void {
+    const message = document.createElement("div");
+    message.classList.add("message");
+    message.innerText = messageString;
+    if (this._centerPanel) {
+      this._centerPanel.innerHTML = "";
+      this._centerPanel.appendChild(message);
+    }
   }
 
   newPlayerTurn(): void {

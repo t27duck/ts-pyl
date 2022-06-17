@@ -7,9 +7,9 @@ export class Players {
 
   constructor() {
     this._players = [
-      new Player("#player-1", "Player 1"),
-      new Player("#player-2", "Player 2"),
-      new Player("#player-3", "Player 3")
+      new Player("#player-1", "Player 1", 1),
+      new Player("#player-2", "Player 2", 2),
+      new Player("#player-3", "Player 3", 3)
     ];
     this.refreshPlayerOutputs();
   }
@@ -21,10 +21,7 @@ export class Players {
   }
 
   get currentPlayerNumber(): number {
-    if (!this._currentPlayer) {
-      return 0;
-    }
-    return this._players.indexOf(this._currentPlayer) + 1;
+    return this._currentPlayer?.number || 0;
   }
 
   get currentPlayerName(): string {
@@ -46,6 +43,10 @@ export class Players {
     }
 
     return passablePlayers;
+  }
+
+  getPlayerByNumber(number: number): Player | undefined {
+    return this._players.find(player => player.number === number);
   }
 
   setPlayerOrder(): void {
