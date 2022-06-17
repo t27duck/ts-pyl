@@ -63,7 +63,7 @@ export class Player {
     return this._passedSpins;
   }
 
-  get canSpin(): boolean {
+  get canUseEarnedSpins(): boolean {
     return this.whammies < 4 && this._passedSpins == 0 && this._earnedSpins > 0;
   }
 

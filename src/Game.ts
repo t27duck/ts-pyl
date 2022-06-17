@@ -220,7 +220,7 @@ export class Game {
     const buttons = [] as Array<HTMLButtonElement>;
     message.classList.add("message");
 
-    if (this.currentPlayer.canSpin) {
+    if (this.currentPlayer.canUseEarnedSpins) {
       message.innerText = "Press your luck or pass?";
       let button = document.createElement("button");
       button.innerText = "Press my luck!";
@@ -280,7 +280,7 @@ export class Game {
   newPlayerTurn(): void {
     const message = document.createElement("div");
     message.classList.add("message");
-    message.innerText = `Player ${this._players.currentPlayerName}, it's your turn.`;
+    message.innerText = `${this._players.currentPlayerName}, it's your turn.`;
     const button = document.createElement("button");
     button.innerText = "Press my luck!";
     button.classList.add("choice-button");
