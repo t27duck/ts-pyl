@@ -27,6 +27,10 @@ export class Players {
     return this._players.indexOf(this._currentPlayer) + 1;
   }
 
+  get currentPlayerName(): string {
+    return `Player ${this.currentPlayerNumber}`;
+  }
+
   // Methods
 
   setPlayerOrder(): void {

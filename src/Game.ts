@@ -280,7 +280,7 @@ export class Game {
   newPlayerTurn(): void {
     const message = document.createElement("div");
     message.classList.add("message");
-    message.innerText = `Player ${this._players.currentPlayerNumber}, it's your turn.`;
+    message.innerText = `Player ${this._players.currentPlayerName}, it's your turn.`;
     const button = document.createElement("button");
     button.innerText = "Press my luck!";
     button.classList.add("choice-button");
