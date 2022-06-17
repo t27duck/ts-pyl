@@ -6,12 +6,12 @@ export class Slide {
     private slideConfig: SlideConfig
   ) {
     this.slideConfig = slideConfig;
-    this.resolvePrizeValues();
+    this.resolveValues();
   }
 
   // Methods
 
-  resolvePrizeValues(): void {
+  resolveValues(): void {
     if (this.type === "prize") {
       const prize = extractPrize();
       this.slideConfig.text = prize.text;
