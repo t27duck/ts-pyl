@@ -1,8 +1,8 @@
 export class Player {
-  private _score: number = 0;
-  private _earnedSpins: number = 0;
-  private _passedSpins: number = 0;
-  private _whammies: number = 0;
+  private _score = 0;
+  private _earnedSpins = 0;
+  private _passedSpins = 0;
+  private _whammies = 0;
   private _element: HTMLElement | undefined = undefined;
   private _earnedSpinsElement: HTMLElement | undefined = undefined;
   private _passedSpinsElement: HTMLElement | undefined = undefined;
@@ -14,7 +14,7 @@ export class Player {
     this._number = _number;
   }
 
-  // Getters
+  // Getters / Setters
 
   get name(): string {
     return this._name;
@@ -68,8 +68,16 @@ export class Player {
     return this._earnedSpins;
   }
 
+  set earnedSpins(value: number) {
+    this._earnedSpins = value;
+  }
+
   get passedSpins(): number {
     return this._passedSpins;
+  }
+
+  set passedSpins(value: number) {
+    this._passedSpins = value;
   }
 
   get canUseEarnedSpins(): boolean {
@@ -82,16 +90,6 @@ export class Player {
 
   get outOfGame(): boolean {
     return this._whammies >= 4;
-  }
-
-  // Setters
-
-  set earnedSpins(value: number) {
-    this._earnedSpins = value;
-  }
-
-  set passedSpins(value: number) {
-    this._passedSpins = value;
   }
 
   // Methods
@@ -144,7 +142,7 @@ export class Player {
     this.displaySpins();
   }
 
-  addWhammy(amount: number = 1): void {
+  addWhammy(amount = 1): void {
     this._whammies += amount;
     this.displayWhammies();
   }

@@ -6,7 +6,7 @@ import { Setup } from "./Setup";
 import { BOARD_STOP_RESULT_DELAY, sleep } from "./config";
 
 export class Game {
-  round: number = 0;
+  round = 0;
   private _board: Board = new Board(this.round);
   private _players: Players = new Players();
   private _centerPanel: HTMLElement | null;
@@ -38,7 +38,7 @@ export class Game {
 
   async startRound() {
     this._players.refreshPlayerOutputs();
-    let message = document.createElement("div");
+    const message = document.createElement("div");
     message.classList.add("message");
     message.innerText = `Welcome to round ${this.round + 1}!`;
     if (this._centerPanel) {
@@ -102,7 +102,7 @@ export class Game {
     this.proceedWithRound();
   };
 
-  processResult(panelIndex: number | undefined = undefined, withStopMessage: boolean = true): void {
+  processResult(panelIndex: number | undefined = undefined, withStopMessage = true): void {
     let slide: Slide;
     if (panelIndex) {
       slide = this._board.panels[panelIndex].currentSlide;
@@ -125,11 +125,11 @@ export class Game {
         this.currentPlayer.addWhammy();
         this.currentPlayer.clearScore();
         this.displayStopMessage(slide.description, withStopMessage);
-        const passedSpins = this.currentPlayer.passedSpins;
-        if (this.currentPlayer.whammies < 4 && passedSpins > 0) {
-          this.currentPlayer.addAddEarnedSpins(passedSpins);
-          this.currentPlayer.addAddPassedSpins(-passedSpins);
+        if (this.currentPlayer.whammies < 4 && this.currentPlayer.passedSpins > 0) {
+          this.currentPlayer.addAddEarnedSpins(this.currentPlayer.passedSpins);
+          this.currentPlayer.passedSpins = 0;
         }
+        this._players.refreshPlayerOutputs();
         this.proceedWithRound();
         break;
       case "prize":
@@ -199,7 +199,7 @@ export class Game {
     }
   }
 
-  displayStopMessage(description: string, withStop: boolean = true): void {
+  displayStopMessage(description: string, withStop = true): void {
     const message = document.createElement("div");
     message.classList.add("message");
     if (withStop) {
@@ -242,7 +242,7 @@ export class Game {
       }
     } else if (this.currentPlayer.passedSpins > 0) {
       message.innerText = `You have spins in your passed column. You must use them.`;
-      let button = document.createElement("button");
+      const button = document.createElement("button");
       button.innerText = "Press my luck!";
       button.classList.add("choice-button");
       button.addEventListener("click", this.pressMyLuck);
@@ -276,7 +276,7 @@ export class Game {
     }
   }
 
-  pressMyLuck = (event: Event): void => {
+  pressMyLuck = (): void => {
     if (this._centerPanel) {
       this._centerPanel.innerHTML = "";
     }
@@ -292,6 +292,7 @@ export class Game {
         passedPlayer.passedSpins += this.currentPlayer.earnedSpins;
         this.currentPlayer.earnedSpins = 0;
         this.displayMessage(`You have passed your spins to ${passedPlayer.name}`);
+        this._players.refreshPlayerOutputs();
         setTimeout(() => {
           this.proceedWithNextPlayer();
         }, 2000);
@@ -299,7 +300,7 @@ export class Game {
     }
   };
 
-  nextRound = (event: Event): void => {
+  nextRound = (): void => {
     if (this.round === 0) {
       this.resetRound(1);
       this._setup.show(this.round);
