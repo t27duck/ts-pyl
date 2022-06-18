@@ -1,6 +1,6 @@
 import { Slide } from "./Slide";
 
-export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
+export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
   return [
     {
       identifier: "#panel-1",
@@ -72,7 +72,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           text: "A Whammy",
           color: "#ffff99",
           className: "panel-whammy-jumping"
-        }),
+        })
       ]
     },
     {
@@ -95,7 +95,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           text: "$1500",
           color: "#AF5C54",
           value: 1500
-        }),
+        })
       ]
     },
     {
@@ -143,7 +143,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           text: "Go Back Two Spaces",
           color: "#085A39",
           target: 4
-        }),
+        })
       ]
     },
     {
@@ -190,7 +190,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           text: "$550",
           color: "#54642D",
           value: 550
-        }),
+        })
       ]
     },
     {
@@ -285,7 +285,7 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           text: "Big Bucks",
           color: "#4A7318",
           target: 4
-        }),
+        })
       ]
     },
     {
@@ -426,13 +426,13 @@ export function panelsRound1(): { identifier: string, slides: Slide[] }[] {
           text: "$300",
           color: "#54642D",
           value: 300
-        }),
+        })
       ]
     }
   ];
 }
 
-export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
+export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
   return [
     {
       identifier: "#panel-1",
@@ -501,7 +501,7 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           text: "A Whammy",
           color: "#ffff99",
           className: "panel-whammy-running"
-        }),
+        })
       ]
     },
     {
@@ -524,7 +524,7 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           text: "$5000",
           color: "#4A7318",
           value: 5000
-        }),
+        })
       ]
     },
     {
@@ -573,7 +573,7 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           text: "Go Back Two Spaces",
           color: "#085A39",
           target: 4
-        }),
+        })
       ]
     },
     {
@@ -718,7 +718,7 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
           text: "Big Bucks",
           color: "#4A7318",
           target: 4
-        }),
+        })
       ]
     },
     {
@@ -867,6 +867,5 @@ export function panelsRound2(): { identifier: string, slides: Slide[] }[] {
     }
   ];
 }
-
 
 export const panelLayouts = [panelsRound1(), panelsRound2()];

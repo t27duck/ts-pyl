@@ -18,14 +18,12 @@ export class Board {
   private spinInterval: number | undefined;
   private stopped: boolean = false;
   private _panels: Panel[];
-  private patterns: Array<number[]>
+  private patterns: Array<number[]>;
   private currentInterval: number | undefined;
 
-  constructor(
-    private round: number
-  ) {
+  constructor(private round: number) {
     this.round = round;
-    this._panels = panelLayouts[this.round].map(panel => new Panel(panel.identifier, panel.slides));
+    this._panels = panelLayouts[this.round].map((panel) => new Panel(panel.identifier, panel.slides));
     this.patterns = patterns();
   }
 
@@ -43,7 +41,7 @@ export class Board {
 
   resetRound(round: number): void {
     this.round = round;
-    this._panels = panelLayouts[this.round].map(panel => new Panel(panel.identifier, panel.slides));
+    this._panels = panelLayouts[this.round].map((panel) => new Panel(panel.identifier, panel.slides));
   }
 
   spin(): void {
@@ -73,7 +71,7 @@ export class Board {
     let flashCount = 0;
     const panel = panelIndex ? this._panels[panelIndex] : this.currentPanel;
 
-    this._panels.forEach(p => {
+    this._panels.forEach((p) => {
       if (panel != p) {
         p.element?.classList.remove("panel-active");
       }
@@ -126,7 +124,7 @@ export class Board {
   }
 
   allLightsOn(): void {
-    this._panels.forEach(panel => {
+    this._panels.forEach((panel) => {
       panel.element?.classList.add("panel-active");
     });
   }
@@ -154,13 +152,13 @@ export class Board {
   }
 
   displayPanels(display: string = ""): void {
-    this._panels.forEach(panel => {
+    this._panels.forEach((panel) => {
       panel.displaySlide(display);
     });
   }
 
   rotatePanels(): void {
-    this._panels.forEach(panel => {
+    this._panels.forEach((panel) => {
       const innerElement = panel.innerElement;
       if (innerElement) {
         enter(innerElement, "slide").then(() => {

@@ -1,18 +1,14 @@
 export class Player {
   private _score: number = 0;
-  private _earnedSpins: number = 0
-  private _passedSpins: number = 0
+  private _earnedSpins: number = 0;
+  private _passedSpins: number = 0;
   private _whammies: number = 0;
   private _element: HTMLElement | undefined = undefined;
   private _earnedSpinsElement: HTMLElement | undefined = undefined;
   private _passedSpinsElement: HTMLElement | undefined = undefined;
   private _scoreElement: HTMLElement | undefined = undefined;
 
-  constructor(
-    private identifier: string,
-    private _name: string,
-    private _number: number
-  ) {
+  constructor(private identifier: string, private _name: string, private _number: number) {
     this.identifier = identifier;
     this._name = _name;
     this._number = _number;

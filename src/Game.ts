@@ -12,12 +12,11 @@ export class Game {
   private _centerPanel: HTMLElement | null;
   private _setup: Setup;
 
-  constructor(
-  ) {
+  constructor() {
     this._board.displayPanels("backgroundOnly");
     this._board.allLightsOn();
     this._centerPanel = document.getElementById("center-panel");
-    this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this)
+    this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this);
     this._setup.show();
   }
 
@@ -72,7 +71,7 @@ export class Game {
     if (event.code === "Space" || event.key === "Space") {
       this.stopBoard();
     }
-  }
+  };
 
   handleMoveChoice = (event: Event): void => {
     const target = event.target as HTMLButtonElement;
@@ -83,7 +82,7 @@ export class Game {
       this._board.flashCurrentPanel(realPanelIndex);
       this.processResult(realPanelIndex, false);
     }
-  }
+  };
 
   handleCashOrLoseWhammyChoice = (event: Event): void => {
     const target = event.target as HTMLButtonElement;
@@ -101,7 +100,7 @@ export class Game {
       this.displayStopMessage(`$${value}`, false);
     }
     this.proceedWithRound();
-  }
+  };
 
   processResult(panelIndex: number | undefined = undefined, withStopMessage: boolean = true): void {
     let slide: Slide;
@@ -128,8 +127,8 @@ export class Game {
         this.displayStopMessage(slide.description, withStopMessage);
         const passedSpins = this.currentPlayer.passedSpins;
         if (this.currentPlayer.whammies < 4 && passedSpins > 0) {
-          this.currentPlayer.addAddEarnedSpins(passedSpins)
-          this.currentPlayer.addAddPassedSpins(-passedSpins)
+          this.currentPlayer.addAddEarnedSpins(passedSpins);
+          this.currentPlayer.addAddPassedSpins(-passedSpins);
         }
         this.proceedWithRound();
         break;
@@ -141,18 +140,18 @@ export class Game {
         break;
       case "backtwospaces":
       case "advancetwospaces":
-          this.displayStopMessage(`${slide.description} to...`, withStopMessage);
-          setTimeout(() => {
-            const targetIndex = slide.target - 1
-            this.processResult(targetIndex, false);
-            this._board.flashCurrentPanel(targetIndex);
-            this.proceedWithRound();
-          }, 1800);
-          break;
+        this.displayStopMessage(`${slide.description} to...`, withStopMessage);
+        setTimeout(() => {
+          const targetIndex = slide.target - 1;
+          this.processResult(targetIndex, false);
+          this._board.flashCurrentPanel(targetIndex);
+          this.proceedWithRound();
+        }, 1800);
+        break;
       case "bigbucks":
         this.displayStopMessage(`${slide.description}!`, withStopMessage);
         setTimeout(() => {
-          const targetIndex = slide.target - 1
+          const targetIndex = slide.target - 1;
           this.processResult(targetIndex, false);
           this._board.flashCurrentPanel(targetIndex);
           this.proceedWithRound();
@@ -184,7 +183,7 @@ export class Game {
       case "moveonespace":
         this.displayStopMessage(slide.description, withStopMessage);
         this._board.flashPanelList(slide.choices);
-        slide.choices.forEach(pIndex => {
+        slide.choices.forEach((pIndex) => {
           const button = document.createElement("button");
           button.innerText = this._board.panels[pIndex - 1].currentSlide.description;
           button.classList.add("choice-button");
@@ -230,7 +229,7 @@ export class Game {
 
       const passablePlayers = this._players.passablePlayers();
       if (passablePlayers.length > 0) {
-        passablePlayers.forEach(player => {
+        passablePlayers.forEach((player) => {
           button = document.createElement("button");
           button.innerText = `Pass to ${player.name}`;
           button.dataset.playerNumber = player.number.toString();
@@ -257,7 +256,7 @@ export class Game {
       this._centerPanel.innerHTML = "";
       this._centerPanel.appendChild(message);
       if (buttons) {
-        buttons.forEach(button => {
+        buttons.forEach((button) => {
           if (this._centerPanel) {
             this._centerPanel.appendChild(button);
           }
@@ -282,7 +281,7 @@ export class Game {
       this._centerPanel.innerHTML = "";
     }
     this.spin();
-  }
+  };
 
   pass = (event: Event): void => {
     const target = event.target as HTMLButtonElement;
@@ -293,17 +292,19 @@ export class Game {
         passedPlayer.passedSpins += this.currentPlayer.earnedSpins;
         this.currentPlayer.earnedSpins = 0;
         this.displayMessage(`You have passed your spins to ${passedPlayer.name}`);
-        setTimeout(() => { this.proceedWithNextPlayer(); }, 2000);
+        setTimeout(() => {
+          this.proceedWithNextPlayer();
+        }, 2000);
       }
     }
-  }
+  };
 
   nextRound = (event: Event): void => {
     if (this.round === 0) {
       this.resetRound(1);
       this._setup.show(this.round);
     }
-  }
+  };
 
   displayMessage(messageString: string): void {
     const message = document.createElement("div");

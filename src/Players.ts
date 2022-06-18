@@ -31,7 +31,7 @@ export class Players {
   // Methods
 
   passablePlayers(): Player[] {
-    const passablePlayers = this._players.filter(player => player !== this.currentPlayer && !player.outOfGame);
+    const passablePlayers = this._players.filter((player) => player !== this.currentPlayer && !player.outOfGame);
     if (passablePlayers.length > 1) {
       if (passablePlayers[0].score === passablePlayers[1].score) {
         return passablePlayers;
@@ -46,20 +46,28 @@ export class Players {
   }
 
   getPlayerByNumber(number: number): Player | undefined {
-    return this._players.find(player => player.number === number);
+    return this._players.find((player) => player.number === number);
   }
 
   setPlayerOrder(): void {
-    const playerStructure = this._players.filter(player => player.totalSpins > 0).map(player => player);
+    const playerStructure = this._players.filter((player) => player.totalSpins > 0).map((player) => player);
 
     // Sort by score low to high
     // and then by total spins low to high
     playerStructure.sort((a: Player, b: Player): number => {
-      if (a.score < b.score) { return -1; }
-      if (a.score > b.score) { return 1; }
+      if (a.score < b.score) {
+        return -1;
+      }
+      if (a.score > b.score) {
+        return 1;
+      }
 
-      if (a.totalSpins < b.totalSpins) { return -1; }
-      if (a.totalSpins > b.totalSpins) { return 1; }
+      if (a.totalSpins < b.totalSpins) {
+        return -1;
+      }
+      if (a.totalSpins > b.totalSpins) {
+        return 1;
+      }
       return 0;
     });
 
@@ -75,7 +83,7 @@ export class Players {
     this._currentPlayer = undefined;
 
     // If no one has spins, the round is pretty much over
-    if (this._players.every(player => player.totalSpins <= 0)) {
+    if (this._players.every((player) => player.totalSpins <= 0)) {
       return;
     }
 
@@ -87,7 +95,7 @@ export class Players {
   }
 
   refreshPlayerOutputs(): void {
-    this._players.forEach(player => {
+    this._players.forEach((player) => {
       player.displaySpins();
       player.displayScore();
       player.displayWhammies();

@@ -3,10 +3,7 @@ import { Game } from "./Game";
 export class Setup {
   private currentRound: number = 0;
 
-  constructor(
-    private dialog: HTMLDialogElement,
-    private game: Game
-  ) {
+  constructor(private dialog: HTMLDialogElement, private game: Game) {
     this.dialog = dialog;
     this.game = game;
   }
@@ -46,7 +43,7 @@ export class Setup {
       this.player1Spins.value = "2";
       this.player2Spins.value = "4";
       this.player3Spins.value = "3";
-    } else  {
+    } else {
       this.selectRound.disabled = true;
       this.player1Spins.value = "3";
       this.player2Spins.value = "5";

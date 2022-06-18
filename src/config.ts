@@ -1,6 +1,6 @@
 import { Slide } from "./Slide";
 
-export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export const BOARD_STOP_RESULT_DELAY = 100;
 export const BOARD_LIGHT_BOUNCE_DURATION = 250;
@@ -137,11 +137,10 @@ const prizesRound2 = [
 
 let prizePool: Array<any> = [];
 
-export function extractPrize(): { text: string, value: number } {
+export function extractPrize(): { text: string; value: number } {
   if (prizePool.length === 0) {
     prizePool = shuffle(prizesRound1);
   }
 
   return prizePool.shift();
 }
-

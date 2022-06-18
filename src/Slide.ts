@@ -2,9 +2,7 @@ import { SlideConfig } from "./types";
 import { extractPrize } from "./config";
 
 export class Slide {
-  constructor(
-    private slideConfig: SlideConfig
-  ) {
+  constructor(private slideConfig: SlideConfig) {
     this.slideConfig = slideConfig;
     this.resolveValues();
   }
