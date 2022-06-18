@@ -137,7 +137,7 @@ export class Game {
       case "prize":
         this.currentPlayer.addScore(slide.value);
         this.displayStopMessage(`${slide.description} worth $${slide.value}`, withStopMessage);
-        slide.resolveValues();
+        slide.resolveValues(this.round + 1);
         this.proceedWithRound();
         break;
       case "backtwospaces":
@@ -268,7 +268,7 @@ export class Game {
   }
 
   proceedWithNextPlayer(): void {
-    this._players.determineCurrentPlayer(this.round);
+    this._players.determineCurrentPlayer();
     this._players.refreshPlayerOutputs();
 
     if (this.currentPlayer) {

@@ -45,6 +45,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 1,
           text: "A Prize",
           color: "#54642D"
         })
@@ -108,6 +109,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 1,
           text: "A Prize",
           color: "#a73500"
         }),
@@ -155,6 +157,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 1,
           text: "A Prize",
           color: "#a73500"
         }),
@@ -231,6 +234,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 1,
           text: "A Prize",
           color: "#a73500"
         })
@@ -301,6 +305,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 1,
           text: "A Prize",
           color: "#AF5C54"
         })
@@ -347,6 +352,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 1,
           text: "A Prize",
           color: "#54642D"
         })
@@ -387,6 +393,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 1,
           text: "A Prize",
           color: "#a73500"
         }),
@@ -467,6 +474,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#a73500"
         })
@@ -530,6 +538,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#a73500"
         }),
@@ -578,6 +587,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#a73500"
         }),
@@ -644,16 +654,19 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       slides: [
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#0C3E83"
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#AF5C54"
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#a73500"
         })
@@ -725,6 +738,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#a73500"
         })
@@ -774,6 +788,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#a73500"
         })
@@ -820,6 +835,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new Slide({
           type: "prize",
+          round: 2,
           text: "A Prize",
           color: "#54642D"
         })

@@ -74,7 +74,7 @@ export class Players {
     this._playerOrder = playerStructure;
   }
 
-  determineCurrentPlayer(round: number): void {
+  determineCurrentPlayer(): void {
     if (this._playerOrder.length !== 0) {
       this._currentPlayer = this._playerOrder.shift();
       return;

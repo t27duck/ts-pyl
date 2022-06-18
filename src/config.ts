@@ -1,5 +1,3 @@
-import { Slide } from "./Slide";
-
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export const BOARD_STOP_RESULT_DELAY = 100;
@@ -7,25 +5,6 @@ export const BOARD_LIGHT_BOUNCE_DURATION = 250;
 export const BOARD_STOP_FLASH_PANEL_DELAY = 300;
 export const BOARD_PANEL_FLASH_DURATION = 160;
 export const BOARD_FLASH_CHOOSE_PANEL_DURATION = 800;
-
-function shuffle(array: Array<any>): Array<any> {
-  let clonedArray = [...array];
-  let currentIndex = clonedArray.length;
-  let temporaryValue;
-  let randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    // And swap it with the current element.
-    temporaryValue = clonedArray[currentIndex];
-    clonedArray[currentIndex] = clonedArray[randomIndex];
-    clonedArray[randomIndex] = temporaryValue;
-  }
-  return clonedArray;
-}
 
 export function patterns(): Array<number[]> {
   return [
@@ -135,12 +114,38 @@ const prizesRound2 = [
   { text: "French Chateaux Country", value: 2494 }
 ];
 
-let prizePool: Array<any> = [];
+let prizePool: Array<{ text: string; value: number }> = [];
+let prizeRound = 1;
 
-export function extractPrize(): { text: string; value: number } {
+export function extractPrize(round = 1): { text: string; value: number } {
+  if (round !== prizeRound) {
+    prizeRound = round;
+    prizePool = [];
+  }
   if (prizePool.length === 0) {
-    prizePool = shuffle(prizesRound1);
+    let clonedArray;
+    if (round === 1) {
+      clonedArray = [...prizesRound1];
+    } else {
+      clonedArray = [...prizesRound2];
+    }
+    let currentIndex = clonedArray.length;
+    let temporaryValue;
+    let randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      // And swap it with the current element.
+      temporaryValue = clonedArray[currentIndex];
+      clonedArray[currentIndex] = clonedArray[randomIndex];
+      clonedArray[randomIndex] = temporaryValue;
+    }
+
+    prizePool = clonedArray;
   }
 
-  return prizePool.shift();
+  return prizePool.shift() || { text: "UNKNOWN PRIZE", value: 0 };
 }

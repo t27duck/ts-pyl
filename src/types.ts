@@ -9,4 +9,5 @@ export type SlideConfig = {
   choices?: number[];
   target?: number;
   className?: string;
+  round?: number;
 };

@@ -9,9 +9,9 @@ export class Slide {
 
   // Methods
 
-  resolveValues(): void {
+  resolveValues(round = this.slideConfig.round || 1): void {
     if (this.type === "prize") {
-      const prize = extractPrize();
+      const prize = extractPrize(round);
       this.slideConfig.text = prize.text;
       this.slideConfig.value = prize.value;
     }
