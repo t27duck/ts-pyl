@@ -1,7 +1,7 @@
 import { Slide } from "./Slide";
 
 export class Panel {
-  private currentSlideIndex: number = 0;
+  private currentSlideIndex = 0;
   private htmlElement: HTMLElement | null = null;
   private innerHtmlElement: HTMLElement | null | undefined;
 
@@ -53,7 +53,7 @@ export class Panel {
     return this.currentSlide;
   }
 
-  displaySlide(display: string = ""): void {
+  displaySlide(display = ""): void {
     if (this.innerElement) {
       if (display === "backgroundOnly") {
         this.innerElement.innerHTML = "";
