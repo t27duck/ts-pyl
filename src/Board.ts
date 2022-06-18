@@ -62,13 +62,13 @@ export class Board {
 
   bounceAndRotate(): void {
     if (!this.stopped) {
+      this.nextLight();
       if (this.bounces >= this.lightBouncesForPanelRotation) {
         this.rotatePanels();
         this.bounces = 0;
       } else {
         this.bounces++;
       }
-      this.nextLight();
     }
   }
 
