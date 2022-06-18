@@ -45,10 +45,25 @@ export class Board {
   }
 
   spin(): void {
+    if (this.stopped) {
+      this.bounceAndRotate();
+    }
     this.stopped = false;
-    this.bounceAndRotate();
+    if (this.spinInterval) {
+      clearInterval(this.spinInterval);
+    }
     this.spinInterval = setInterval(() => {
       this.bounceAndRotate();
+    }, BOARD_LIGHT_BOUNCE_DURATION);
+  }
+
+  spinLightOnly(): void {
+    this.stopped = true;
+    if (this.spinInterval) {
+      clearInterval(this.spinInterval);
+    }
+    this.spinInterval = setInterval(() => {
+      this.nextLight();
     }, BOARD_LIGHT_BOUNCE_DURATION);
   }
 
@@ -62,13 +77,13 @@ export class Board {
 
   bounceAndRotate(): void {
     if (!this.stopped) {
-      this.nextLight();
       if (this.bounces >= this.lightBouncesForPanelRotation) {
         this.rotatePanels();
         this.bounces = 0;
       } else {
         this.bounces++;
       }
+      this.nextLight();
     }
   }
 
@@ -128,9 +143,9 @@ export class Board {
     });
   }
 
-  allLightsOn(): void {
+  allLightsOff(): void {
     this._panels.forEach((panel) => {
-      panel.element?.classList.add("panel-active");
+      panel.element?.classList.remove("panel-active");
     });
   }
 

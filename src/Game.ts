@@ -14,7 +14,7 @@ export class Game {
 
   constructor() {
     this._board.displayPanels("backgroundOnly");
-    this._board.allLightsOn();
+    this._board.allLightsOff();
     this._centerPanel = document.getElementById("center-panel");
     this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this);
     this._setup.show();
@@ -46,7 +46,9 @@ export class Game {
       this._centerPanel.appendChild(message);
     }
 
+    this._board.spinLightOnly();
     await this._board.revealPanels();
+    this._board.spin(); // Does not set listener
     this._players.setPlayerOrder();
     this.proceedWithNextPlayer();
   }
@@ -303,6 +305,7 @@ export class Game {
   nextRound = (): void => {
     if (this.round === 0) {
       this.resetRound(1);
+      this._board.allLightsOff();
       this._setup.show(this.round);
     }
   };
