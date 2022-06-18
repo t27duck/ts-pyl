@@ -10,13 +10,13 @@ import {
 import { enter, leave } from "./el-transition";
 
 export class Board {
-  private currentPanelIndex: number = 0;
-  private currentPatternIndex: number = 0;
+  private currentPanelIndex = 0;
+  private currentPatternIndex = 0;
   private currentPattern: number[] = [];
-  private lightBouncesForPanelRotation: number = 3;
-  private bounces: number = 0;
+  private lightBouncesForPanelRotation = 3;
+  private bounces = 0;
   private spinInterval: number | undefined;
-  private stopped: boolean = false;
+  private stopped = false;
   private _panels: Panel[];
   private patterns: Array<number[]>;
   private currentInterval: number | undefined;
@@ -46,16 +46,9 @@ export class Board {
 
   spin(): void {
     this.stopped = false;
+    this.bounceAndRotate();
     this.spinInterval = setInterval(() => {
-      if (!this.stopped) {
-        this.nextLight();
-        if (this.bounces >= this.lightBouncesForPanelRotation) {
-          this.rotatePanels();
-          this.bounces = 0;
-        } else {
-          this.bounces++;
-        }
-      }
+      this.bounceAndRotate();
     }, BOARD_LIGHT_BOUNCE_DURATION);
   }
 
@@ -64,6 +57,18 @@ export class Board {
     if (this.spinInterval) {
       clearInterval(this.spinInterval);
       setTimeout(() => this.flashCurrentPanel(), BOARD_STOP_FLASH_PANEL_DELAY);
+    }
+  }
+
+  bounceAndRotate(): void {
+    if (!this.stopped) {
+      if (this.bounces >= this.lightBouncesForPanelRotation) {
+        this.rotatePanels();
+        this.bounces = 0;
+      } else {
+        this.bounces++;
+      }
+      this.nextLight();
     }
   }
 
@@ -151,7 +156,7 @@ export class Board {
     });
   }
 
-  displayPanels(display: string = ""): void {
+  displayPanels(display = ""): void {
     this._panels.forEach((panel) => {
       panel.displaySlide(display);
     });
