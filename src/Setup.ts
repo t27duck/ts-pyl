@@ -1,7 +1,7 @@
 import { Game } from "./Game";
 
 export class Setup {
-  private currentRound: number = 0;
+  private currentRound = 0;
 
   constructor(private dialog: HTMLDialogElement, private game: Game) {
     this.dialog = dialog;
@@ -11,7 +11,7 @@ export class Setup {
   // getters
 
   get selectRound(): HTMLSelectElement {
-    return this.dialog!.querySelector("#select-round") as HTMLSelectElement;
+    return this.dialog.querySelector("#select-round") as HTMLSelectElement;
   }
 
   get player1Spins(): HTMLInputElement {
@@ -27,7 +27,7 @@ export class Setup {
   }
 
   // Methods
-  show(round: number = 0): void {
+  show(round = 0): void {
     this.currentRound = round;
     this.configureDialog();
     this.dialog.showModal();

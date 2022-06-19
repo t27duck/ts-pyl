@@ -34,10 +34,14 @@ export async function toggle(element: HTMLElement | null, transitionName: string
 async function transition(direction: string, element: HTMLElement, animation: string | null) {
   const dataset = element.dataset;
   const animationClass = animation ? `${animation}-${direction}` : direction;
-  let transition = `transition${direction.charAt(0).toUpperCase() + direction.slice(1)}`;
-  const genesis = dataset[transition] ? dataset[transition]?.split(" ") : [animationClass];
-  const start = dataset[`${transition}Start`] ? dataset[`${transition}Start`]?.split(" ") : [`${animationClass}-start`];
-  const end = dataset[`${transition}End`] ? dataset[`${transition}End`]?.split(" ") : [`${animationClass}-end`];
+  const transition = `transition${direction.charAt(0).toUpperCase() + direction.slice(1)}`;
+  const genesis = (dataset[transition] ? dataset[transition]?.split(" ") : [animationClass]) as string[];
+  const start = (
+    dataset[`${transition}Start`] ? dataset[`${transition}Start`]?.split(" ") : [`${animationClass}-start`]
+  ) as string[];
+  const end = (
+    dataset[`${transition}End`] ? dataset[`${transition}End`]?.split(" ") : [`${animationClass}-end`]
+  ) as string[];
 
   addClasses(element, genesis);
   addClasses(element, start);
@@ -49,11 +53,11 @@ async function transition(direction: string, element: HTMLElement, animation: st
   removeClasses(element, genesis);
 }
 
-function addClasses(element: HTMLElement, classes: any) {
+function addClasses(element: HTMLElement, classes: Array<string>) {
   element.classList.add(...classes);
 }
 
-function removeClasses(element: HTMLElement, classes: any) {
+function removeClasses(element: HTMLElement, classes: Array<string>) {
   element.classList.remove(...classes);
 }
 
