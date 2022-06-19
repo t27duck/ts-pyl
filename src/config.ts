@@ -114,10 +114,10 @@ const prizesRound2 = [
   { text: "French Chateaux Country", value: 2494 }
 ];
 
-let prizePool: Array<{ text: string; value: number }> = [];
+let prizePool: Array<{ prefix?: string; text: string; value: number }> = [];
 let prizeRound = 1;
 
-export function extractPrize(round = 1): { text: string; value: number } {
+export function extractPrize(round = 1): { prefix?: string; text: string; value: number } {
   if (round !== prizeRound) {
     prizeRound = round;
     prizePool = [];
