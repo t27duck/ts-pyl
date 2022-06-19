@@ -143,6 +143,27 @@ export class Board {
     });
   }
 
+  allLightsFlash(): void {
+    let counter = 0;
+    this.clearCurrentInterval();
+    this.currentInterval = setInterval(() => {
+      counter++;
+      if (this.currentInterval) {
+        if (counter % 2 == 0) {
+          this.allLightsOff();
+        } else {
+          this.allLightsOn();
+        }
+      }
+    }, 500);
+  }
+
+  allLightsOn(): void {
+    this._panels.forEach((panel) => {
+      panel.element?.classList.add("panel-active");
+    });
+  }
+
   allLightsOff(): void {
     this._panels.forEach((panel) => {
       panel.element?.classList.remove("panel-active");

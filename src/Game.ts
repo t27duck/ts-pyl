@@ -307,13 +307,31 @@ export class Game {
       this.resetRound(1);
       this._board.allLightsOff();
       this._setup.show(this.round);
+    } else {
+      this.gameOver();
     }
   };
+
+  gameOver(): void {
+    const topScorePlayers = this._players.topScorePlayers();
+    let message = "That's the end of the game!<br />";
+    if (topScorePlayers.length > 1) {
+      message += "The winners are:<br />";
+    } else {
+      message += "The winner is:<br />";
+    }
+
+    message += topScorePlayers.map((player) => player.name).join(" and ");
+    message += `with a score of $${topScorePlayers[0].score} in case and prizes!`;
+
+    this.displayMessage(message);
+    this._board.allLightsFlash();
+  }
 
   displayMessage(messageString: string): void {
     const message = document.createElement("div");
     message.classList.add("message");
-    message.innerText = messageString;
+    message.innerHTML = messageString;
     if (this._centerPanel) {
       this._centerPanel.innerHTML = "";
       this._centerPanel.appendChild(message);

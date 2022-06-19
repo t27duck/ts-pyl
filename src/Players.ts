@@ -94,6 +94,11 @@ export class Players {
     }
   }
 
+  topScorePlayers(): Player[] {
+    const topScore = Math.max(...this._players.map((player) => player.score));
+    return this._players.filter((player) => player.score === topScore);
+  }
+
   refreshPlayerOutputs(): void {
     this._players.forEach((player) => {
       player.displaySpins();
