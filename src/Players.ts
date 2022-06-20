@@ -28,6 +28,10 @@ export class Players {
     return this._currentPlayer?.name || "";
   }
 
+  get players(): Player[] {
+    return this._players;
+  }
+
   // Methods
 
   passablePlayers(): Player[] {
@@ -103,6 +107,11 @@ export class Players {
 
   refreshPlayerOutputs(): void {
     this._players.forEach((player) => {
+      if (player.outOfGame) {
+        player.earnedSpins = 0;
+        player.passedSpins = 0;
+        player.clearScore();
+      }
       player.displaySpins();
       player.displayScore();
       player.displayWhammies();
@@ -116,6 +125,12 @@ export class Players {
   resetSpins(spins: Array<number>): void {
     this._players.forEach((player, index) => {
       player.earnedSpins = spins[index];
+    });
+  }
+
+  resetWhammies(whammies: Array<number>): void {
+    this._players.forEach((player, index) => {
+      player.whammies = whammies[index];
     });
   }
 }

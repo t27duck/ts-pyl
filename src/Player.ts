@@ -64,6 +64,10 @@ export class Player {
     return this._whammies;
   }
 
+  set whammies(amount: number) {
+    this._whammies = amount;
+  }
+
   get earnedSpins(): number {
     return this._earnedSpins;
   }

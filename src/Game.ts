@@ -26,6 +26,10 @@ export class Game {
     return this._players.currentPlayer as Player;
   }
 
+  get players(): Players {
+    return this._players;
+  }
+
   // Methods
 
   resetRound(round: number): void {
@@ -55,6 +59,10 @@ export class Game {
 
   resetSpins(spins: Array<number>): void {
     this._players.resetSpins(spins);
+  }
+
+  resetWhammies(whammies: Array<number>): void {
+    this._players.resetWhammies(whammies);
   }
 
   spin(): void {
