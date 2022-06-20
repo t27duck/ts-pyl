@@ -50,7 +50,9 @@ export class Players {
   }
 
   setPlayerOrder(): void {
-    const playerStructure = this._players.filter((player) => player.totalSpins > 0).map((player) => player);
+    const playerStructure = this._players
+      .filter((player) => player.totalSpins > 0 && !player.outOfGame)
+      .map((player) => player);
 
     // Sort by score low to high
     // and then by total spins low to high

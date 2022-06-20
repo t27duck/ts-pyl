@@ -131,6 +131,10 @@ export class Game {
           this.currentPlayer.addAddEarnedSpins(this.currentPlayer.passedSpins);
           this.currentPlayer.passedSpins = 0;
         }
+        if (this.currentPlayer.whammies >= 4) {
+          this.currentPlayer.earnedSpins = 0;
+          this.currentPlayer.passedSpins = 0;
+        }
         this._players.refreshPlayerOutputs();
         this.proceedWithRound();
         break;

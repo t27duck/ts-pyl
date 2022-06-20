@@ -2,7 +2,7 @@ export class Player {
   private _score = 0;
   private _earnedSpins = 0;
   private _passedSpins = 0;
-  private _whammies = 3;
+  private _whammies = 0;
   private _element: HTMLElement | undefined = undefined;
   private _earnedSpinsElement: HTMLElement | undefined = undefined;
   private _passedSpinsElement: HTMLElement | undefined = undefined;
