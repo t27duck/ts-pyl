@@ -240,7 +240,12 @@ export class Game {
           buttons.push(button);
         });
       } else {
-        // TODO: Play against the house
+        // Play against the house
+        button = document.createElement("button");
+        button.innerText = "End round";
+        button.classList.add("choice-button");
+        button.addEventListener("click", this.pass);
+        buttons.push(button);
       }
     } else if (this.currentPlayer.passedSpins > 0) {
       message.innerText = `You have spins in your passed column. You must use them.`;
@@ -299,6 +304,13 @@ export class Game {
           this.proceedWithNextPlayer();
         }, 2000);
       }
+    } else {
+      this.currentPlayer.earnedSpins = 0;
+      this.displayMessage("You have given up your spins");
+      this._players.refreshPlayerOutputs();
+      setTimeout(() => {
+        this.proceedWithNextPlayer();
+      }, 2000);
     }
   };
 
