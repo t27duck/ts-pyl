@@ -57,14 +57,6 @@ export class Game {
     this.proceedWithNextPlayer();
   }
 
-  resetSpins(spins: Array<number>): void {
-    this._players.resetSpins(spins);
-  }
-
-  resetWhammies(whammies: Array<number>): void {
-    this._players.resetWhammies(whammies);
-  }
-
   spin(): void {
     this.currentPlayer.useSpin();
     this._board.spin();
