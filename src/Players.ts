@@ -139,4 +139,10 @@ export class Players {
       player.whammies = whammies[index];
     });
   }
+
+  resetScores(scores: Array<number>): void {
+    this._players.forEach((player, index) => {
+      player.score = scores[index];
+    });
+  }
 }

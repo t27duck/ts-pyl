@@ -50,6 +50,18 @@ export class Setup {
     return document.getElementById("select-player-3-whammies") as HTMLSelectElement;
   }
 
+  get player1Score(): HTMLInputElement {
+    return document.getElementById("select-player-1-score") as HTMLInputElement;
+  }
+
+  get player2Score(): HTMLInputElement {
+    return document.getElementById("select-player-2-score") as HTMLInputElement;
+  }
+
+  get player3Score(): HTMLInputElement {
+    return document.getElementById("select-player-3-score") as HTMLInputElement;
+  }
+
   // Methods
   show(round = 0): void {
     this.currentRound = round;
@@ -66,21 +78,33 @@ export class Setup {
       switch (index) {
         case 0:
           this.player1Whammies.value = player.whammies.toString();
+          this.player1Score.value = player.score.toString();
           break;
         case 1:
           this.player2Whammies.value = player.whammies.toString();
+          this.player2Score.value = player.score.toString();
           break;
         case 2:
           this.player3Whammies.value = player.whammies.toString();
+          this.player3Score.value = player.score.toString();
       }
     });
     if (this.currentRound === 0) {
       this.selectRound.disabled = false;
+      this.player1Score.disabled = false;
+      this.player2Score.disabled = false;
+      this.player3Score.disabled = false;
+
       this.player1Spins.value = "2";
       this.player2Spins.value = "4";
       this.player3Spins.value = "3";
     } else {
       this.selectRound.disabled = true;
+
+      this.player1Score.disabled = true;
+      this.player2Score.disabled = true;
+      this.player3Score.disabled = true;
+
       this.player1Spins.value = "3";
       this.player2Spins.value = "5";
       this.player3Spins.value = "4";
@@ -108,6 +132,11 @@ export class Setup {
     const p2Whammies = parseInt(this.player2Whammies.value);
     const p3Whammies = parseInt(this.player3Whammies.value);
     this.game.players.resetWhammies([p1Whammies, p2Whammies, p3Whammies]);
+
+    const p1Score = parseInt(this.player1Score.value);
+    const p2Score = parseInt(this.player2Score.value);
+    const p3Score = parseInt(this.player3Score.value);
+    this.game.players.resetScores([p1Score, p2Score, p3Score]);
 
     this.game.startRound();
   }

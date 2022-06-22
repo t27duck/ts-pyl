@@ -60,6 +60,10 @@ export class Player {
     return this._score;
   }
 
+  set score(amount: number) {
+    this._score = amount;
+  }
+
   get whammies(): number {
     return this._whammies;
   }
