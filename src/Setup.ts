@@ -26,6 +26,18 @@ export class Setup {
     return document.getElementById("select-player-3-spins") as HTMLInputElement;
   }
 
+  get player1PassedSpins(): HTMLInputElement {
+    return document.getElementById("select-player-1-passed-spins") as HTMLInputElement;
+  }
+
+  get player2PassedSpins(): HTMLInputElement {
+    return document.getElementById("select-player-2-passed-spins") as HTMLInputElement;
+  }
+
+  get player3PassedSpins(): HTMLInputElement {
+    return document.getElementById("select-player-3-passed-spins") as HTMLInputElement;
+  }
+
   get player1Whammies(): HTMLSelectElement {
     return document.getElementById("select-player-1-whammies") as HTMLSelectElement;
   }
@@ -73,6 +85,9 @@ export class Setup {
       this.player2Spins.value = "5";
       this.player3Spins.value = "4";
     }
+    this.player1PassedSpins.value = "0";
+    this.player2PassedSpins.value = "0";
+    this.player3PassedSpins.value = "0";
   }
 
   processDialog(): void {
@@ -83,6 +98,11 @@ export class Setup {
     const p2Spins = parseInt(this.player2Spins.value);
     const p3Spins = parseInt(this.player3Spins.value);
     this.game.players.resetSpins([p1Spins, p2Spins, p3Spins]);
+
+    const p1PassedSpins = parseInt(this.player1PassedSpins.value);
+    const p2PassedSpins = parseInt(this.player2PassedSpins.value);
+    const p3PassedSpins = parseInt(this.player3PassedSpins.value);
+    this.game.players.resetPassedSpins([p1PassedSpins, p2PassedSpins, p3PassedSpins]);
 
     const p1Whammies = parseInt(this.player1Whammies.value);
     const p2Whammies = parseInt(this.player2Whammies.value);

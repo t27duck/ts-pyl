@@ -128,6 +128,12 @@ export class Players {
     });
   }
 
+  resetPassedSpins(spins: Array<number>): void {
+    this._players.forEach((player, index) => {
+      player.passedSpins = spins[index];
+    });
+  }
+
   resetWhammies(whammies: Array<number>): void {
     this._players.forEach((player, index) => {
       player.whammies = whammies[index];
