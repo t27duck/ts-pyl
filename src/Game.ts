@@ -221,6 +221,12 @@ export class Game {
 
   async proceedWithRound() {
     await sleep(2000);
+
+    if (!this.currentPlayer) {
+      this.endOfRound();
+      return;
+    }
+
     const message = document.createElement("div");
     const buttons = [] as Array<HTMLButtonElement>;
     message.classList.add("message");
