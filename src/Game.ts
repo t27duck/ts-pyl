@@ -60,7 +60,7 @@ export class Game {
   spin(): void {
     this.currentPlayer.useSpin();
     this._board.spin();
-    document.addEventListener("keyup", this.handleKeyUp);
+    setTimeout(() => document.addEventListener("keyup", this.handleKeyUp), 500);
   }
 
   stopBoard(): void {
