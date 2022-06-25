@@ -78,56 +78,104 @@
 
   <dialog id="setup">
     <form method="dialog">
-      <div>
-        <label for="round">Round:</label>
-        <select id="select-round">
-          <option value="0" selected>1</option>
-          <option value="1">2</option>
-        </select>
-      </div>
+      <div id="player-options">
+        <fieldset>
+          <legend>Player 1</legend>
+          <div>
+            <label for="select-player-1-whammies">Whammies</label>
+            <select id="select-player-1-whammies">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div>
+            <label for="select-player-1-score">Score</label>
+            <input type="number" required min="0" id="select-player-1-score" class="select-score" value="0">
+          </div>
+          <div class="select-spins">
+            <div class="select-spin">
+              <label for="select-player-1-spins">Earned</label>
+              <input type="number" required min="0" max="12" id="select-player-1-spins" value="0">
+            </div>
+            <div>Spins</div>
+            <div class="select-spin">
+              <label for="select-player-1-passed-spins">Passed</label>
+              <input type="number" required min="0" max="12" id="select-player-1-passed-spins" value="0">
+            </div>
+          </div>
+        </fieldset>
 
-      <div>
-        <label for="round">Player 1:</label>
-        <input type="text" id="select-player-1-score" value="0">
-        <input type="number" id="select-player-1-spins" value="4">
-        <input type="number" id="select-player-1-passed-spins" value="0">
-        <select id="select-player-1-whammies">
-          <option value="0" selected>0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </div>
+        <fieldset>
+          <legend>Player 2</legend>
+          <div>
+            <label for="select-player-2-whammies">Whammies</label>
+            <select id="select-player-2-whammies">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div>
+            <label for="select-player-2-score">Score</label>
+            <input type="number" required min="0" id="select-player-2-score" class="select-score" value="0">
+          </div>
+          <div class="select-spins">
+            <div class="select-spin">
+              <label for="select-player-1-spins">Earned</label>
+              <input type="number" required min="0" max="12" id="select-player-2-spins" value="0">
+            </div>
+            <div>Spins</div>
+            <div class="select-spin">
+              <label for="select-player-2-passed-spins">Passed</label>
+              <input type="number" required min="0" max="12" id="select-player-2-passed-spins" value="0">
+            </div>
+          </div>
+        </fieldset>
 
-      <div>
-        <label for="round">Player 2:</label>
-        <input type="text" id="select-player-2-score" value="0">
-        <input type="number" id="select-player-2-spins" value="5">
-        <input type="number" id="select-player-2-passed-spins" value="0">
-        <select id="select-player-2-whammies">
-          <option value="0" selected>0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
+        <fieldset>
+          <legend>Player 3</legend>
+          <div>
+            <label for="select-player-3-whammies">Whammies</label>
+            <select id="select-player-3-whammies">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div>
+            <label for="select-player-3-score">Score</label>
+            <input type="number" required min="0" required id="select-player-3-score" class="select-score" value="0">
+          </div>
+          <div class="select-spins">
+            <div class="select-spin">
+              <label for="select-player-3-spins">Earned</label>
+              <input type="number" required min="0" max="12" id="select-player-3-spins" value="0">
+            </div>
+            <div>Spins</div>
+            <div class="select-spin">
+              <label for="select-player-3-passed-spins">Passed</label>
+              <input type="number" required min="0" max="12" id="select-player-3-passed-spins" value="0">
+            </div>
+          </div>
+        </fieldset>
       </div>
-
-      <div>
-        <label for="round">Player 3:</label>
-        <input type="text" id="select-player-3-score" value="0">
-        <input type="number" id="select-player-3-spins" value="3">
-        <input type="number" id="select-player-3-passed-spins" value="0">
-        <select id="select-player-3-whammies">
-          <option value="0" selected>0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
+      <div class="start">
+        <div>
+          <label for="round">Round:</label>
+          <select id="select-round">
+            <option value="0" selected>1</option>
+            <option value="1">2</option>
+          </select>
+        </div>
+        <button>Start</button>
       </div>
-      <button id="confirmBtn" value="default">Confirm</button>
     </form>
   </dialog>
 </body>

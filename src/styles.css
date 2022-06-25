@@ -226,3 +226,46 @@ body {
 .slide-leave-end {
   filter: brightness(100%);
 }
+
+#setup {
+  max-width: 540px;
+}
+
+#setup #player-options {
+  display: block;
+}
+
+#setup .select-spins {
+  display: flex;
+  justify-content: space-between;
+}
+
+#setup .select-spin {
+}
+
+#setup .select-spin input {
+  width: 30px;
+}
+
+#setup fieldset {
+  width: 500px;
+  margin-bottom: 8px;
+}
+
+#setup fieldset div {
+  margin-top: 6px;
+}
+
+#setup fieldset label {
+  display: inline-block;
+}
+
+#setup .start {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#setup .select-score {
+  width: 90%;
+}
