@@ -1,21 +1,9 @@
 import { SlideConfig } from "./types";
-import { extractPrize } from "./config";
 import { Player } from "./Player";
 
 export class Slide {
   constructor(protected slideConfig: SlideConfig) {
     this.slideConfig = slideConfig;
-    this.resolveValues();
-  }
-
-  // Methods
-
-  resolveValues(round = this.slideConfig.round || 1): void {
-    if (this.type === "prize") {
-      const prize = extractPrize(round);
-      this.slideConfig.text = prize.text;
-      this.slideConfig.value = prize.value;
-    }
   }
 
   // Getters
@@ -30,14 +18,14 @@ export class Slide {
     }
 
     if (this.type == "pickacorner") {
-      return this.slideConfig.text.split(" ").join("<br />");
+      return (this.slideConfig.text || "").split(" ").join("<br />");
     }
 
     if (this.slideConfig.secondaryText) {
       return `${this.slideConfig.text}<br /><span class="panel-line-two">${this.slideConfig.secondaryText}</span>`;
     }
 
-    return this.slideConfig.text;
+    return this.slideConfig.text || "";
   }
 
   get description(): string {
@@ -47,7 +35,7 @@ export class Slide {
       case "cashorlosewhammy":
         return `$${this.value} or Lose One Whammy`;
       default:
-        return this.slideConfig.text;
+        return this.slideConfig.text || "";
     }
   }
 

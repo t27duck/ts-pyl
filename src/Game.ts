@@ -115,16 +115,11 @@ export class Game {
       case "cash":
       case "cashandspin":
       case "whammy":
-        slide.applyToPlayer(this.currentPlayer);
+      case "prize":
         this.displayStopMessage(slide.description, withStopMessage);
+        slide.applyToPlayer(this.currentPlayer);
         this.proceedWithRound();
         this._players.refreshPlayerOutputs();
-        this.proceedWithRound();
-        break;
-      case "prize":
-        this.currentPlayer.addScore(slide.value);
-        this.displayStopMessage(`${slide.description} worth $${slide.value}`, withStopMessage);
-        slide.resolveValues(this.round + 1);
         this.proceedWithRound();
         break;
       case "backtwospaces":
