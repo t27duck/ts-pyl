@@ -1,8 +1,9 @@
 import { SlideConfig } from "./types";
 import { extractPrize } from "./config";
+import { Player } from "./Player";
 
 export class Slide {
-  constructor(private slideConfig: SlideConfig) {
+  constructor(protected slideConfig: SlideConfig) {
     this.slideConfig = slideConfig;
     this.resolveValues();
   }
@@ -51,7 +52,7 @@ export class Slide {
   }
 
   get color(): string {
-    return this.slideConfig.color;
+    return this.slideConfig.color || "";
   }
 
   get value(): number {
@@ -72,5 +73,11 @@ export class Slide {
 
   get className(): string | undefined {
     return this.slideConfig.className;
+  }
+
+  // Methods
+
+  applyToPlayer(player: Player): void {
+    player.addScore(this.value);
   }
 }

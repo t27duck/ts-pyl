@@ -113,28 +113,11 @@ export class Game {
     }
     switch (slide.type) {
       case "cash":
-        this.currentPlayer.addScore(slide.value);
-        this.displayStopMessage(slide.description, withStopMessage);
-        this.proceedWithRound();
-        break;
       case "cashandspin":
-        this.currentPlayer.addScore(slide.value);
-        this.currentPlayer.addAddEarnedSpins(1);
+      case "whammy":
+        slide.applyToPlayer(this.currentPlayer);
         this.displayStopMessage(slide.description, withStopMessage);
         this.proceedWithRound();
-        break;
-      case "whammy":
-        this.currentPlayer.addWhammy();
-        this.currentPlayer.clearScore();
-        this.displayStopMessage(slide.description, withStopMessage);
-        if (this.currentPlayer.whammies < 4 && this.currentPlayer.passedSpins > 0) {
-          this.currentPlayer.addAddEarnedSpins(this.currentPlayer.passedSpins);
-          this.currentPlayer.passedSpins = 0;
-        }
-        if (this.currentPlayer.whammies >= 4) {
-          this.currentPlayer.earnedSpins = 0;
-          this.currentPlayer.passedSpins = 0;
-        }
         this._players.refreshPlayerOutputs();
         this.proceedWithRound();
         break;
