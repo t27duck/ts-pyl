@@ -9,13 +9,13 @@ export class Game {
   round = 0;
   private _board: Board = new Board(this.round);
   private _players: Players = new Players();
-  private _centerPanel: HTMLElement | null;
+  private _centerPanel: HTMLElement;
   private _setup: Setup;
 
   constructor() {
     this._board.displayPanels("backgroundOnly");
     this._board.allLightsOff();
-    this._centerPanel = document.getElementById("center-panel");
+    this._centerPanel = document.getElementById("center-panel") as HTMLElement;
     this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this);
     this._setup.show();
   }
@@ -34,6 +34,10 @@ export class Game {
     return this._board;
   }
 
+  get centerPanel(): HTMLElement {
+    return this._centerPanel;
+  }
+
   // Methods
 
   resetRound(round: number): void {
@@ -49,10 +53,8 @@ export class Game {
     const message = document.createElement("div");
     message.classList.add("message");
     message.innerText = `Welcome to round ${this.round + 1}!`;
-    if (this._centerPanel) {
-      this._centerPanel.innerHTML = "";
-      this._centerPanel.appendChild(message);
-    }
+    this.centerPanel.innerHTML = "";
+    this.centerPanel.appendChild(message);
 
     this._board.spinLightOnly();
     await this._board.revealPanels();
@@ -139,14 +141,14 @@ export class Game {
           button.classList.add("choice-button");
           button.dataset.choice = slide.value.toString();
           button.addEventListener("click", this.handleCashOrLoseWhammyChoice);
-          this._centerPanel?.appendChild(button);
+          this.centerPanel.appendChild(button);
 
           button = document.createElement("button");
           button.innerText = "Lose 1 Whammy";
           button.classList.add("choice-button");
           button.dataset.choice = "whammy";
           button.addEventListener("click", this.handleCashOrLoseWhammyChoice);
-          this._centerPanel?.appendChild(button);
+          this.centerPanel.appendChild(button);
         } else {
           this.currentPlayer.addScore(slide.value);
           this.displayStopMessage(`$${slide.value}!`, withStopMessage);
@@ -163,7 +165,7 @@ export class Game {
           button.classList.add("choice-button");
           button.dataset.panelIndex = pIndex.toString();
           button.addEventListener("click", this.handleMoveChoice);
-          this._centerPanel?.appendChild(button);
+          this.centerPanel.appendChild(button);
         });
         break;
       default:
@@ -181,10 +183,8 @@ export class Game {
     } else {
       message.innerText = `${description}!`;
     }
-    if (this._centerPanel) {
-      this._centerPanel.innerHTML = "";
-      this._centerPanel.appendChild(message);
-    }
+    this.centerPanel.innerHTML = "";
+    this.centerPanel.appendChild(message);
   }
 
   async proceedWithRound() {
@@ -237,16 +237,12 @@ export class Game {
       return;
     }
 
-    if (this._centerPanel) {
-      this._centerPanel.innerHTML = "";
-      this._centerPanel.appendChild(message);
-      if (buttons) {
-        buttons.forEach((button) => {
-          if (this._centerPanel) {
-            this._centerPanel.appendChild(button);
-          }
-        });
-      }
+    this.centerPanel.innerHTML = "";
+    this.centerPanel.appendChild(message);
+    if (buttons) {
+      buttons.forEach((button) => {
+        this.centerPanel.appendChild(button);
+      });
     }
   }
 
@@ -262,9 +258,7 @@ export class Game {
   }
 
   pressMyLuck = (): void => {
-    if (this._centerPanel) {
-      this._centerPanel.innerHTML = "";
-    }
+    this.centerPanel.innerHTML = "";
     this.spin();
   };
 
@@ -322,10 +316,8 @@ export class Game {
     const message = document.createElement("div");
     message.classList.add("message");
     message.innerHTML = messageString;
-    if (this._centerPanel) {
-      this._centerPanel.innerHTML = "";
-      this._centerPanel.appendChild(message);
-    }
+    this.centerPanel.innerHTML = "";
+    this.centerPanel.appendChild(message);
   }
 
   newPlayerTurn(): void {
@@ -340,11 +332,9 @@ export class Game {
     button.innerText = "Press my luck!";
     button.classList.add("choice-button");
     button.addEventListener("click", this.pressMyLuck);
-    if (this._centerPanel) {
-      this._centerPanel.innerHTML = "";
-      this._centerPanel.appendChild(message);
-      this._centerPanel.appendChild(button);
-    }
+    this.centerPanel.innerHTML = "";
+    this.centerPanel.appendChild(message);
+    this.centerPanel.appendChild(button);
   }
 
   endOfRound(): void {
@@ -355,10 +345,8 @@ export class Game {
     button.innerText = "Continue...";
     button.classList.add("choice-button");
     button.addEventListener("click", this.nextRound);
-    if (this._centerPanel) {
-      this._centerPanel.innerHTML = "";
-      this._centerPanel.appendChild(message);
-      this._centerPanel.appendChild(button);
-    }
+    this.centerPanel.innerHTML = "";
+    this.centerPanel.appendChild(message);
+    this.centerPanel.appendChild(button);
   }
 }
