@@ -2,6 +2,7 @@ import { Slide } from "./Slide";
 import { Cash } from "slides/Cash";
 import { CashAndSpin } from "slides/CashAndSpin";
 import { Prize } from "slides/Prize";
+import { JumpToSpace } from "slides/JumpToSpace";
 import { Whammy } from "slides/Whammy";
 
 export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
@@ -133,8 +134,9 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           color: "#D2DE4B",
           value: 650
         }),
-        new Slide({
+        new JumpToSpace({
           type: "backtwospaces",
+          className: "panel-backtwospaces",
           hideText: true,
           text: "Go Back Two Spaces",
           color: "#085A39",
@@ -245,8 +247,9 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           color: "#0C3E83",
           value: 600
         }),
-        new Slide({
+        new JumpToSpace({
           type: "advancetwospaces",
+          className: "panel-advancetwospaces",
           hideText: true,
           text: "Advance Two Spaces",
           color: "#085A39",
@@ -268,7 +271,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           text: "A Whammy",
           className: "panel-whammy-standing"
         }),
-        new Slide({
+        new JumpToSpace({
           type: "bigbucks",
           text: "Big Bucks",
           color: "#4A7318",
@@ -540,8 +543,9 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 11,
           choices: [1, 10, 15]
         }),
-        new Slide({
+        new JumpToSpace({
           type: "backtwospaces",
+          className: "panel-backtwospaces",
           hideText: true,
           text: "Go Back Two Spaces",
           color: "#085A39",
@@ -651,8 +655,9 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           text: "A Whammy",
           className: "panel-whammy-superhero"
         }),
-        new Slide({
+        new JumpToSpace({
           type: "advancetwospaces",
+          className: "panel-advancetwospaces",
           hideText: true,
           text: "Advance Two Spaces",
           color: "#085A39",
@@ -674,7 +679,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           text: "A Whammy",
           className: "panel-whammy-taunting"
         }),
-        new Slide({
+        new JumpToSpace({
           type: "bigbucks",
           text: "Big Bucks",
           color: "#4A7318",

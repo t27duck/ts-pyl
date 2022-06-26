@@ -183,7 +183,7 @@ export class Board {
       this.currentPattern = this.patterns[Math.floor(Math.random() * this.patterns.length)];
     }
     this._panels.forEach((panel, index) => {
-      if (this.currentPattern[this.currentPatternIndex] - 1 == index) {
+      if (this.currentPattern[this.currentPatternIndex] - 1 === index) {
         panel.element?.classList.add("panel-active");
         this.currentPanelIndex = index;
       } else {

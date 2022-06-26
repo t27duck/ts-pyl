@@ -30,6 +30,10 @@ export class Game {
     return this._players;
   }
 
+  get board(): Board {
+    return this._board;
+  }
+
   // Methods
 
   resetRound(round: number): void {
@@ -116,29 +120,16 @@ export class Game {
       case "cashandspin":
       case "whammy":
       case "prize":
+      case "jumptospace":
         this.displayStopMessage(slide.description, withStopMessage);
-        slide.applyToPlayer(this.currentPlayer);
-        this._players.refreshPlayerOutputs();
-        this.proceedWithRound();
-        break;
-      case "backtwospaces":
-      case "advancetwospaces":
-        this.displayStopMessage(`${slide.description} to...`, withStopMessage);
-        setTimeout(() => {
-          const targetIndex = slide.target - 1;
-          this.processResult(targetIndex, false);
-          this._board.flashCurrentPanel(targetIndex);
+        if (slide.callback) {
+          slide.callback(this);
+        } else {
+          slide.applyToPlayer(this.currentPlayer);
+          this._players.refreshPlayerOutputs();
           this.proceedWithRound();
-        }, 1800);
-        break;
-      case "bigbucks":
-        this.displayStopMessage(`${slide.description}!`, withStopMessage);
-        setTimeout(() => {
-          const targetIndex = slide.target - 1;
-          this.processResult(targetIndex, false);
-          this._board.flashCurrentPanel(targetIndex);
-          this.proceedWithRound();
-        }, 1800);
+          break;
+        }
         break;
       case "cashorlosewhammy":
         if (this.currentPlayer.whammies > 0) {

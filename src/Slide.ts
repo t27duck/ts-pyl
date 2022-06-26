@@ -2,6 +2,9 @@ import { SlideConfig } from "./types";
 import { Player } from "./Player";
 
 export class Slide {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  callback: any = undefined;
+
   constructor(protected slideConfig: SlideConfig) {
     this.slideConfig = slideConfig;
   }
