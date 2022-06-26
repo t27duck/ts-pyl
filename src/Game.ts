@@ -118,7 +118,6 @@ export class Game {
       case "prize":
         this.displayStopMessage(slide.description, withStopMessage);
         slide.applyToPlayer(this.currentPlayer);
-        this.proceedWithRound();
         this._players.refreshPlayerOutputs();
         this.proceedWithRound();
         break;
