@@ -16,30 +16,15 @@ export class Slide {
   }
 
   get text(): string {
-    if (this.type == "cashandspin") {
-      return `${this.slideConfig.text}<br /><span class="panel-line-two">+<br />One Spin</span>`;
-    }
-
     if (this.type == "pickacorner") {
       return (this.slideConfig.text || "").split(" ").join("<br />");
-    }
-
-    if (this.slideConfig.secondaryText) {
-      return `${this.slideConfig.text}<br /><span class="panel-line-two">${this.slideConfig.secondaryText}</span>`;
     }
 
     return this.slideConfig.text || "";
   }
 
   get description(): string {
-    switch (this.type) {
-      case "cashandspin":
-        return `$${this.value} and a Spin`;
-      case "cashorlosewhammy":
-        return `$${this.value} or Lose One Whammy`;
-      default:
-        return this.slideConfig.text || "";
-    }
+    return this.slideConfig.text || "";
   }
 
   get color(): string {

@@ -542,7 +542,8 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           text: "Pick A Corner",
           color: "#085A39",
           value: 11,
-          choices: [1, 10, 15]
+          choices: [1, 10, 15],
+          wordPerLine: true
         }),
         new JumpToSpace({
           type: "backtwospaces",

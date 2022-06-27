@@ -17,6 +17,8 @@ export class PickSpace extends Slide {
   get text(): string {
     if (this.slideConfig.hideText) {
       return "";
+    } else if (this.slideConfig.wordPerLine) {
+      return `${this.slideConfig.text}`.split(" ").join("<br />");
     } else {
       return `${this.slideConfig.text}`;
     }
