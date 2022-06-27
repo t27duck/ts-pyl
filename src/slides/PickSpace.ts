@@ -32,7 +32,7 @@ export class PickSpace extends Slide {
     game.board.flashPanelList(this.choices);
     this.choices.forEach((pIndex) => {
       const button = document.createElement("button");
-      button.innerText = game.board.panels[pIndex - 1].currentSlide.description;
+      button.innerText = game.board.panels[pIndex - 1].currentSlide.originalText;
       button.classList.add("choice-button");
       button.dataset.panelIndex = pIndex.toString();
       button.addEventListener("click", game.handleMoveChoice);

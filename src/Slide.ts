@@ -16,10 +16,10 @@ export class Slide {
   }
 
   get text(): string {
-    if (this.type == "pickacorner") {
-      return (this.slideConfig.text || "").split(" ").join("<br />");
-    }
+    return this.slideConfig.text || "";
+  }
 
+  get originalText(): string {
     return this.slideConfig.text || "";
   }
 

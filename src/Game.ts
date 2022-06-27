@@ -112,10 +112,10 @@ export class Game {
 
   processResult(panelIndex: number | undefined = undefined, withStopMessage = true): void {
     let slide: Slide;
-    if (panelIndex) {
-      slide = this._board.panels[panelIndex].currentSlide;
-    } else {
+    if (panelIndex === undefined) {
       slide = this._board.currentPanel.currentSlide;
+    } else {
+      slide = this._board.panels[panelIndex].currentSlide;
     }
     switch (slide.type) {
       case "cash":
