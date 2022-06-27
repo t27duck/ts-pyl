@@ -81,17 +81,6 @@ export class Game {
     }
   };
 
-  handleMoveChoice = (event: Event): void => {
-    const target = event.target as HTMLButtonElement;
-    const panelIndex = target.dataset.panelIndex;
-    if (panelIndex) {
-      const realPanelIndex = parseInt(panelIndex) - 1;
-      this._board.clearCurrentInterval();
-      this._board.flashCurrentPanel(realPanelIndex);
-      this.processResult(realPanelIndex, false);
-    }
-  };
-
   handleCashOrLoseWhammyChoice = (event: Event): void => {
     const target = event.target as HTMLButtonElement;
     const choice = target.dataset.choice;
