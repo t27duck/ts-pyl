@@ -123,6 +123,7 @@ export class Game {
       case "whammy":
       case "prize":
       case "jumptospace":
+      case "pickspace":
         this.displayStopMessage(slide.description, withStopMessage);
         if (slide.callback) {
           slide.callback(this);
@@ -154,19 +155,6 @@ export class Game {
           this.displayStopMessage(`$${slide.value}!`, withStopMessage);
           this.proceedWithRound();
         }
-        break;
-      case "pickacorner":
-      case "moveonespace":
-        this.displayStopMessage(slide.description, withStopMessage);
-        this._board.flashPanelList(slide.choices);
-        slide.choices.forEach((pIndex) => {
-          const button = document.createElement("button");
-          button.innerText = this._board.panels[pIndex - 1].currentSlide.description;
-          button.classList.add("choice-button");
-          button.dataset.panelIndex = pIndex.toString();
-          button.addEventListener("click", this.handleMoveChoice);
-          this.centerPanel.appendChild(button);
-        });
         break;
       default:
         this.currentPlayer.addScore(slide.value);

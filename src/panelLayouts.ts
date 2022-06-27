@@ -2,6 +2,7 @@ import { Slide } from "./Slide";
 import { Cash } from "slides/Cash";
 import { CashAndSpin } from "slides/CashAndSpin";
 import { Prize } from "slides/Prize";
+import { PickSpace } from "slides/PickSpace";
 import { JumpToSpace } from "slides/JumpToSpace";
 import { Whammy } from "slides/Whammy";
 
@@ -21,8 +22,8 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           text: "A Whammy",
           className: "panel-whammy-superhero"
         }),
-        new Slide({
-          type: "moveonespace",
+        new PickSpace({
+          type: "pickspace",
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
@@ -536,8 +537,8 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           color: "#54642D",
           value: 700
         }),
-        new Slide({
-          type: "pickacorner",
+        new PickSpace({
+          type: "pickspace",
           text: "Pick A Corner",
           color: "#085A39",
           value: 11,
@@ -611,8 +612,8 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           text: "A Whammy",
           className: "panel-whammy-flex"
         }),
-        new Slide({
-          type: "moveonespace",
+        new PickSpace({
+          type: "pickspace",
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
@@ -724,8 +725,8 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           text: "A Whammy",
           className: "panel-whammy-jumping"
         }),
-        new Slide({
-          type: "moveonespace",
+        new PickSpace({
+          type: "pickspace",
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
