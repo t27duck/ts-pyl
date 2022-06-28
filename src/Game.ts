@@ -113,6 +113,7 @@ export class Game {
       case "prize":
       case "jumptospace":
       case "pickspace":
+      case "cashorlosewhammy":
         if (slide.callback) {
           slide.callback(this);
         } else {
@@ -121,28 +122,6 @@ export class Game {
           this._players.refreshPlayerOutputs();
           this.proceedWithRound();
           break;
-        }
-        break;
-      case "cashorlosewhammy":
-        if (this.currentPlayer.whammies > 0) {
-          this.displayStopMessage(`${slide.description}!`, withStopMessage);
-          let button = document.createElement("button");
-          button.innerText = `$${slide.value}`;
-          button.classList.add("choice-button");
-          button.dataset.choice = slide.value.toString();
-          button.addEventListener("click", this.handleCashOrLoseWhammyChoice);
-          this.centerPanel.appendChild(button);
-
-          button = document.createElement("button");
-          button.innerText = "Lose 1 Whammy";
-          button.classList.add("choice-button");
-          button.dataset.choice = "whammy";
-          button.addEventListener("click", this.handleCashOrLoseWhammyChoice);
-          this.centerPanel.appendChild(button);
-        } else {
-          this.currentPlayer.addScore(slide.value);
-          this.displayStopMessage(`$${slide.value}!`, withStopMessage);
-          this.proceedWithRound();
         }
         break;
       default:

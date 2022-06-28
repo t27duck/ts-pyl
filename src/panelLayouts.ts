@@ -1,6 +1,7 @@
 import { Slide } from "./Slide";
 import { Cash } from "slides/Cash";
 import { CashAndSpin } from "slides/CashAndSpin";
+import { CashOrLoseWhammy } from "slides/CashOrLoseWhammy";
 import { Prize } from "slides/Prize";
 import { PickSpace } from "slides/PickSpace";
 import { JumpToSpace } from "slides/JumpToSpace";
@@ -745,10 +746,8 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           color: "#A5C3F3",
           value: 1000
         }),
-        new Slide({
+        new CashOrLoseWhammy({
           type: "cashorlosewhammy",
-          text: "$2000",
-          secondaryText: "or<br />Lose -1- Whammy",
           color: "#A54D4D",
           value: 2000
         }),
