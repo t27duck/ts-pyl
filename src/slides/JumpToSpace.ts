@@ -31,6 +31,7 @@ export class JumpToSpace extends Slide {
   }
 
   callback = (game: Game) => {
+    game.displayStopMessage(this.description, true);
     setTimeout(() => {
       const targetIndex = this.target - 1;
       game.processResult(targetIndex, false);

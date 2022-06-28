@@ -113,10 +113,10 @@ export class Game {
       case "prize":
       case "jumptospace":
       case "pickspace":
-        this.displayStopMessage(slide.description, withStopMessage);
         if (slide.callback) {
           slide.callback(this);
         } else {
+          this.displayStopMessage(slide.description, withStopMessage);
           slide.applyToPlayer(this.currentPlayer);
           this._players.refreshPlayerOutputs();
           this.proceedWithRound();

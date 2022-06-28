@@ -47,6 +47,7 @@ export class PickSpace extends Slide {
 
   callback = (game: Game) => {
     this.game = game;
+    game.displayStopMessage(this.description, true);
     game.board.flashPanelList(this.choices);
     this.choices.forEach((pIndex) => {
       const button = document.createElement("button");
