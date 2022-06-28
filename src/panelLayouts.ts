@@ -13,7 +13,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-1",
       slides: [
         new Cash({
-          text: "$350",
           color: "#435E95",
           value: 350
         }),
@@ -34,12 +33,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-2",
       slides: [
         new Cash({
-          text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          text: "$750",
           color: "#435E95",
           value: 750
         }),
@@ -53,12 +50,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-3",
       slides: [
         new Cash({
-          text: "$250",
           color: "#0C3E83",
           value: 250
         }),
         new Cash({
-          text: "$400",
           color: "#316384",
           value: 400
         }),
@@ -72,17 +67,14 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-4",
       slides: [
         new Cash({
-          text: "$1000",
           color: "#316384",
           value: 1000
         }),
         new Cash({
-          text: "$1250",
           color: "#54642D",
           value: 1250
         }),
         new Cash({
-          text: "$1500",
           color: "#AF5C54",
           value: 1500
         })
@@ -92,7 +84,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-5",
       slides: [
         new Cash({
-          text: "$300",
           color: "#AF5C54",
           value: 300
         }),
@@ -110,12 +101,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-6",
       slides: [
         new Cash({
-          text: "$525",
           color: "#0C3E83",
           value: 525
         }),
         new Cash({
-          text: "$650",
           color: "#D2DE4B",
           value: 650
         }),
@@ -132,7 +121,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-7",
       slides: [
         new Cash({
-          text: "$470",
           color: "#435E95",
           value: 470
         }),
@@ -150,17 +138,14 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-8",
       slides: [
         new Cash({
-          text: "$300",
           color: "#AF5C54",
           value: 300
         }),
         new Cash({
-          text: "$450",
           color: "#54642D",
           value: 450
         }),
         new Cash({
-          text: "$550",
           color: "#54642D",
           value: 550
         })
@@ -170,12 +155,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-9",
       slides: [
         new Cash({
-          text: "$350",
           color: "#435E95",
           value: 350
         }),
         new Cash({
-          text: "$550",
           color: "#AF5C54",
           value: 550
         }),
@@ -189,7 +172,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-10",
       slides: [
         new Cash({
-          text: "$300",
           color: "#AF5C54",
           value: 300
         }),
@@ -208,12 +190,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-11",
       slides: [
         new Cash({
-          text: "$200",
           color: "#D2DE4B",
           value: 200
         }),
         new Cash({
-          text: "$600",
           color: "#0C3E83",
           value: 600
         }),
@@ -230,7 +210,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-12",
       slides: [
         new Cash({
-          text: "$400",
           color: "#316384",
           value: 400
         }),
@@ -249,12 +228,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-13",
       slides: [
         new Cash({
-          text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          text: "$750",
           color: "#435E95",
           value: 750
         }),
@@ -268,12 +245,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-14",
       slides: [
         new Cash({
-          text: "$400",
           color: "#316384",
           value: 400
         }),
         new Cash({
-          text: "$500",
           color: "#316384",
           value: 500
         }),
@@ -287,12 +262,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-15",
       slides: [
         new Cash({
-          text: "$550",
           color: "#AF5C54",
           value: 550
         }),
         new Cash({
-          text: "$700",
           color: "#435E95",
           value: 700
         }),
@@ -306,12 +279,10 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-16",
       slides: [
         new Cash({
-          text: "$300",
           color: "#AF5C54",
           value: 300
         }),
         new Cash({
-          text: "$500",
           color: "#316384",
           value: 500
         }),
@@ -325,7 +296,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-17",
       slides: [
         new Cash({
-          text: "$200",
           color: "#435E95",
           value: 200
         }),
@@ -368,17 +338,14 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-1",
       slides: [
         new Cash({
-          text: "$1400",
           color: "#397399",
           value: 1400
         }),
         new Cash({
-          text: "$1750",
           color: "#435E95",
           value: 1750
         }),
         new Cash({
-          text: "$2250",
           color: "#54642D",
           value: 2250
         })
@@ -388,12 +355,10 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-2",
       slides: [
         new Cash({
-          text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          text: "$1250",
           color: "#54642D",
           value: 1250
         }),
@@ -407,12 +372,10 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-3",
       slides: [
         new Cash({
-          text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          text: "$2000",
           color: "#AF5C54",
           value: 2000
         }),
@@ -446,7 +409,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-5",
       slides: [
         new Cash({
-          text: "$750",
           color: "#435E95",
           value: 750
         }),
@@ -488,7 +450,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-7",
       slides: [
         new Cash({
-          text: "$750",
           color: "#435E95",
           value: 750
         }),
@@ -526,7 +487,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-9",
       slides: [
         new Cash({
-          text: "$800",
           color: "#4A7318",
           value: 800
         }),
@@ -564,7 +524,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-11",
       slides: [
         new Cash({
-          text: "$1500",
           color: "#AF5C54",
           value: 1500
         }),
@@ -585,7 +544,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-12",
       slides: [
         new Cash({
-          text: "$500",
           color: "#316384",
           value: 500
         }),
@@ -604,12 +562,10 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-13",
       slides: [
         new Cash({
-          text: "$1500",
           color: "#AF5C54",
           value: 1500
         }),
         new Cash({
-          text: "$2500",
           color: "#4A7318",
           value: 2500
         }),
@@ -624,7 +580,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-14",
       slides: [
         new Cash({
-          text: "$2000",
           color: "#316384",
           value: 2000
         }),
@@ -668,7 +623,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 750
         }),
         new Cash({
-          text: "$1500",
           color: "#BD6373",
           value: 1500
         }),
@@ -682,7 +636,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-17",
       slides: [
         new Cash({
-          text: "$600",
           color: "#0C3E83",
           value: 600
         }),
