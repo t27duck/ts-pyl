@@ -17,7 +17,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           value: 350
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-superhero"
         }),
         new PickSpace({
@@ -58,7 +57,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           value: 400
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-jumping"
         })
       ]
@@ -92,7 +90,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           color: "#a73500"
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-hammer"
         })
       ]
@@ -129,7 +126,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           color: "#a73500"
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-leaning"
         })
       ]
@@ -163,7 +159,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           value: 550
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-running"
         })
       ]
@@ -213,7 +208,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           value: 400
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-standing"
         }),
         new JumpToSpace({
@@ -252,7 +246,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           value: 500
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-raisingarms"
         })
       ]
@@ -286,7 +279,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           value: 500
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-taunting"
         })
       ]
@@ -303,7 +295,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           color: "#a73500"
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-flex"
         })
       ]
@@ -376,7 +367,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 2000
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-running"
         })
       ]
@@ -410,7 +400,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           color: "#a73500"
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-standing"
         })
       ]
@@ -450,7 +439,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           color: "#a73500"
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-hammer"
         })
       ]
@@ -480,7 +468,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 800
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-flex"
         }),
         new PickSpace({
@@ -517,7 +504,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 1500
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-superhero"
         }),
         new JumpToSpace({
@@ -537,7 +523,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 500
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-taunting"
         }),
         new JumpToSpace({
@@ -573,7 +558,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 2000
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-jumping"
         }),
         new PickSpace({
@@ -614,7 +598,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 1500
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-leaning"
         })
       ]
@@ -648,7 +631,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 1000
         }),
         new Whammy({
-          text: "A Whammy",
           className: "panel-whammy-raisingarms"
         })
       ]
