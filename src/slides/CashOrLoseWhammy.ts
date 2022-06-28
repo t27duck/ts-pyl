@@ -12,8 +12,8 @@ export class CashOrLoseWhammy extends Slide {
 
   // Getters
 
-  get type(): string {
-    return "cashorlosewhammy";
+  get baseClassName(): string {
+    return "panel-cashorlosewhammy";
   }
 
   get text(): string {

@@ -12,8 +12,8 @@ export class PickSpace extends Slide {
 
   // Getters
 
-  get type(): string {
-    return "pickspace";
+  get baseClassName(): string {
+    return "panel-pickspace";
   }
 
   get text(): string {

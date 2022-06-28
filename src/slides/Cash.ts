@@ -9,8 +9,8 @@ export class Cash extends Slide {
 
   // Getters
 
-  get type(): string {
-    return "cash";
+  get baseClassName(): string {
+    return "panel-cash";
   }
 
   get text(): string {

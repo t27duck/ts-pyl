@@ -11,8 +11,8 @@ export class Prize extends Slide {
 
   // Getters
 
-  get type(): string {
-    return "prize";
+  get baseClassName(): string {
+    return "panel-prize";
   }
 
   get text(): string {

@@ -9,8 +9,8 @@ export class Whammy extends Slide {
 
   // Getters
 
-  get type(): string {
-    return "whammy";
+  get baseClassName(): string {
+    return "panel-whammy";
   }
 
   get text(): string {

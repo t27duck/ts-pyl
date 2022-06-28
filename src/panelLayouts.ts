@@ -13,18 +13,15 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-1",
       slides: [
         new Cash({
-          type: "cash",
           text: "$350",
           color: "#435E95",
           value: 350
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-superhero"
         }),
         new PickSpace({
-          type: "pickspace",
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
@@ -37,19 +34,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-2",
       slides: [
         new Cash({
-          type: "cash",
           text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          type: "cash",
           text: "$750",
           color: "#435E95",
           value: 750
         }),
         new Prize({
-          type: "prize",
           round: 1,
           color: "#54642D"
         })
@@ -59,19 +53,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-3",
       slides: [
         new Cash({
-          type: "cash",
           text: "$250",
           color: "#0C3E83",
           value: 250
         }),
         new Cash({
-          type: "cash",
           text: "$400",
           color: "#316384",
           value: 400
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-jumping"
         })
@@ -81,19 +72,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-4",
       slides: [
         new Cash({
-          type: "cash",
           text: "$1000",
           color: "#316384",
           value: 1000
         }),
         new Cash({
-          type: "cash",
           text: "$1250",
           color: "#54642D",
           value: 1250
         }),
         new Cash({
-          type: "cash",
           text: "$1500",
           color: "#AF5C54",
           value: 1500
@@ -104,18 +92,15 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-5",
       slides: [
         new Cash({
-          type: "cash",
           text: "$300",
           color: "#AF5C54",
           value: 300
         }),
         new Prize({
-          type: "prize",
           round: 1,
           color: "#a73500"
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-hammer"
         })
@@ -125,19 +110,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-6",
       slides: [
         new Cash({
-          type: "cash",
           text: "$525",
           color: "#0C3E83",
           value: 525
         }),
         new Cash({
-          type: "cash",
           text: "$650",
           color: "#D2DE4B",
           value: 650
         }),
         new JumpToSpace({
-          type: "backtwospaces",
           className: "panel-backtwospaces",
           hideText: true,
           text: "Go Back Two Spaces",
@@ -150,18 +132,15 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-7",
       slides: [
         new Cash({
-          type: "cash",
           text: "$470",
           color: "#435E95",
           value: 470
         }),
         new Prize({
-          type: "prize",
           round: 1,
           color: "#a73500"
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-leaning"
         })
@@ -171,19 +150,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-8",
       slides: [
         new Cash({
-          type: "cash",
           text: "$300",
           color: "#AF5C54",
           value: 300
         }),
         new Cash({
-          type: "cash",
           text: "$450",
           color: "#54642D",
           value: 450
         }),
         new Cash({
-          type: "cash",
           text: "$550",
           color: "#54642D",
           value: 550
@@ -194,19 +170,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-9",
       slides: [
         new Cash({
-          type: "cash",
           text: "$350",
           color: "#435E95",
           value: 350
         }),
         new Cash({
-          type: "cash",
           text: "$550",
           color: "#AF5C54",
           value: 550
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-running"
         })
@@ -216,19 +189,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-10",
       slides: [
         new Cash({
-          type: "cash",
           text: "$300",
           color: "#AF5C54",
           value: 300
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$500",
           color: "#D2DE4B",
           value: 500
         }),
         new Prize({
-          type: "prize",
           round: 1,
           color: "#a73500"
         })
@@ -238,19 +208,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-11",
       slides: [
         new Cash({
-          type: "cash",
           text: "$200",
           color: "#D2DE4B",
           value: 200
         }),
         new Cash({
-          type: "cash",
           text: "$600",
           color: "#0C3E83",
           value: 600
         }),
         new JumpToSpace({
-          type: "advancetwospaces",
           className: "panel-advancetwospaces",
           hideText: true,
           text: "Advance Two Spaces",
@@ -263,18 +230,15 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-12",
       slides: [
         new Cash({
-          type: "cash",
           text: "$400",
           color: "#316384",
           value: 400
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-standing"
         }),
         new JumpToSpace({
-          type: "bigbucks",
           text: "Big Bucks",
           color: "#4A7318",
           target: 4
@@ -285,19 +249,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-13",
       slides: [
         new Cash({
-          type: "cash",
           text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          type: "cash",
           text: "$750",
           color: "#435E95",
           value: 750
         }),
         new Prize({
-          type: "prize",
           round: 1,
           color: "#AF5C54"
         })
@@ -307,19 +268,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-14",
       slides: [
         new Cash({
-          type: "cash",
           text: "$400",
           color: "#316384",
           value: 400
         }),
         new Cash({
-          type: "cash",
           text: "$500",
           color: "#316384",
           value: 500
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-raisingarms"
         })
@@ -329,19 +287,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-15",
       slides: [
         new Cash({
-          type: "cash",
           text: "$550",
           color: "#AF5C54",
           value: 550
         }),
         new Cash({
-          type: "cash",
           text: "$700",
           color: "#435E95",
           value: 700
         }),
         new Prize({
-          type: "prize",
           round: 1,
           color: "#54642D"
         })
@@ -351,19 +306,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-16",
       slides: [
         new Cash({
-          type: "cash",
           text: "$300",
           color: "#AF5C54",
           value: 300
         }),
         new Cash({
-          type: "cash",
           text: "$500",
           color: "#316384",
           value: 500
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-taunting"
         })
@@ -373,18 +325,15 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-17",
       slides: [
         new Cash({
-          type: "cash",
           text: "$200",
           color: "#435E95",
           value: 200
         }),
         new Prize({
-          type: "prize",
           round: 1,
           color: "#a73500"
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-flex"
         })
@@ -394,19 +343,16 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-18",
       slides: [
         new CashAndSpin({
-          type: "cashandspin",
           text: "$100",
           color: "#435E95",
           value: 100
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$200",
           color: "#A5C3F3",
           value: 200
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$300",
           color: "#54642D",
           value: 300
@@ -422,19 +368,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-1",
       slides: [
         new Cash({
-          type: "cash",
           text: "$1400",
           color: "#397399",
           value: 1400
         }),
         new Cash({
-          type: "cash",
           text: "$1750",
           color: "#435E95",
           value: 1750
         }),
         new Cash({
-          type: "cash",
           text: "$2250",
           color: "#54642D",
           value: 2250
@@ -445,19 +388,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-2",
       slides: [
         new Cash({
-          type: "cash",
           text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          type: "cash",
           text: "$1250",
           color: "#54642D",
           value: 1250
         }),
         new Prize({
-          type: "prize",
           round: 2,
           color: "#a73500"
         })
@@ -467,19 +407,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-3",
       slides: [
         new Cash({
-          type: "cash",
           text: "$500",
           color: "#316384",
           value: 500
         }),
         new Cash({
-          type: "cash",
           text: "$2000",
           color: "#AF5C54",
           value: 2000
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-running"
         })
@@ -489,19 +426,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-4",
       slides: [
         new CashAndSpin({
-          type: "cashandspin",
           text: "$3000",
           color: "#435E95",
           value: 3000
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$4000",
           color: "#AF5C54",
           value: 4000
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$5000",
           color: "#4A7318",
           value: 5000
@@ -512,18 +446,15 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-5",
       slides: [
         new Cash({
-          type: "cash",
           text: "$750",
           color: "#435E95",
           value: 750
         }),
         new Prize({
-          type: "prize",
           round: 2,
           color: "#a73500"
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-standing"
         })
@@ -533,13 +464,11 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-6",
       slides: [
         new CashAndSpin({
-          type: "cashandspin",
           text: "$700",
           color: "#54642D",
           value: 700
         }),
         new PickSpace({
-          type: "pickspace",
           text: "Pick A Corner",
           color: "#085A39",
           value: 11,
@@ -547,7 +476,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           wordPerLine: true
         }),
         new JumpToSpace({
-          type: "backtwospaces",
           className: "panel-backtwospaces",
           hideText: true,
           text: "Go Back Two Spaces",
@@ -560,18 +488,15 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-7",
       slides: [
         new Cash({
-          type: "cash",
           text: "$750",
           color: "#435E95",
           value: 750
         }),
         new Prize({
-          type: "prize",
           round: 2,
           color: "#a73500"
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-hammer"
         })
@@ -581,19 +506,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-8",
       slides: [
         new CashAndSpin({
-          type: "cashandspin",
           text: "$500",
           color: "#D2DE4B",
           value: 500
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$750",
           color: "#0C3E83",
           value: 750
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$1000",
           color: "#A5C3F3",
           value: 1000
@@ -604,18 +526,15 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-9",
       slides: [
         new Cash({
-          type: "cash",
           text: "$800",
           color: "#4A7318",
           value: 800
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-flex"
         }),
         new PickSpace({
-          type: "pickspace",
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
@@ -628,17 +547,14 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-10",
       slides: [
         new Prize({
-          type: "prize",
           round: 2,
           color: "#0C3E83"
         }),
         new Prize({
-          type: "prize",
           round: 2,
           color: "#AF5C54"
         }),
         new Prize({
-          type: "prize",
           round: 2,
           color: "#a73500"
         })
@@ -648,18 +564,15 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-11",
       slides: [
         new Cash({
-          type: "cash",
           text: "$1500",
           color: "#AF5C54",
           value: 1500
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-superhero"
         }),
         new JumpToSpace({
-          type: "advancetwospaces",
           className: "panel-advancetwospaces",
           hideText: true,
           text: "Advance Two Spaces",
@@ -672,18 +585,15 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-12",
       slides: [
         new Cash({
-          type: "cash",
           text: "$500",
           color: "#316384",
           value: 500
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-taunting"
         }),
         new JumpToSpace({
-          type: "bigbucks",
           text: "Big Bucks",
           color: "#4A7318",
           target: 4
@@ -694,19 +604,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-13",
       slides: [
         new Cash({
-          type: "cash",
           text: "$1500",
           color: "#AF5C54",
           value: 1500
         }),
         new Cash({
-          type: "cash",
           text: "$2500",
           color: "#4A7318",
           value: 2500
         }),
         new Prize({
-          type: "prize",
           round: 2,
           text: "A Prize",
           color: "#a73500"
@@ -717,18 +624,15 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-14",
       slides: [
         new Cash({
-          type: "cash",
           text: "$2000",
           color: "#316384",
           value: 2000
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-jumping"
         }),
         new PickSpace({
-          type: "pickspace",
           hideText: true,
           text: "Move One Space",
           color: "#085A39",
@@ -741,18 +645,15 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-15",
       slides: [
         new CashAndSpin({
-          type: "cashandspin",
           text: "$1000",
           color: "#A5C3F3",
           value: 1000
         }),
         new CashOrLoseWhammy({
-          type: "cashorlosewhammy",
           color: "#A54D4D",
           value: 2000
         }),
         new Prize({
-          type: "prize",
           round: 2,
           color: "#a73500"
         })
@@ -762,19 +663,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-16",
       slides: [
         new CashAndSpin({
-          type: "cashandspin",
           text: "$750",
           color: "#0C3E83",
           value: 750
         }),
         new Cash({
-          type: "cash",
           text: "$1500",
           color: "#BD6373",
           value: 1500
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-leaning"
         })
@@ -784,19 +682,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-17",
       slides: [
         new Cash({
-          type: "cash",
           text: "$600",
           color: "#0C3E83",
           value: 600
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$700",
           color: "#54642D",
           value: 700
         }),
         new Prize({
-          type: "prize",
           round: 2,
           color: "#54642D"
         })
@@ -806,19 +701,16 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-18",
       slides: [
         new CashAndSpin({
-          type: "cashandspin",
           text: "$750",
           color: "#0C3E83",
           value: 750
         }),
         new CashAndSpin({
-          type: "cashandspin",
           text: "$1000",
           color: "#A5C3F3",
           value: 1000
         }),
         new Whammy({
-          type: "whammy",
           text: "A Whammy",
           className: "panel-whammy-raisingarms"
         })

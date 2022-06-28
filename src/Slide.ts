@@ -11,10 +11,6 @@ export class Slide {
 
   // Getters
 
-  get type(): string {
-    return this.slideConfig.type;
-  }
-
   get text(): string {
     return this.slideConfig.text || "";
   }
@@ -49,6 +45,10 @@ export class Slide {
 
   get className(): string | undefined {
     return this.slideConfig.className;
+  }
+
+  get baseClassName(): string {
+    return "";
   }
 
   // Methods

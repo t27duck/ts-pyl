@@ -10,8 +10,8 @@ export class JumpToSpace extends Slide {
 
   // Getters
 
-  get type(): string {
-    return "jumptospace";
+  get baseClassName(): string {
+    return "panel-jumptospace";
   }
 
   get text(): string {

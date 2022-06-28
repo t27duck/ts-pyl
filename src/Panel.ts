@@ -59,7 +59,7 @@ export class Panel {
         this.innerElement.innerHTML = "";
         this.innerElement.setAttribute("class", "inner-panel");
       } else {
-        this.innerElement.setAttribute("class", `inner-panel panel-${this.currentSlide.type}`);
+        this.innerElement.setAttribute("class", `inner-panel ${this.currentSlide.baseClassName}`);
         if (this.currentSlide.className) {
           this.innerElement.classList.add(this.currentSlide.className);
         }

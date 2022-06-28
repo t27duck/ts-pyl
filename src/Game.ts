@@ -106,28 +106,14 @@ export class Game {
     } else {
       slide = this._board.panels[panelIndex].currentSlide;
     }
-    switch (slide.type) {
-      case "cash":
-      case "cashandspin":
-      case "whammy":
-      case "prize":
-      case "jumptospace":
-      case "pickspace":
-      case "cashorlosewhammy":
-        if (slide.callback) {
-          slide.callback(this);
-        } else {
-          this.displayStopMessage(slide.description, withStopMessage);
-          slide.applyToPlayer(this.currentPlayer);
-          this._players.refreshPlayerOutputs();
-          this.proceedWithRound();
-          break;
-        }
-        break;
-      default:
-        this.currentPlayer.addScore(slide.value);
-        this.displayStopMessage(slide.description, withStopMessage);
-        this.proceedWithRound();
+
+    if (slide.callback) {
+      slide.callback(this);
+    } else {
+      this.displayStopMessage(slide.description, withStopMessage);
+      slide.applyToPlayer(this.currentPlayer);
+      this._players.refreshPlayerOutputs();
+      this.proceedWithRound();
     }
   }
 
