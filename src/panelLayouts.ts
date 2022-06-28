@@ -176,7 +176,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           value: 300
         }),
         new CashAndSpin({
-          text: "$500",
           color: "#D2DE4B",
           value: 500
         }),
@@ -313,17 +312,14 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-18",
       slides: [
         new CashAndSpin({
-          text: "$100",
           color: "#435E95",
           value: 100
         }),
         new CashAndSpin({
-          text: "$200",
           color: "#A5C3F3",
           value: 200
         }),
         new CashAndSpin({
-          text: "$300",
           color: "#54642D",
           value: 300
         })
@@ -389,17 +385,14 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-4",
       slides: [
         new CashAndSpin({
-          text: "$3000",
           color: "#435E95",
           value: 3000
         }),
         new CashAndSpin({
-          text: "$4000",
           color: "#AF5C54",
           value: 4000
         }),
         new CashAndSpin({
-          text: "$5000",
           color: "#4A7318",
           value: 5000
         })
@@ -426,7 +419,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-6",
       slides: [
         new CashAndSpin({
-          text: "$700",
           color: "#54642D",
           value: 700
         }),
@@ -467,17 +459,14 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-8",
       slides: [
         new CashAndSpin({
-          text: "$500",
           color: "#D2DE4B",
           value: 500
         }),
         new CashAndSpin({
-          text: "$750",
           color: "#0C3E83",
           value: 750
         }),
         new CashAndSpin({
-          text: "$1000",
           color: "#A5C3F3",
           value: 1000
         })
@@ -600,7 +589,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-15",
       slides: [
         new CashAndSpin({
-          text: "$1000",
           color: "#A5C3F3",
           value: 1000
         }),
@@ -618,7 +606,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-16",
       slides: [
         new CashAndSpin({
-          text: "$750",
           color: "#0C3E83",
           value: 750
         }),
@@ -640,7 +627,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           value: 600
         }),
         new CashAndSpin({
-          text: "$700",
           color: "#54642D",
           value: 700
         }),
@@ -654,12 +640,10 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
       identifier: "#panel-18",
       slides: [
         new CashAndSpin({
-          text: "$750",
           color: "#0C3E83",
           value: 750
         }),
         new CashAndSpin({
-          text: "$1000",
           color: "#A5C3F3",
           value: 1000
         }),
