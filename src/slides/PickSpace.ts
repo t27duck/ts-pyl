@@ -1,13 +1,31 @@
 import { Slide } from "../Slide";
-import { SlideConfig } from "../types";
 import { Player } from "../Player";
 import { Game } from "../Game";
 
 export class PickSpace extends Slide {
+  private _choices: Array<number>;
+  private _className: string;
+  private _color: string;
+  private _hideText: boolean;
   private game: Game | undefined;
+  private _text: string;
+  private _wordPerLine: boolean;
 
-  constructor(slideConfig: SlideConfig) {
+  constructor(slideConfig: {
+    className?: string;
+    color: string;
+    hideText?: boolean;
+    choices: Array<number>;
+    text: string;
+    wordPerLine?: boolean;
+  }) {
     super(slideConfig);
+    this._choices = slideConfig.choices;
+    this._className = slideConfig.className || "";
+    this._color = slideConfig.color;
+    this._hideText = slideConfig.hideText || false;
+    this._text = slideConfig.text;
+    this._wordPerLine = slideConfig.wordPerLine || false;
   }
 
   // Getters
@@ -16,18 +34,30 @@ export class PickSpace extends Slide {
     return "panel-pickspace";
   }
 
+  get className(): string {
+    return this._className;
+  }
+
   get text(): string {
-    if (this.slideConfig.hideText) {
+    if (this._hideText) {
       return "";
-    } else if (this.slideConfig.wordPerLine) {
-      return `${this.slideConfig.text}`.split(" ").join("<br />");
+    } else if (this._wordPerLine) {
+      return `${this._text}`.split(" ").join("<br />");
     } else {
-      return `${this.slideConfig.text}`;
+      return `${this._text}`;
     }
   }
 
+  get originalText(): string {
+    return this._text;
+  }
+
   get description(): string {
-    return `${this.slideConfig.text}!`;
+    return `${this._text}!`;
+  }
+
+  get color(): string {
+    return this._color;
   }
 
   handleMoveChoice = (event: Event): void => {

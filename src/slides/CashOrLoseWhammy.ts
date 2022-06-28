@@ -1,13 +1,16 @@
 import { Slide } from "../Slide";
-import { SlideConfig } from "../types";
 import { Player } from "../Player";
 import { Game } from "../Game";
 
 export class CashOrLoseWhammy extends Slide {
+  private _color: string;
   private game: Game | undefined;
+  private _value: number;
 
-  constructor(slideConfig: SlideConfig) {
+  constructor(slideConfig: { color: string; value: number }) {
     super(slideConfig);
+    this._color = slideConfig.color;
+    this._value = slideConfig.value;
   }
 
   // Getters
@@ -17,7 +20,23 @@ export class CashOrLoseWhammy extends Slide {
   }
 
   get text(): string {
-    return `$${this.slideConfig.value}<br /><span class="panel-line-two">or<br />Lose -1- Whammy</span>`;
+    return `$${this._value}<br /><span class="panel-line-two">or<br />Lose -1- Whammy</span>`;
+  }
+
+  get description(): string {
+    return `$${this._value} or Lose One Whammy`;
+  }
+
+  get originalText(): string {
+    return this.description;
+  }
+
+  get value(): number {
+    return this._value;
+  }
+
+  get color(): string {
+    return this._color;
   }
 
   handleChoice = (event: Event): void => {

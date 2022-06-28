@@ -211,6 +211,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           className: "panel-whammy-standing"
         }),
         new JumpToSpace({
+          className: "panel-cash",
           text: "Big Bucks",
           color: "#4A7318",
           target: 4
@@ -414,7 +415,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         new PickSpace({
           text: "Pick A Corner",
           color: "#085A39",
-          value: 11,
           choices: [1, 10, 15],
           wordPerLine: true
         }),
@@ -526,6 +526,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           className: "panel-whammy-taunting"
         }),
         new JumpToSpace({
+          className: "panel-cash",
           text: "Big Bucks",
           color: "#4A7318",
           target: 4
@@ -545,7 +546,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new Prize({
           round: 2,
-          text: "A Prize",
           color: "#a73500"
         })
       ]

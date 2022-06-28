@@ -1,11 +1,17 @@
 import { Slide } from "../Slide";
-import { SlideConfig } from "../types";
 import { Player } from "../Player";
 import { extractPrize } from "../config";
 
 export class Prize extends Slide {
-  constructor(slideConfig: SlideConfig) {
+  private _color: string;
+  private _text = "UNKNONW";
+  private _round: number;
+  private _value = 0;
+
+  constructor(slideConfig: { round: number; color: string }) {
     super(slideConfig);
+    this._color = slideConfig.color;
+    this._round = slideConfig.round;
     this.setNextPrizeValues();
   }
 
@@ -15,12 +21,20 @@ export class Prize extends Slide {
     return "panel-prize";
   }
 
+  get color(): string {
+    return this._color;
+  }
+
   get text(): string {
-    return this.slideConfig.text || "UKNOWN";
+    return this._text;
+  }
+
+  get originalText(): string {
+    return this.text;
   }
 
   get description(): string {
-    return `${this.text} worth $${this.value}`;
+    return `${this.text} worth $${this._value}`;
   }
 
   // Methods
@@ -30,9 +44,9 @@ export class Prize extends Slide {
     this.setNextPrizeValues();
   }
 
-  setNextPrizeValues(round = this.slideConfig.round || 1): void {
+  setNextPrizeValues(round = this._round || 1): void {
     const prize = extractPrize(round);
-    this.slideConfig.text = prize.text;
-    this.slideConfig.value = prize.value;
+    this._text = prize.text;
+    this._value = prize.value;
   }
 }

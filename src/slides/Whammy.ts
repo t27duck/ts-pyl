@@ -1,10 +1,12 @@
 import { Slide } from "../Slide";
-import { SlideConfig } from "../types";
 import { Player } from "../Player";
 
 export class Whammy extends Slide {
-  constructor(slideConfig: SlideConfig) {
+  private _className: string;
+
+  constructor(slideConfig: { className: string }) {
     super(slideConfig);
+    this._className = slideConfig.className;
   }
 
   // Getters
@@ -13,8 +15,16 @@ export class Whammy extends Slide {
     return "panel-whammy";
   }
 
+  get className(): string {
+    return this._className;
+  }
+
   get text(): string {
     return "";
+  }
+
+  get originalText(): string {
+    return this.text;
   }
 
   get description(): string {

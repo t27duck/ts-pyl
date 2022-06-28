@@ -1,10 +1,14 @@
 import { Slide } from "../Slide";
-import { SlideConfig } from "../types";
 import { Player } from "../Player";
 
 export class Cash extends Slide {
-  constructor(slideConfig: SlideConfig) {
+  private _color: string;
+  private _value: number;
+
+  constructor(slideConfig: { color: string; value: number }) {
     super(slideConfig);
+    this._color = slideConfig.color;
+    this._value = slideConfig.value;
   }
 
   // Getters
@@ -13,12 +17,24 @@ export class Cash extends Slide {
     return "panel-cash";
   }
 
+  get color(): string {
+    return this._color;
+  }
+
   get text(): string {
-    return `$${this.slideConfig.value}`;
+    return `$${this._value}`;
+  }
+
+  get originalText(): string {
+    return this.text;
   }
 
   get description(): string {
     return this.text;
+  }
+
+  get value(): number {
+    return this._value;
   }
 
   // Methods
