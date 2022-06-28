@@ -24,7 +24,7 @@ export class Whammy extends Slide {
   }
 
   get originalText(): string {
-    return this.text;
+    return "A Whammy";
   }
 
   get description(): string {
