@@ -18,7 +18,7 @@ export class JumpToSpace extends Slide {
     }
   }
 
-  get originalText(): string {
+  get selectionText(): string {
     return this._text;
   }
 

@@ -20,7 +20,7 @@ export class CashOrLoseWhammy extends Slide {
     return `$${this._value} or Lose One Whammy`;
   }
 
-  get originalText(): string {
+  get selectionText(): string {
     return this.description;
   }
 

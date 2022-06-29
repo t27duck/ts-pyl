@@ -13,7 +13,7 @@ export class CashAndSpin extends Slide {
     return `$${this._value}<br /><span class="panel-line-two">+<br />One Spin</span>`;
   }
 
-  get originalText(): string {
+  get selectionText(): string {
     return `$${this._value} and a Spin`;
   }
 

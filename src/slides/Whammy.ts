@@ -10,7 +10,7 @@ export class Whammy extends Slide {
 
   // Getters
 
-  get originalText(): string {
+  get selectionText(): string {
     return "A Whammy";
   }
 

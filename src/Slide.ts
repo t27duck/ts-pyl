@@ -41,7 +41,7 @@ export class Slide {
     return this._text;
   }
 
-  get originalText(): string {
+  get selectionText(): string {
     return this._text;
   }
 

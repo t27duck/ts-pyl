@@ -13,7 +13,7 @@ export class Cash extends Slide {
     return `$${this._value}`;
   }
 
-  get originalText(): string {
+  get selectionText(): string {
     return this.text;
   }
 
