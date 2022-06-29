@@ -12,10 +12,6 @@ export class Cash extends Slide {
     return "panel-cash";
   }
 
-  get color(): string {
-    return this._color;
-  }
-
   get text(): string {
     return `$${this._value}`;
   }
@@ -26,10 +22,6 @@ export class Cash extends Slide {
 
   get description(): string {
     return this.text;
-  }
-
-  get value(): number {
-    return this._value;
   }
 
   // Methods

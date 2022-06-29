@@ -22,10 +22,6 @@ export class PickSpace extends Slide {
     return "panel-pickspace";
   }
 
-  get className(): string {
-    return this._className;
-  }
-
   get text(): string {
     if (this._hideText) {
       return "";
@@ -36,16 +32,8 @@ export class PickSpace extends Slide {
     }
   }
 
-  get originalText(): string {
-    return this._text;
-  }
-
   get description(): string {
     return `${this._text}!`;
-  }
-
-  get color(): string {
-    return this._color;
   }
 
   handleMoveChoice = (event: Event): void => {
@@ -66,8 +54,8 @@ export class PickSpace extends Slide {
   callback = (game: Game) => {
     this.game = game;
     game.displayStopMessage(this.description, true);
-    game.board.flashPanelList(this.choices);
-    this.choices.forEach((pIndex) => {
+    game.board.flashPanelList(this._choices);
+    this._choices.forEach((pIndex) => {
       const button = document.createElement("button");
       button.innerText = game.board.panels[pIndex - 1].currentSlide.originalText;
       button.classList.add("choice-button");

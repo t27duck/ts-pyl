@@ -12,12 +12,8 @@ export class Whammy extends Slide {
     return "panel-whammy";
   }
 
-  get className(): string {
-    return this._className;
-  }
-
-  get text(): string {
-    return "";
+  get color(): string {
+    return "#ffff99";
   }
 
   get originalText(): string {
@@ -26,10 +22,6 @@ export class Whammy extends Slide {
 
   get description(): string {
     return "a Whammy";
-  }
-
-  get color(): string {
-    return "#ffff99";
   }
 
   // Methods

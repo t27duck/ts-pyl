@@ -38,44 +38,36 @@ export class Slide {
 
   // Getters
 
-  get text(): string {
-    return this.slideConfig.text || "";
+  get className(): string | undefined {
+    return this._className;
   }
 
-  get originalText(): string {
-    return this.slideConfig.text || "";
-  }
-
-  get description(): string {
-    return this.slideConfig.text || "";
+  get baseClassName(): string {
+    return "";
   }
 
   get color(): string {
-    return this.slideConfig.color || "";
+    return this._color;
+  }
+
+  get text(): string {
+    return this._text;
+  }
+
+  get originalText(): string {
+    return this._text;
+  }
+
+  get description(): string {
+    return this._text;
   }
 
   get value(): number {
     return this._value;
   }
 
-  get target(): number {
-    return this.slideConfig.target || 0;
-  }
-
   get hideText(): boolean {
-    return this.slideConfig.hideText === true;
-  }
-
-  get choices(): number[] {
-    return this.slideConfig.choices || [];
-  }
-
-  get className(): string | undefined {
-    return this.slideConfig.className;
-  }
-
-  get baseClassName(): string {
-    return "";
+    return this._hideText === true;
   }
 
   // Methods

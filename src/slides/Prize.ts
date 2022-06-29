@@ -17,18 +17,6 @@ export class Prize extends Slide {
     return "panel-prize";
   }
 
-  get color(): string {
-    return this._color;
-  }
-
-  get text(): string {
-    return this._text;
-  }
-
-  get originalText(): string {
-    return this.text;
-  }
-
   get description(): string {
     return `${this.text} worth $${this._value}`;
   }

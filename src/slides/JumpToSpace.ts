@@ -13,10 +13,6 @@ export class JumpToSpace extends Slide {
     return "panel-jumptospace";
   }
 
-  get className(): string {
-    return this._className;
-  }
-
   get text(): string {
     if (this._hideText) {
       return "";
@@ -35,10 +31,6 @@ export class JumpToSpace extends Slide {
     } else {
       return `${this._text}!`;
     }
-  }
-
-  get color(): string {
-    return this._color;
   }
 
   callback = (game: Game) => {

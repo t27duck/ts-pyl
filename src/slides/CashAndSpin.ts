@@ -12,10 +12,6 @@ export class CashAndSpin extends Slide {
     return "panel-cashandspin";
   }
 
-  get color(): string {
-    return this._color;
-  }
-
   get text(): string {
     return `$${this.value}<br /><span class="panel-line-two">+<br />One Spin</span>`;
   }
@@ -26,10 +22,6 @@ export class CashAndSpin extends Slide {
 
   get description(): string {
     return `$${this.value} and a Spin`;
-  }
-
-  get value(): number {
-    return this._value;
   }
 
   // Methods

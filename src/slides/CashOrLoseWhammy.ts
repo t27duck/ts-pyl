@@ -27,14 +27,6 @@ export class CashOrLoseWhammy extends Slide {
     return this.description;
   }
 
-  get value(): number {
-    return this._value;
-  }
-
-  get color(): string {
-    return this._color;
-  }
-
   handleChoice = (event: Event): void => {
     if (!this.game) {
       return;
