@@ -24,11 +24,11 @@ export class Panel {
     return this.htmlElement;
   }
 
-  get innerElement(): HTMLElement | null | undefined {
+  get innerElement(): HTMLElement {
     if (!this.innerHtmlElement) {
       this.innerHtmlElement = this.element?.querySelector(".inner-panel");
     }
-    return this.innerHtmlElement;
+    return this.innerHtmlElement as HTMLElement;
   }
 
   // Methods
@@ -53,24 +53,7 @@ export class Panel {
     return this.currentSlide;
   }
 
-  displaySlide(display = ""): void {
-    if (this.innerElement) {
-      if (display === "backgroundOnly") {
-        this.innerElement.innerHTML = "";
-        this.innerElement.setAttribute("class", "inner-panel");
-      } else {
-        this.innerElement.setAttribute("class", `inner-panel ${this.currentSlide.baseClassName}`);
-        if (this.currentSlide.className) {
-          this.innerElement.classList.add(this.currentSlide.className);
-        }
-        if (this.currentSlide.hideText) {
-          this.innerElement.innerHTML = "";
-        } else {
-          this.innerElement.innerHTML = this.currentSlide.text;
-        }
-      }
-
-      this.innerElement.style.backgroundColor = this.currentSlide.color;
-    }
+  displaySlide(displayType = ""): void {
+    this.currentSlide.display(this.innerElement, displayType);
   }
 }

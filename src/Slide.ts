@@ -10,9 +10,6 @@ export class Slide {
   protected _value: number;
   protected _target: number;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  callback: any = undefined;
-
   constructor(
     protected slideConfig: {
       className?: string;
@@ -38,7 +35,7 @@ export class Slide {
 
   // Getters
 
-  get className(): string | undefined {
+  get className(): string {
     return this._className;
   }
 
@@ -70,4 +67,22 @@ export class Slide {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   applyToPlayer(player: Player): void {}
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  callback: any = undefined;
+
+  display(element: HTMLElement, displayType = "") {
+    if (displayType === "backgroundOnly") {
+      element.innerHTML = "";
+      element.setAttribute("class", "inner-panel");
+    } else {
+      element.setAttribute("class", `inner-panel ${this.baseClassName} ${this.className}`);
+      if (this.hideText) {
+        element.innerHTML = "";
+      } else {
+        element.innerHTML = this.text;
+      }
+    }
+    element.style.backgroundColor = this.color;
+  }
 }
