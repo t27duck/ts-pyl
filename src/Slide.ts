@@ -1,6 +1,15 @@
 import { Player } from "./Player";
 
 export class Slide {
+  protected _className: string;
+  protected _color: string;
+  protected _hideText: boolean;
+  protected _choices: Array<number>;
+  protected _text: string;
+  protected _wordPerLine: boolean;
+  protected _value: number;
+  protected _target: number;
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   callback: any = undefined;
 
@@ -17,6 +26,14 @@ export class Slide {
     }
   ) {
     this.slideConfig = slideConfig;
+    this._className = slideConfig.className || "";
+    this._color = slideConfig.color || "";
+    this._hideText = slideConfig.hideText || false;
+    this._choices = slideConfig.choices || [];
+    this._text = slideConfig.text || "";
+    this._wordPerLine = slideConfig.wordPerLine || false;
+    this._value = slideConfig.value || 0;
+    this._target = slideConfig.target || -1;
   }
 
   // Getters
@@ -38,7 +55,7 @@ export class Slide {
   }
 
   get value(): number {
-    return this.slideConfig.value || 0;
+    return this._value;
   }
 
   get target(): number {

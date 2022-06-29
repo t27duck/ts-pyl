@@ -3,14 +3,10 @@ import { Player } from "../Player";
 import { Game } from "../Game";
 
 export class CashOrLoseWhammy extends Slide {
-  private _color: string;
   private game: Game | undefined;
-  private _value: number;
 
   constructor(slideConfig: { color: string; value: number }) {
     super(slideConfig);
-    this._color = slideConfig.color;
-    this._value = slideConfig.value;
   }
 
   // Getters

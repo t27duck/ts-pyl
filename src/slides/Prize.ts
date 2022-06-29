@@ -3,14 +3,10 @@ import { Player } from "../Player";
 import { extractPrize } from "../config";
 
 export class Prize extends Slide {
-  private _color: string;
-  private _text = "UNKNONW";
   private _round: number;
-  private _value = 0;
 
   constructor(slideConfig: { round: number; color: string }) {
     super(slideConfig);
-    this._color = slideConfig.color;
     this._round = slideConfig.round;
     this.setNextPrizeValues();
   }

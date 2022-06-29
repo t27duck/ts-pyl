@@ -3,19 +3,8 @@ import { Player } from "../Player";
 import { Game } from "../Game";
 
 export class JumpToSpace extends Slide {
-  private _className: string;
-  private _color: string;
-  private _hideText: boolean;
-  private _target: number;
-  private _text: string;
-
   constructor(slideConfig: { className?: string; color: string; hideText?: boolean; target: number; text: string }) {
     super(slideConfig);
-    this._className = slideConfig.className || "";
-    this._color = slideConfig.color;
-    this._hideText = slideConfig.hideText || false;
-    this._target = slideConfig.target;
-    this._text = slideConfig.text;
   }
 
   // Getters

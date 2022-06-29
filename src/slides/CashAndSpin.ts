@@ -2,13 +2,8 @@ import { Slide } from "../Slide";
 import { Player } from "../Player";
 
 export class CashAndSpin extends Slide {
-  private _color: string;
-  private _value: number;
-
   constructor(slideConfig: { color: string; value: number }) {
     super(slideConfig);
-    this._color = slideConfig.color;
-    this._value = slideConfig.value;
   }
 
   // Getters
@@ -26,7 +21,7 @@ export class CashAndSpin extends Slide {
   }
 
   get originalText(): string {
-    return this.text;
+    return `$${this.value} and a Spin`;
   }
 
   get description(): string {

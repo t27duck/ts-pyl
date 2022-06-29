@@ -3,13 +3,7 @@ import { Player } from "../Player";
 import { Game } from "../Game";
 
 export class PickSpace extends Slide {
-  private _choices: Array<number>;
-  private _className: string;
-  private _color: string;
-  private _hideText: boolean;
   private game: Game | undefined;
-  private _text: string;
-  private _wordPerLine: boolean;
 
   constructor(slideConfig: {
     className?: string;
@@ -20,12 +14,6 @@ export class PickSpace extends Slide {
     wordPerLine?: boolean;
   }) {
     super(slideConfig);
-    this._choices = slideConfig.choices;
-    this._className = slideConfig.className || "";
-    this._color = slideConfig.color;
-    this._hideText = slideConfig.hideText || false;
-    this._text = slideConfig.text;
-    this._wordPerLine = slideConfig.wordPerLine || false;
   }
 
   // Getters

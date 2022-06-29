@@ -2,11 +2,8 @@ import { Slide } from "../Slide";
 import { Player } from "../Player";
 
 export class Whammy extends Slide {
-  private _className: string;
-
   constructor(slideConfig: { className: string }) {
     super(slideConfig);
-    this._className = slideConfig.className;
   }
 
   // Getters
