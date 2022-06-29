@@ -47,9 +47,9 @@ export class CashOrLoseWhammy extends Slide {
     if (game.currentPlayer.whammies > 0) {
       game.displayStopMessage(`${this.description}!`, true);
       let button = document.createElement("button");
-      button.innerText = `$${this.value}`;
+      button.innerText = `$${this._value}`;
       button.classList.add("choice-button");
-      button.dataset.choice = this.value.toString();
+      button.dataset.choice = this._value.toString();
       button.addEventListener("click", this.handleChoice);
       game.centerPanel.appendChild(button);
 
@@ -60,8 +60,8 @@ export class CashOrLoseWhammy extends Slide {
       button.addEventListener("click", this.handleChoice);
       game.centerPanel.appendChild(button);
     } else {
-      game.currentPlayer.addScore(this.value);
-      game.displayStopMessage(`$${this.value}!`, true);
+      game.currentPlayer.addScore(this._value);
+      game.displayStopMessage(`$${this._value}!`, true);
       game.proceedWithRound();
     }
   };

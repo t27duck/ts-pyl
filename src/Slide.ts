@@ -62,17 +62,12 @@ export class Slide {
     return this._text;
   }
 
-  get value(): number {
-    return this._value;
-  }
-
   get hideText(): boolean {
     return this._hideText === true;
   }
 
   // Methods
 
-  applyToPlayer(player: Player): void {
-    player.addScore(this.value);
-  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+  applyToPlayer(player: Player): void {}
 }

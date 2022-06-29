@@ -24,7 +24,7 @@ export class Prize extends Slide {
   // Methods
 
   applyToPlayer(player: Player): void {
-    player.addScore(this.value);
+    player.addScore(this._value);
     this.setNextPrizeValues();
   }
 

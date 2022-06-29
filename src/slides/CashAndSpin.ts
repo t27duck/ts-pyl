@@ -13,21 +13,21 @@ export class CashAndSpin extends Slide {
   }
 
   get text(): string {
-    return `$${this.value}<br /><span class="panel-line-two">+<br />One Spin</span>`;
+    return `$${this._value}<br /><span class="panel-line-two">+<br />One Spin</span>`;
   }
 
   get originalText(): string {
-    return `$${this.value} and a Spin`;
+    return `$${this._value} and a Spin`;
   }
 
   get description(): string {
-    return `$${this.value} and a Spin`;
+    return `$${this._value} and a Spin`;
   }
 
   // Methods
 
   applyToPlayer(player: Player): void {
-    player.addScore(this.value);
+    player.addScore(this._value);
     player.addAddEarnedSpins(1);
   }
 }
