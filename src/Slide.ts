@@ -1,6 +1,7 @@
 import { Player } from "./Player";
 
 export class Slide {
+  protected _baseClassName: string;
   protected _className: string;
   protected _color: string;
   protected _hideText: boolean;
@@ -31,21 +32,10 @@ export class Slide {
     this._wordPerLine = slideConfig.wordPerLine || false;
     this._value = slideConfig.value || 0;
     this._target = slideConfig.target || -1;
+    this._baseClassName = "";
   }
 
   // Getters
-
-  get className(): string {
-    return this._className;
-  }
-
-  get baseClassName(): string {
-    return "";
-  }
-
-  get color(): string {
-    return this._color;
-  }
 
   get text(): string {
     return this._text;
@@ -57,10 +47,6 @@ export class Slide {
 
   get description(): string {
     return this._text;
-  }
-
-  get hideText(): boolean {
-    return this._hideText === true;
   }
 
   // Methods
@@ -76,13 +62,13 @@ export class Slide {
       element.innerHTML = "";
       element.setAttribute("class", "inner-panel");
     } else {
-      element.setAttribute("class", `inner-panel ${this.baseClassName} ${this.className}`);
-      if (this.hideText) {
+      element.setAttribute("class", `inner-panel ${this._baseClassName} ${this._className}`);
+      if (this._hideText) {
         element.innerHTML = "";
       } else {
         element.innerHTML = this.text;
       }
     }
-    element.style.backgroundColor = this.color;
+    element.style.backgroundColor = this._color;
   }
 }

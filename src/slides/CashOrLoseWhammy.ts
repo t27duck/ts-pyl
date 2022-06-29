@@ -7,13 +7,10 @@ export class CashOrLoseWhammy extends Slide {
 
   constructor(slideConfig: { color: string; value: number }) {
     super(slideConfig);
+    this._baseClassName = "panel-cashorlosewhammy";
   }
 
   // Getters
-
-  get baseClassName(): string {
-    return "panel-cashorlosewhammy";
-  }
 
   get text(): string {
     return `$${this._value}<br /><span class="panel-line-two">or<br />Lose -1- Whammy</span>`;

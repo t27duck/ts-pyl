@@ -4,13 +4,10 @@ import { Player } from "../Player";
 export class CashAndSpin extends Slide {
   constructor(slideConfig: { color: string; value: number }) {
     super(slideConfig);
+    this._baseClassName = "panel-cashandspin";
   }
 
   // Getters
-
-  get baseClassName(): string {
-    return "panel-cashandspin";
-  }
 
   get text(): string {
     return `$${this._value}<br /><span class="panel-line-two">+<br />One Spin</span>`;

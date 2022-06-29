@@ -4,17 +4,11 @@ import { Player } from "../Player";
 export class Whammy extends Slide {
   constructor(slideConfig: { className: string }) {
     super(slideConfig);
+    this._baseClassName = "panel-whammy";
+    this._color = "#FFFF99";
   }
 
   // Getters
-
-  get baseClassName(): string {
-    return "panel-whammy";
-  }
-
-  get color(): string {
-    return "#ffff99";
-  }
 
   get originalText(): string {
     return "A Whammy";

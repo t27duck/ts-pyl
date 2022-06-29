@@ -14,13 +14,10 @@ export class PickSpace extends Slide {
     wordPerLine?: boolean;
   }) {
     super(slideConfig);
+    this._baseClassName = "panel-pickspace";
   }
 
   // Getters
-
-  get baseClassName(): string {
-    return "panel-pickspace";
-  }
 
   get text(): string {
     if (this._hideText) {

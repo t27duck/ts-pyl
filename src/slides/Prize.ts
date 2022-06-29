@@ -9,13 +9,10 @@ export class Prize extends Slide {
     super(slideConfig);
     this._round = slideConfig.round;
     this.setNextPrizeValues();
+    this._baseClassName = "panel-prize";
   }
 
   // Getters
-
-  get baseClassName(): string {
-    return "panel-prize";
-  }
 
   get description(): string {
     return `${this.text} worth $${this._value}`;
