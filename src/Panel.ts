@@ -2,13 +2,15 @@ import { Slide } from "./Slide";
 
 export class Panel {
   private currentSlideIndex = 0;
-  private htmlElement: HTMLElement | null = null;
-  private innerHtmlElement: HTMLElement | null | undefined;
+  private htmlElement: HTMLElement;
+  private innerHtmlElement: HTMLElement;
 
   constructor(private identifier: string, private slides: Slide[]) {
     this.slides = slides;
     this.identifier = identifier;
     this.currentSlideIndex = Math.floor(Math.random() * this.slides.length);
+    this.htmlElement = document.querySelector(this.identifier) as HTMLElement;
+    this.innerHtmlElement = this.htmlElement.querySelector(".inner-panel") as HTMLElement;
   }
 
   // Getters
@@ -17,18 +19,12 @@ export class Panel {
     return this.slides[this.currentSlideIndex];
   }
 
-  get element(): HTMLElement | null {
-    if (!this.htmlElement) {
-      this.htmlElement = document.querySelector(this.identifier);
-    }
+  get element(): HTMLElement {
     return this.htmlElement;
   }
 
   get innerElement(): HTMLElement {
-    if (!this.innerHtmlElement) {
-      this.innerHtmlElement = this.element?.querySelector(".inner-panel");
-    }
-    return this.innerHtmlElement as HTMLElement;
+    return this.innerHtmlElement;
   }
 
   // Methods
