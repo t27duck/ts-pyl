@@ -50,11 +50,7 @@ export class Game {
 
   async startRound() {
     this._players.refreshPlayerOutputs();
-    const message = document.createElement("div");
-    message.classList.add("message");
-    message.innerText = `Welcome to round ${this.round + 1}!`;
-    this.centerPanel.innerHTML = "";
-    this.centerPanel.appendChild(message);
+    this.displayMessage(`Welcome to round ${this.round + 1}!`);
 
     this._board.spinLightOnly();
     await this._board.revealPanels();
@@ -118,15 +114,11 @@ export class Game {
   }
 
   displayStopMessage(description: string, withStop = true): void {
-    const message = document.createElement("div");
-    message.classList.add("message");
     if (withStop) {
-      message.innerText += `Stopped on... ${description}`;
+      this.displayMessage(`Stopped on... ${description}`);
     } else {
-      message.innerText = `${description}!`;
+      this.displayMessage(`${description}!`);
     }
-    this.centerPanel.innerHTML = "";
-    this.centerPanel.appendChild(message);
   }
 
   async proceedWithRound() {
@@ -137,12 +129,11 @@ export class Game {
       return;
     }
 
-    const message = document.createElement("div");
+    let messageText;
     const buttons = [] as Array<HTMLButtonElement>;
-    message.classList.add("message");
 
     if (this.currentPlayer.canUseEarnedSpins) {
-      message.innerText = "Press your luck or pass?";
+      messageText = "Press your luck or pass?";
       let button = document.createElement("button");
       button.innerText = "Press my luck!";
       button.classList.add("choice-button");
@@ -168,7 +159,7 @@ export class Game {
         buttons.push(button);
       }
     } else if (this.currentPlayer.passedSpins > 0) {
-      message.innerText = `You have spins in your passed column. You must use them.`;
+      messageText = `You have spins in your passed column. You must use them.`;
       const button = document.createElement("button");
       button.innerText = "Press my luck!";
       button.classList.add("choice-button");
@@ -179,13 +170,7 @@ export class Game {
       return;
     }
 
-    this.centerPanel.innerHTML = "";
-    this.centerPanel.appendChild(message);
-    if (buttons) {
-      buttons.forEach((button) => {
-        this.centerPanel.appendChild(button);
-      });
-    }
+    this.displayMessage(messageText, buttons);
   }
 
   proceedWithNextPlayer(): void {
@@ -254,41 +239,32 @@ export class Game {
     this._board.allLightsFlash();
   }
 
-  displayMessage(messageString: string): void {
+  displayMessage(messageString: string, buttons: Array<HTMLButtonElement> = []): void {
     const message = document.createElement("div");
     message.classList.add("message");
     message.innerHTML = messageString;
     this.centerPanel.innerHTML = "";
     this.centerPanel.appendChild(message);
+    buttons.forEach((button) => this.centerPanel.appendChild(button));
   }
 
   newPlayerTurn(): void {
-    const message = document.createElement("div");
-    message.classList.add("message");
-    let messageText = `${this._players.currentPlayerName}, it's your turn.`;
+    let messageText = `${this._players.currentPlayerName}, it's your turn!`;
     if (this.currentPlayer.passedSpins > 0) {
       messageText = `${messageText}<br />You have spins in your passed column. You must use them.`;
     }
-    message.innerHTML = messageText;
     const button = document.createElement("button");
     button.innerText = "Press my luck!";
     button.classList.add("choice-button");
     button.addEventListener("click", this.pressMyLuck);
-    this.centerPanel.innerHTML = "";
-    this.centerPanel.appendChild(message);
-    this.centerPanel.appendChild(button);
+    this.displayMessage(messageText, [button]);
   }
 
   endOfRound(): void {
-    const message = document.createElement("div");
-    message.classList.add("message");
-    message.innerText = `That's the end of round ${this.round + 1}!`;
     const button = document.createElement("button");
     button.innerText = "Continue...";
     button.classList.add("choice-button");
     button.addEventListener("click", this.nextRound);
-    this.centerPanel.innerHTML = "";
-    this.centerPanel.appendChild(message);
-    this.centerPanel.appendChild(button);
+    this.displayMessage(`That's the end of round ${this.round + 1}!`, [button]);
   }
 }
