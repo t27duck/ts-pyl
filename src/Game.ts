@@ -51,7 +51,9 @@ export class Game {
 
   async startRound() {
     this._players.refreshPlayerOutputs();
-    this.displayMessage(`Welcome to round ${this.round + 1}!`);
+    let message = `Welcome to round ${this.round + 1}!`;
+    message += `<br />There's over $${this._board.totalRoundAmount} in cash and prizes up for grabs.`;
+    this.displayMessage(message);
 
     this._board.spinLightOnly();
     await this._board.revealPanels();

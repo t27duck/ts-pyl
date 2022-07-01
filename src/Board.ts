@@ -37,6 +37,10 @@ export class Board {
     return this._panels;
   }
 
+  get totalRoundAmount(): number {
+    return this._panels.reduce((sum, panel) => sum + panel.slidesSum, 0);
+  }
+
   // Methods
 
   resetRound(round: number): void {

@@ -49,6 +49,10 @@ export class Slide {
     return this._text;
   }
 
+  get value(): number {
+    return this._value;
+  }
+
   // Methods
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function

@@ -27,6 +27,10 @@ export class Panel {
     return this.innerHtmlElement;
   }
 
+  get slidesSum(): number {
+    return this.slides.reduce((sum, slide) => sum + slide.value, 0);
+  }
+
   // Methods
 
   next(): Slide {
