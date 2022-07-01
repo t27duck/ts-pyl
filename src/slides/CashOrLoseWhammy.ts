@@ -1,6 +1,7 @@
 import { Slide } from "../Slide";
 import { Player } from "../Player";
 import { Game } from "../Game";
+import { buildButton } from "../utils";
 
 export class CashOrLoseWhammy extends Slide {
   private game: Game | undefined;
@@ -42,20 +43,10 @@ export class CashOrLoseWhammy extends Slide {
   callback = (game: Game) => {
     this.game = game;
     if (game.currentPlayer.whammies > 0) {
-      game.displayStopMessage(`${this.description}!`, true);
-      let button = document.createElement("button");
-      button.innerText = `$${this._value}`;
-      button.classList.add("choice-button");
-      button.dataset.choice = this._value.toString();
-      button.addEventListener("click", this.handleChoice);
-      game.centerPanel.appendChild(button);
-
-      button = document.createElement("button");
-      button.innerText = "Lose 1 Whammy";
-      button.classList.add("choice-button");
-      button.dataset.choice = "whammy";
-      button.addEventListener("click", this.handleChoice);
-      game.centerPanel.appendChild(button);
+      const buttons = [];
+      buttons.push(buildButton(`$${this._value}`, this.handleChoice, { choice: this._value.toString() }));
+      buttons.push(buildButton("Lose 1 Whammy", this.handleChoice, { choice: "whammy" }));
+      game.displayMessage(`Stopped on ${this.description}...`, buttons);
     } else {
       game.currentPlayer.addScore(this._value);
       game.displayStopMessage(`$${this._value}!`, true);

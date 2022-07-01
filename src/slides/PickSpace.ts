@@ -1,6 +1,7 @@
 import { Slide } from "../Slide";
 import { Player } from "../Player";
 import { Game } from "../Game";
+import { buildButton } from "../utils";
 
 export class PickSpace extends Slide {
   private game: Game | undefined;
@@ -50,16 +51,13 @@ export class PickSpace extends Slide {
 
   callback = (game: Game) => {
     this.game = game;
-    game.displayStopMessage(this.description, true);
     game.board.flashPanelList(this._choices);
-    this._choices.forEach((pIndex) => {
-      const button = document.createElement("button");
-      button.innerText = game.board.panels[pIndex - 1].currentSlide.selectionText;
-      button.classList.add("choice-button");
-      button.dataset.panelIndex = pIndex.toString();
-      button.addEventListener("click", this.handleMoveChoice);
-      game.centerPanel.appendChild(button);
+    const buttons = this._choices.map((pIndex) => {
+      return buildButton(game.board.panels[pIndex - 1].currentSlide.selectionText, this.handleMoveChoice, {
+        panelIndex: pIndex.toString()
+      });
     });
+    game.displayMessage(`Stopped on ${this.description}...`, buttons);
   };
 
   // Methods

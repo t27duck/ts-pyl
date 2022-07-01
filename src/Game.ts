@@ -4,6 +4,7 @@ import { Player } from "./Player";
 import { Slide } from "./Slide";
 import { Setup } from "./Setup";
 import { BOARD_STOP_RESULT_DELAY, sleep } from "./config";
+import { buildButton } from "./utils";
 
 export class Game {
   round = 0;
@@ -134,37 +135,20 @@ export class Game {
 
     if (this.currentPlayer.canUseEarnedSpins) {
       messageText = "Press your luck or pass?";
-      let button = document.createElement("button");
-      button.innerText = "Press my luck!";
-      button.classList.add("choice-button");
-      button.addEventListener("click", this.pressMyLuck);
-      buttons.push(button);
+      buttons.push(buildButton("Press my luck!", this.pressMyLuck));
 
       const passablePlayers = this._players.passablePlayers();
       if (passablePlayers.length > 0) {
         passablePlayers.forEach((player) => {
-          button = document.createElement("button");
-          button.innerText = `Pass to ${player.name}`;
-          button.dataset.playerNumber = player.number.toString();
-          button.classList.add("choice-button");
-          button.addEventListener("click", this.pass);
-          buttons.push(button);
+          buttons.push(buildButton(`Pass to ${player.name}`, this.pass, { playerNumber: player.number.toString() }));
         });
       } else {
         // Play against the house
-        button = document.createElement("button");
-        button.innerText = "End round";
-        button.classList.add("choice-button");
-        button.addEventListener("click", this.pass);
-        buttons.push(button);
+        buttons.push(buildButton("End round", this.pass));
       }
     } else if (this.currentPlayer.passedSpins > 0) {
       messageText = `You have spins in your passed column. You must use them.`;
-      const button = document.createElement("button");
-      button.innerText = "Press my luck!";
-      button.classList.add("choice-button");
-      button.addEventListener("click", this.pressMyLuck);
-      buttons.push(button);
+      buttons.push(buildButton("Press my luck!", this.pressMyLuck));
     } else {
       this.proceedWithNextPlayer();
       return;
@@ -253,18 +237,10 @@ export class Game {
     if (this.currentPlayer.passedSpins > 0) {
       messageText = `${messageText}<br />You have spins in your passed column. You must use them.`;
     }
-    const button = document.createElement("button");
-    button.innerText = "Press my luck!";
-    button.classList.add("choice-button");
-    button.addEventListener("click", this.pressMyLuck);
-    this.displayMessage(messageText, [button]);
+    this.displayMessage(messageText, [buildButton("Press my luck!", this.pressMyLuck)]);
   }
 
   endOfRound(): void {
-    const button = document.createElement("button");
-    button.innerText = "Continue...";
-    button.classList.add("choice-button");
-    button.addEventListener("click", this.nextRound);
-    this.displayMessage(`That's the end of round ${this.round + 1}!`, [button]);
+    this.displayMessage(`That's the end of round ${this.round + 1}!`, [buildButton("Continue...", this.nextRound)]);
   }
 }
