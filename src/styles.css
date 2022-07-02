@@ -71,6 +71,7 @@ body {
   background-size: 10px 10px;
 }
 .inner-panel {
+  font-family: "Franklin Gothic Condensed";
   background-color: blue;
   margin: 8px;
   width: calc(100% - 16px);
@@ -81,7 +82,7 @@ body {
   text-align: center;
   display: grid;
   color: white;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 1px 1px 1px black;
   filter: brightness(100%);
   transition: filter 0.15s;
   font-size: 1.5rem;
@@ -93,7 +94,6 @@ body {
   text-transform: uppercase;
 }
 .panel-cash, .panel-cashandspin, .panel-bigbucks {
-  font-family: "Franklin Gothic Condensed";
   background-image: url("images/coinstacks.png");
   background-size: calc(var(--box-unit) - 16px) calc(var(--box-unit) - 16px);
 }
