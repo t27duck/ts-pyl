@@ -4,6 +4,8 @@ import { extractPrize } from "../config";
 
 export class Prize extends Slide {
   private _round: number;
+  private _description = "";
+  private _selectionText = "";
 
   constructor(slideConfig: { round: number; color: string }) {
     super(slideConfig);
@@ -15,7 +17,11 @@ export class Prize extends Slide {
   // Getters
 
   get description(): string {
-    return `${this.text} worth $${this._value}`;
+    return this._description;
+  }
+
+  get selectionText(): string {
+    return this._selectionText;
   }
 
   // Methods
@@ -29,5 +35,12 @@ export class Prize extends Slide {
     const prize = extractPrize(round);
     this._text = prize.text;
     this._value = prize.value;
+    if (prize.prefix) {
+      this._description = `${prize.prefix} ${this.text} worth $${this._value}`;
+      this._selectionText = `${prize.prefix} ${this.text}`;
+    } else {
+      this._description = `${this.text} worth $${this._value}`;
+      this._selectionText = this.text;
+    }
   }
 }
