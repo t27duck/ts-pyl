@@ -6,13 +6,7 @@ import { buildButton } from "../utils";
 export class PickSpace extends Slide {
   private game: Game | undefined;
 
-  constructor(slideConfig: {
-    className?: string;
-    color: string;
-    hideText?: boolean;
-    choices: Array<number>;
-    text: string;
-  }) {
+  constructor(slideConfig: { className?: string; color: string; choices: Array<number>; text: string }) {
     super(slideConfig);
     this._baseClassName = "panel-pickspace";
   }
@@ -20,11 +14,7 @@ export class PickSpace extends Slide {
   // Getters
 
   get text(): string {
-    if (this._hideText) {
-      return "";
-    } else {
-      return `${this._text}`;
-    }
+    return "";
   }
 
   get description(): string {

@@ -20,7 +20,6 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
           className: "panel-whammy-superhero"
         }),
         new PickSpace({
-          hideText: true,
           text: "Move One Space",
           color: "#085A39",
           className: "panel-moveonespace-corner",
@@ -416,8 +415,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           text: "Pick A Corner",
           className: "panel-pickacorner",
           color: "#085A39",
-          choices: [1, 10, 15],
-          hideText: true
+          choices: [1, 10, 15]
         }),
         new JumpToSpace({
           className: "panel-backtwospaces",
@@ -472,7 +470,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           className: "panel-whammy-flex"
         }),
         new PickSpace({
-          hideText: true,
           text: "Move One Space",
           color: "#085A39",
           className: "panel-moveonespace-vertical",
@@ -562,7 +559,6 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
           className: "panel-whammy-jumping"
         }),
         new PickSpace({
-          hideText: true,
           text: "Move One Space",
           color: "#085A39",
           className: "panel-moveonespace-horizontal",
