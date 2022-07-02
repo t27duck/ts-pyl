@@ -226,12 +226,15 @@ export class Game {
   }
 
   displayMessage(messageString: string, buttons: Array<HTMLButtonElement> = []): void {
+    const outerContainer = document.createElement("div");
+    outerContainer.classList.add("alert");
     const message = document.createElement("div");
     message.classList.add("message");
     message.innerHTML = messageString;
+    outerContainer.appendChild(message);
+    buttons.forEach((button) => outerContainer.appendChild(button));
     this.centerPanel.innerHTML = "";
-    this.centerPanel.appendChild(message);
-    buttons.forEach((button) => this.centerPanel.appendChild(button));
+    this.centerPanel.appendChild(outerContainer);
   }
 
   newPlayerTurn(): void {
