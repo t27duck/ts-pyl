@@ -414,9 +414,10 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new PickSpace({
           text: "Pick A Corner",
+          className: "panel-pickacorner",
           color: "#085A39",
           choices: [1, 10, 15],
-          wordPerLine: true
+          hideText: true
         }),
         new JumpToSpace({
           className: "panel-backtwospaces",

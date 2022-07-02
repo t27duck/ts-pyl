@@ -12,7 +12,6 @@ export class PickSpace extends Slide {
     hideText?: boolean;
     choices: Array<number>;
     text: string;
-    wordPerLine?: boolean;
   }) {
     super(slideConfig);
     this._baseClassName = "panel-pickspace";
@@ -23,8 +22,6 @@ export class PickSpace extends Slide {
   get text(): string {
     if (this._hideText) {
       return "";
-    } else if (this._wordPerLine) {
-      return `${this._text}`.split(" ").join("<br />");
     } else {
       return `${this._text}`;
     }
