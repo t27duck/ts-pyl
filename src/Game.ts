@@ -132,11 +132,11 @@ export class Game {
       return;
     }
 
-    let messageText;
+    let messageText = `${this.currentPlayer.name}<br />`;
     const buttons = [] as Array<HTMLButtonElement>;
 
     if (this.currentPlayer.canUseEarnedSpins) {
-      messageText = pressOrPassMessage();
+      messageText += pressOrPassMessage();
       buttons.push(buildButton("Press my luck!", this.pressMyLuck));
 
       const passablePlayers = this._players.passablePlayers();
