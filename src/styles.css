@@ -27,6 +27,7 @@ body {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   width: var(--full-width);
   background-color: black;
+  margin: 10px auto 0 auto;
 }
 #center-panel {
   grid-column: span 4 / span 4;
@@ -166,6 +167,7 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   background-color: blanchedalmond;
+  margin: 0 auto;
 }
 .player {
   margin: 0.1rem;
