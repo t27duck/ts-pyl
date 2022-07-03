@@ -4,7 +4,7 @@ import { Player } from "./Player";
 import { Slide } from "./Slide";
 import { Setup } from "./Setup";
 import { BOARD_STOP_RESULT_DELAY, sleep } from "./config";
-import { buildButton } from "./utils";
+import { buildButton, pressOrPassMessage } from "./utils";
 
 export class Game {
   round = 0;
@@ -136,7 +136,7 @@ export class Game {
     const buttons = [] as Array<HTMLButtonElement>;
 
     if (this.currentPlayer.canUseEarnedSpins) {
-      messageText = "Press your luck or pass?";
+      messageText = pressOrPassMessage();
       buttons.push(buildButton("Press my luck!", this.pressMyLuck));
 
       const passablePlayers = this._players.passablePlayers();

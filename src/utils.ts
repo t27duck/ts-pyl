@@ -1,3 +1,5 @@
+const PRESS_OR_PASS_MESSAGES = ["Press your luck or pass?", "What are you going to do?", "What's it going to be?"];
+
 export function buildButton(
   buttonText: string,
   clickHandler: (event: Event) => void,
@@ -12,4 +14,13 @@ export function buildButton(
   }
 
   return button;
+}
+
+export const sample = (array: Array<string | number>) => {
+  const length = array.length;
+  return array[Math.floor(Math.random() * length)];
+};
+
+export function pressOrPassMessage(): string {
+  return sample(PRESS_OR_PASS_MESSAGES).toString();
 }
