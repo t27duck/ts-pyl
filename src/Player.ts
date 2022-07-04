@@ -34,7 +34,7 @@ export class Player {
 
   get earnedSpinsElement(): HTMLElement {
     if (!this._earnedSpinsElement) {
-      this._earnedSpinsElement = this.element?.querySelector(".player-earned-spins") as HTMLElement;
+      this._earnedSpinsElement = this.element.querySelector(".player-earned-spins") as HTMLElement;
     }
 
     return this._earnedSpinsElement;
@@ -42,7 +42,7 @@ export class Player {
 
   get passedSpinsElement(): HTMLElement {
     if (!this._passedSpinsElement) {
-      this._passedSpinsElement = this.element?.querySelector(".player-passed-spins") as HTMLElement;
+      this._passedSpinsElement = this.element.querySelector(".player-passed-spins") as HTMLElement;
     }
 
     return this._passedSpinsElement;
@@ -50,7 +50,7 @@ export class Player {
 
   get scoreElement(): HTMLElement {
     if (!this._scoreElement) {
-      this._scoreElement = this.element?.querySelector(".player-score") as HTMLElement;
+      this._scoreElement = this.element.querySelector(".player-score") as HTMLElement;
     }
 
     return this._scoreElement;

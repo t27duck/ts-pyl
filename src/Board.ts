@@ -99,16 +99,16 @@ export class Board {
 
     this._panels.forEach((p) => {
       if (panel != p) {
-        p.element?.classList.remove("panel-active");
+        p.element.classList.remove("panel-active");
       }
     });
 
     const flashInterval = setInterval(() => {
-      panel.element?.classList.toggle("panel-active");
+      panel.element.classList.toggle("panel-active");
       flashCount++;
       if (flashCount > 8) {
         clearInterval(flashInterval);
-        panel.element?.classList.add("panel-active");
+        panel.element.classList.add("panel-active");
       }
     }, BOARD_PANEL_FLASH_DURATION);
   }
@@ -119,9 +119,9 @@ export class Board {
       if (this.currentInterval) {
         panelIndexes.forEach((panelIndex, index) => {
           if (index == currentIndex) {
-            this._panels[panelIndex - 1].element?.classList.add("panel-active");
+            this._panels[panelIndex - 1].element.classList.add("panel-active");
           } else {
-            this._panels[panelIndex - 1].element?.classList.remove("panel-active");
+            this._panels[panelIndex - 1].element.classList.remove("panel-active");
           }
         });
 
@@ -166,13 +166,13 @@ export class Board {
 
   allLightsOn(): void {
     this._panels.forEach((panel) => {
-      panel.element?.classList.add("panel-active");
+      panel.element.classList.add("panel-active");
     });
   }
 
   allLightsOff(): void {
     this._panels.forEach((panel) => {
-      panel.element?.classList.remove("panel-active");
+      panel.element.classList.remove("panel-active");
     });
   }
 
@@ -190,10 +190,10 @@ export class Board {
     }
     this._panels.forEach((panel, index) => {
       if (this.currentPattern[this.currentPatternIndex] - 1 === index) {
-        panel.element?.classList.add("panel-active");
+        panel.element.classList.add("panel-active");
         this.currentPanelIndex = index;
       } else {
-        panel.element?.classList.remove("panel-active");
+        panel.element.classList.remove("panel-active");
       }
     });
   }
