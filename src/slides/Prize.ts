@@ -1,6 +1,6 @@
 import { Slide } from "../Slide";
 import { Player } from "../Player";
-import { extractPrize } from "../config";
+import { extractPrize } from "../prizes";
 
 export class Prize extends Slide {
   private _round: number;
