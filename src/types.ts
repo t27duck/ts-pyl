@@ -9,3 +9,9 @@ export type SlideConfig = {
   value?: number;
   target?: number;
 };
+
+export type PrizeConfig = {
+  prefix?: string;
+  text: string;
+  value: number;
+};

@@ -1,3 +1,5 @@
+import { PrizeConfig } from "./types";
+
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export const BOARD_STOP_RESULT_DELAY = 200;
@@ -118,10 +120,10 @@ const prizesRound2 = [
   { prefix: "A Trip to", text: "French Chateaux Country", value: 2494 }
 ];
 
-let prizePool: Array<{ prefix?: string; text: string; value: number }> = [];
+let prizePool: Array<PrizeConfig> = [];
 let prizeRound = 1;
 
-export function extractPrize(round = 1): { prefix?: string; text: string; value: number } {
+export function extractPrize(round = 1): PrizeConfig {
   if (round !== prizeRound) {
     prizeRound = round;
     prizePool = [];
