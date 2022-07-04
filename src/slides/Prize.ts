@@ -4,7 +4,6 @@ import { extractPrize } from "../config";
 
 export class Prize extends Slide {
   private _round: number;
-  private _description = "";
   private _selectionText = "";
 
   constructor(slideConfig: { round: number; color: string }) {
@@ -15,10 +14,6 @@ export class Prize extends Slide {
   }
 
   // Getters
-
-  get description(): string {
-    return this._description;
-  }
 
   get selectionText(): string {
     return this._selectionText;

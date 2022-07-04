@@ -18,15 +18,11 @@ export class JumpToSpace extends Slide {
     }
   }
 
-  get selectionText(): string {
-    return this._text;
-  }
-
   get description(): string {
     if (this._hideText) {
-      return `${this._text} to...`;
+      return `${this._description} to...`;
     } else {
-      return `${this._text}!`;
+      return `${this._description}!`;
     }
   }
 

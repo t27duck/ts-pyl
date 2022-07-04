@@ -7,6 +7,7 @@ export class Slide {
   protected _hideText: boolean;
   protected _choices: Array<number>;
   protected _text: string;
+  protected _description: string;
   protected _wordPerLine: boolean;
   protected _value: number;
   protected _target: number;
@@ -18,6 +19,7 @@ export class Slide {
       hideText?: boolean;
       choices?: Array<number>;
       text?: string;
+      description?: string;
       wordPerLine?: boolean;
       value?: number;
       target?: number;
@@ -29,6 +31,7 @@ export class Slide {
     this._hideText = slideConfig.hideText || false;
     this._choices = slideConfig.choices || [];
     this._text = slideConfig.text || "";
+    this._description = slideConfig.description || this._text;
     this._wordPerLine = slideConfig.wordPerLine || false;
     this._value = slideConfig.value || 0;
     this._target = slideConfig.target || -1;
@@ -46,7 +49,7 @@ export class Slide {
   }
 
   get description(): string {
-    return this._text;
+    return this._description;
   }
 
   get value(): number {
