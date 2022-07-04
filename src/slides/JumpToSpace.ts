@@ -1,6 +1,7 @@
 import { Slide } from "../Slide";
 import { Player } from "../Player";
 import { Game } from "../Game";
+import { JUMP_TO_SLIDE_DELAY } from "../config";
 
 export class JumpToSpace extends Slide {
   constructor(slideConfig: { className?: string; color: string; description?: string; target: number; text?: string }) {
@@ -21,7 +22,7 @@ export class JumpToSpace extends Slide {
       game.processResult(targetIndex, false);
       game.board.flashCurrentPanel(targetIndex);
       game.proceedWithRound();
-    }, 1800);
+    }, JUMP_TO_SLIDE_DELAY);
   };
 
   // Methods

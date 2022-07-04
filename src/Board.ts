@@ -5,7 +5,9 @@ import {
   BOARD_LIGHT_BOUNCE_DURATION,
   BOARD_STOP_FLASH_PANEL_DELAY,
   BOARD_PANEL_FLASH_DURATION,
-  BOARD_FLASH_CHOOSE_PANEL_DURATION
+  BOARD_FLASH_CHOOSE_PANEL_DURATION,
+  START_OF_ROUND_SLIDE_DURATION,
+  END_OF_GAME_FLASH_DURATION
 } from "./config";
 import { enter, leave } from "./el-transition";
 
@@ -143,7 +145,7 @@ export class Board {
           resolve();
           clearInterval(interval);
         }
-      }, 200);
+      }, START_OF_ROUND_SLIDE_DURATION);
     });
   }
 
@@ -159,7 +161,7 @@ export class Board {
           this.allLightsOn();
         }
       }
-    }, 500);
+    }, END_OF_GAME_FLASH_DURATION);
   }
 
   allLightsOn(): void {

@@ -3,7 +3,7 @@ import { Players } from "./Players";
 import { Player } from "./Player";
 import { Slide } from "./Slide";
 import { Setup } from "./Setup";
-import { BOARD_STOP_RESULT_DELAY, sleep } from "./config";
+import { BOARD_STOP_RESULT_DELAY, STOP_BOARD_EVENT_HANDLER_DELAY, PASS_MESSAGE_WAIT, sleep } from "./config";
 import { buildButton, pressOrPassMessage } from "./utils";
 
 export class Game {
@@ -65,7 +65,7 @@ export class Game {
   spin(): void {
     this.currentPlayer.useSpin();
     this._board.spin();
-    setTimeout(() => document.addEventListener("keyup", this.handleKeyUp), 500);
+    setTimeout(() => document.addEventListener("keyup", this.handleKeyUp), STOP_BOARD_EVENT_HANDLER_DELAY);
   }
 
   stopBoard(): void {
@@ -187,7 +187,7 @@ export class Game {
         this._players.refreshPlayerOutputs();
         setTimeout(() => {
           this.proceedWithNextPlayer();
-        }, 2000);
+        }, PASS_MESSAGE_WAIT);
       }
     } else {
       this.currentPlayer.earnedSpins = 0;
@@ -195,7 +195,7 @@ export class Game {
       this._players.refreshPlayerOutputs();
       setTimeout(() => {
         this.proceedWithNextPlayer();
-      }, 2000);
+      }, PASS_MESSAGE_WAIT);
     }
   };
 

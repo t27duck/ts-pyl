@@ -5,6 +5,11 @@ export const BOARD_LIGHT_BOUNCE_DURATION = 250;
 export const BOARD_STOP_FLASH_PANEL_DELAY = 300;
 export const BOARD_PANEL_FLASH_DURATION = 160;
 export const BOARD_FLASH_CHOOSE_PANEL_DURATION = 800;
+export const STOP_BOARD_EVENT_HANDLER_DELAY = 500;
+export const PASS_MESSAGE_WAIT = 2000;
+export const JUMP_TO_SLIDE_DELAY = 1800;
+export const START_OF_ROUND_SLIDE_DURATION = 200;
+export const END_OF_GAME_FLASH_DURATION = 500;
 
 export function patterns(): Array<number[]> {
   return [
