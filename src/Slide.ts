@@ -1,4 +1,5 @@
 import { Player } from "./Player";
+import { SlideConfig } from "./types";
 
 export class Slide {
   protected _baseClassName: string;
@@ -11,19 +12,7 @@ export class Slide {
   protected _value: number;
   protected _target: number;
 
-  constructor(
-    protected slideConfig: {
-      className?: string;
-      color?: string;
-      choices?: Array<number>;
-      text?: string;
-      description?: string;
-      wordPerLine?: boolean;
-      value?: number;
-      target?: number;
-    }
-  ) {
-    this.slideConfig = slideConfig;
+  constructor(protected slideConfig: SlideConfig) {
     this._className = slideConfig.className || "";
     this._color = slideConfig.color || "";
     this._choices = slideConfig.choices || [];
