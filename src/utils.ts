@@ -1,3 +1,5 @@
+export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 const PRESS_OR_PASS_MESSAGES = ["Press your luck or pass?", "What are you going to do?", "What's it going to be?"];
 
 export function buildButton(

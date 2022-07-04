@@ -3,8 +3,8 @@ import { Players } from "./Players";
 import { Player } from "./Player";
 import { Slide } from "./Slide";
 import { Setup } from "./Setup";
-import { BOARD_STOP_RESULT_DELAY, STOP_BOARD_EVENT_HANDLER_DELAY, PASS_MESSAGE_WAIT, sleep } from "./config";
-import { buildButton, pressOrPassMessage } from "./utils";
+import { BOARD_STOP_RESULT_DELAY, STOP_BOARD_EVENT_HANDLER_DELAY, PASS_MESSAGE_WAIT } from "./config";
+import { buildButton, pressOrPassMessage, sleep } from "./utils";
 
 export class Game {
   round = 0;
