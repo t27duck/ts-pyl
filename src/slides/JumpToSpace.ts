@@ -3,27 +3,15 @@ import { Player } from "../Player";
 import { Game } from "../Game";
 
 export class JumpToSpace extends Slide {
-  constructor(slideConfig: { className?: string; color: string; hideText?: boolean; target: number; text: string }) {
+  constructor(slideConfig: { className?: string; color: string; description?: string; target: number; text?: string }) {
     super(slideConfig);
     this._baseClassName = "panel-jumptospace";
   }
 
   // Getters
 
-  get text(): string {
-    if (this._hideText) {
-      return "";
-    } else {
-      return this._text;
-    }
-  }
-
   get description(): string {
-    if (this._hideText) {
-      return `${this._description} to...`;
-    } else {
-      return `${this._description}!`;
-    }
+    return `${this._description} to...`;
   }
 
   callback = (game: Game) => {

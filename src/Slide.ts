@@ -4,7 +4,6 @@ export class Slide {
   protected _baseClassName: string;
   protected _className: string;
   protected _color: string;
-  protected _hideText: boolean;
   protected _choices: Array<number>;
   protected _text: string;
   protected _description: string;
@@ -16,7 +15,6 @@ export class Slide {
     protected slideConfig: {
       className?: string;
       color?: string;
-      hideText?: boolean;
       choices?: Array<number>;
       text?: string;
       description?: string;
@@ -28,7 +26,6 @@ export class Slide {
     this.slideConfig = slideConfig;
     this._className = slideConfig.className || "";
     this._color = slideConfig.color || "";
-    this._hideText = slideConfig.hideText || false;
     this._choices = slideConfig.choices || [];
     this._text = slideConfig.text || "";
     this._description = slideConfig.description || this._text;
@@ -70,11 +67,7 @@ export class Slide {
       element.setAttribute("class", "inner-panel");
     } else {
       element.setAttribute("class", `inner-panel ${this._baseClassName} ${this._className}`);
-      if (this._hideText) {
-        element.innerHTML = "";
-      } else {
-        element.innerHTML = this.text;
-      }
+      element.innerHTML = this.text;
     }
     element.style.backgroundColor = this._color;
   }

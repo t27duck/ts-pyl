@@ -106,8 +106,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new JumpToSpace({
           className: "panel-backtwospaces",
-          hideText: true,
-          text: "Go Back Two Spaces",
+          description: "Go Back Two Spaces",
           color: "#085A39",
           target: 4
         })
@@ -192,8 +191,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         }),
         new JumpToSpace({
           className: "panel-advancetwospaces",
-          hideText: true,
-          text: "Advance Two Spaces",
+          description: "Advance Two Spaces",
           color: "#085A39",
           target: 13
         })
@@ -419,8 +417,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new JumpToSpace({
           className: "panel-backtwospaces",
-          hideText: true,
-          text: "Go Back Two Spaces",
+          description: "Go Back Two Spaces",
           color: "#085A39",
           target: 4
         })
@@ -506,8 +503,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         }),
         new JumpToSpace({
           className: "panel-advancetwospaces",
-          hideText: true,
-          text: "Advance Two Spaces",
+          description: "Advance Two Spaces",
           color: "#085A39",
           target: 13
         })
