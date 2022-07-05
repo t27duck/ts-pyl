@@ -19,19 +19,14 @@
   --full-width: calc(var(--box-unit) * 6 + calc(var(--board-gap) * 6))
 }
 body {
-  /* background-color: rgb(47, 46, 46); */
   background-image: url("images/background.png"), linear-gradient(#2944c3, #282698);
-  /* transition: background-image 1s; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-x: center;
   padding: 0;
   margin: 0;
 }
-body.pregame {
-  background-image: url("images/background.png"), linear-gradient(#2944c3, #282698);
-}
-body.inround {
+body.in-round {
   background-image: url("images/background.png"), linear-gradient(#d20226, #99021d);
 }
 #board {
@@ -41,6 +36,17 @@ body.inround {
   width: var(--full-width);
   background-color: black;
   margin: 150px auto 0 auto;
+}
+@media screen and (max-height: 780px) {
+  body {
+    background-image: url("images/background-short.png"), linear-gradient(#2944c3, #282698);
+  }
+  body.in-round {
+    background-image: url("images/background-short.png"), linear-gradient(#d20226, #99021d);
+  }
+  #board {
+    margin: 10px auto 0 auto;
+  }
 }
 #center-panel {
   grid-column: span 4 / span 4;

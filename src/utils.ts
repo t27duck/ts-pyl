@@ -40,7 +40,12 @@ const backgroundProgression: string[][] = [
   ["#d20226", "#99021d"]
 ];
 
-export function transitionBodyBackground(firstStylePart: string, reverse: boolean): void {
+export function transitionBodyBackground(reverse: boolean): void {
+  const firstStylePart = window
+    .getComputedStyle(document.body, null)
+    .getPropertyValue("background-image")
+    .split(",")[0];
+
   let colors: string[][];
   let index = -1;
 
@@ -57,6 +62,12 @@ export function transitionBodyBackground(firstStylePart: string, reverse: boolea
         document.body.style.backgroundImage = `${firstStylePart}, linear-gradient(${colors[index][0]}, ${colors[index][1]})`;
       } else {
         clearInterval(interval);
+        if (reverse) {
+          document.body.classList.remove("in-round");
+        } else {
+          document.body.classList.add("in-round");
+        }
+        document.body.style.backgroundImage = "";
       }
     }
   }, 100);
