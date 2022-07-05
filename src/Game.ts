@@ -252,7 +252,10 @@ export class Game {
   }
 
   endOfRound(): void {
-    transitionBodyBackground(this.baseBackgroundImageStyle, true);
+    if (this.round === 0) {
+      transitionBodyBackground(this.baseBackgroundImageStyle, true);
+      this._board.revealPanels("backgroundOnly");
+    }
     this.displayMessage(`That's the end of round ${this.round + 1}!`, [buildButton("Continue...", this.nextRound)]);
   }
 }

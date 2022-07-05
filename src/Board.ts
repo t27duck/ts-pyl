@@ -133,13 +133,13 @@ export class Board {
     }, BOARD_FLASH_CHOOSE_PANEL_DURATION);
   }
 
-  async revealPanels(): Promise<void> {
+  async revealPanels(displayType = ""): Promise<void> {
     let interval: number;
     let panelIndex = 0;
     return new Promise<void>((resolve) => {
       interval = setInterval(() => {
         const panel = this._panels[panelIndex];
-        panel.displaySlide();
+        panel.displaySlide(displayType);
         panelIndex++;
         if (panelIndex >= this._panels.length) {
           resolve();
