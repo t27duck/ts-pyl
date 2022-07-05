@@ -71,14 +71,21 @@ export class Game {
   spin(): void {
     this.currentPlayer.useSpin();
     this._board.spin();
-    setTimeout(() => document.addEventListener("keyup", this.handleKeyUp), STOP_BOARD_EVENT_HANDLER_DELAY);
+    setTimeout(() => {
+      document.addEventListener("keyup", this.handleKeyUp);
+      this._centerPanel.addEventListener("click", this.stopBoard);
+      this._centerPanel.classList.add("pointer");
+    }, STOP_BOARD_EVENT_HANDLER_DELAY);
   }
 
-  stopBoard(): void {
+  stopBoard = (): void => {
     document.removeEventListener("keyup", this.handleKeyUp);
+    this._centerPanel.removeEventListener("click", this.stopBoard);
+    this._centerPanel.classList.remove("pointer");
+
     this._board.stop();
     setTimeout(() => this.processResult(), BOARD_STOP_RESULT_DELAY);
-  }
+  };
 
   handleKeyUp = (event: KeyboardEvent): void => {
     if (event.code === "Space" || event.key === "Space") {

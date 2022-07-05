@@ -75,6 +75,9 @@ body.inround {
   font-weight: 700;
   cursor: pointer;
 }
+.pointer {
+  cursor: pointer;
+}
 
 .panel {
   width: var(--box-unit);
