@@ -4,7 +4,7 @@ import { Player } from "./Player";
 import { Slide } from "./Slide";
 import { Setup } from "./Setup";
 import { BOARD_STOP_RESULT_DELAY, STOP_BOARD_EVENT_HANDLER_DELAY, PASS_MESSAGE_WAIT } from "./config";
-import { buildButton, pressOrPassMessage, sleep } from "./utils";
+import { buildButton, pressOrPassMessage, sleep, transitionBodyBackground } from "./utils";
 
 export class Game {
   round = 0;
@@ -12,6 +12,7 @@ export class Game {
   private _players: Players = new Players();
   private _centerPanel: HTMLElement;
   private _setup: Setup;
+  private baseBackgroundImageStyle: string;
 
   constructor() {
     this._board.displayPanels("backgroundOnly");
@@ -19,6 +20,10 @@ export class Game {
     this._centerPanel = document.getElementById("center-panel") as HTMLElement;
     this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this);
     this._setup.show();
+    this.baseBackgroundImageStyle = window
+      .getComputedStyle(document.body, null)
+      .getPropertyValue("background-image")
+      .split(",")[0];
   }
 
   // Getters
@@ -50,6 +55,7 @@ export class Game {
   }
 
   async startRound() {
+    transitionBodyBackground(this.baseBackgroundImageStyle, false);
     this._players.refreshPlayerOutputs();
     let message = `Welcome to round ${this.round + 1}!`;
     message += `<br />There's over $${this._board.totalRoundAmount} in cash and prizes up for grabs.`;
@@ -246,6 +252,7 @@ export class Game {
   }
 
   endOfRound(): void {
+    transitionBodyBackground(this.baseBackgroundImageStyle, true);
     this.displayMessage(`That's the end of round ${this.round + 1}!`, [buildButton("Continue...", this.nextRound)]);
   }
 }
