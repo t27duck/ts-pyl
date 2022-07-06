@@ -12,11 +12,13 @@ export class Game {
   private _players: Players = new Players();
   private _centerPanel: HTMLElement;
   private _setup: Setup;
+  private _playersElement: HTMLElement;
 
   constructor() {
     this._board.displayPanels("backgroundOnly");
     this._board.allLightsOff();
     this._centerPanel = document.getElementById("center-panel") as HTMLElement;
+    this._playersElement = document.getElementById("players") as HTMLElement;
     this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this);
     this._setup.show();
   }
@@ -66,6 +68,7 @@ export class Game {
   spin(): void {
     this.currentPlayer.useSpin();
     this._board.spin();
+    this._playersElement.classList.add("hide");
     setTimeout(() => {
       document.addEventListener("keyup", this.handleKeyUp);
       this._centerPanel.addEventListener("click", this.stopBoard);
@@ -77,6 +80,7 @@ export class Game {
     document.removeEventListener("keyup", this.handleKeyUp);
     this._centerPanel.removeEventListener("click", this.stopBoard);
     this._centerPanel.classList.remove("pointer");
+    this._playersElement.classList.remove("hide");
 
     this._board.stop();
     setTimeout(() => this.processResult(), BOARD_STOP_RESULT_DELAY);

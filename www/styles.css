@@ -257,6 +257,10 @@ body.in-round {
 .player-whammy-icon-hidden {
   top: 100%;
 }
+.hide {
+  display: none !important;
+}
+/* Leave empty for el-transition */
 .hidden {}
 .slide-enter {
   transition-property: opacity;
