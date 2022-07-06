@@ -88,24 +88,6 @@ export class Game {
     }
   };
 
-  handleCashOrLoseWhammyChoice = (event: Event): void => {
-    const target = event.target as HTMLButtonElement;
-    const choice = target.dataset.choice;
-    if (!choice) {
-      return;
-    }
-
-    if (choice === "whammy") {
-      this.currentPlayer.addWhammy(-1);
-      this.displayStopMessage(`Lose One Whammy`, false);
-    } else {
-      const value = parseInt(choice);
-      this.currentPlayer.addScore(value);
-      this.displayStopMessage(`$${value}`, false);
-    }
-    this.proceedWithRound();
-  };
-
   processResult(panelIndex: number | undefined = undefined, withStopMessage = true): void {
     let slide: Slide;
     if (panelIndex === undefined) {
