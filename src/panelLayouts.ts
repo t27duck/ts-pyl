@@ -1,4 +1,5 @@
 import { Slide } from "./Slide";
+import { BigBucks } from "slides/BigBucks";
 import { Cash } from "slides/Cash";
 import { CashAndSpin } from "slides/CashAndSpin";
 import { CashOrLoseWhammy } from "slides/CashOrLoseWhammy";
@@ -207,9 +208,7 @@ export function panelsRound1(): { identifier: string; slides: Slide[] }[] {
         new Whammy({
           className: "panel-whammy-standing"
         }),
-        new JumpToSpace({
-          className: "panel-cash",
-          text: "Big Bucks",
+        new BigBucks({
           color: "#4A7318",
           target: 4
         })
@@ -519,9 +518,7 @@ export function panelsRound2(): { identifier: string; slides: Slide[] }[] {
         new Whammy({
           className: "panel-whammy-taunting"
         }),
-        new JumpToSpace({
-          className: "panel-cash",
-          text: "Big Bucks",
+        new BigBucks({
           color: "#4A7318",
           target: 4
         })
