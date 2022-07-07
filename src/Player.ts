@@ -72,22 +72,12 @@ export class Player {
     return this._earnedSpins + this._passedSpins;
   }
 
-  get outOfGame(): boolean {
-    return this._whammies >= 4;
-  }
-
   // Methods
 
-  displaySpins(): void {
+  refreshOutput(): void {
     this._earnedSpinsElement.innerHTML = this._earnedSpins.toString();
     this._passedSpinsElement.innerHTML = this._passedSpins.toString();
-  }
-
-  displayScore(): void {
     this._scoreElement.innerHTML = `$${this._score}`;
-  }
-
-  displayWhammies(): void {
     this._element.querySelectorAll(".player-whammy-icon").forEach((whammyIcon, index) => {
       if (index < this._whammies) {
         whammyIcon.classList.remove("player-whammy-icon-hidden");
@@ -103,6 +93,6 @@ export class Player {
     } else {
       this._earnedSpins--;
     }
-    this.displaySpins();
+    this.refreshOutput();
   }
 }

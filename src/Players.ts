@@ -35,7 +35,7 @@ export class Players {
   // Methods
 
   passablePlayers(): Player[] {
-    const passablePlayers = this._players.filter((player) => player !== this.currentPlayer && !player.outOfGame);
+    const passablePlayers = this._players.filter((player) => player !== this.currentPlayer && player.whammies < 4);
     if (passablePlayers.length > 1) {
       if (passablePlayers[0].score === passablePlayers[1].score) {
         return passablePlayers;
@@ -55,7 +55,7 @@ export class Players {
 
   setPlayerOrder(): void {
     const playerStructure = this._players
-      .filter((player) => player.totalSpins > 0 && !player.outOfGame)
+      .filter((player) => player.totalSpins > 0 && player.whammies < 4)
       .map((player) => player);
 
     // Sort by score low to high
@@ -107,14 +107,12 @@ export class Players {
 
   refreshPlayerOutputs(): void {
     this._players.forEach((player) => {
-      if (player.outOfGame) {
+      if (player.whammies >= 4) {
         player.earnedSpins = 0;
         player.passedSpins = 0;
         player.score = 0;
       }
-      player.displaySpins();
-      player.displayScore();
-      player.displayWhammies();
+      player.refreshOutput();
       player.scoreElement.classList.remove("player-buzzed");
     });
     if (this._currentPlayer) {
