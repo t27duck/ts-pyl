@@ -3,15 +3,19 @@ export class Player {
   private _earnedSpins = 0;
   private _passedSpins = 0;
   private _whammies = 0;
-  private _element: HTMLElement | undefined = undefined;
-  private _earnedSpinsElement: HTMLElement | undefined = undefined;
-  private _passedSpinsElement: HTMLElement | undefined = undefined;
-  private _scoreElement: HTMLElement | undefined = undefined;
+  private _element: HTMLElement;
+  private _earnedSpinsElement: HTMLElement;
+  private _passedSpinsElement: HTMLElement;
+  private _scoreElement: HTMLElement;
 
   constructor(private identifier: string, private _name: string, private _number: number) {
     this.identifier = identifier;
     this._name = _name;
     this._number = _number;
+    this._element = document.querySelector(this.identifier) as HTMLElement;
+    this._earnedSpinsElement = this._element.querySelector(".player-earned-spins") as HTMLElement;
+    this._passedSpinsElement = this._element.querySelector(".player-passed-spins") as HTMLElement;
+    this._scoreElement = this._element.querySelector(".player-score") as HTMLElement;
   }
 
   // Getters / Setters
@@ -24,35 +28,7 @@ export class Player {
     return this._number;
   }
 
-  get element(): HTMLElement {
-    if (!this._element) {
-      this._element = document.querySelector(this.identifier) as HTMLElement;
-    }
-
-    return this._element;
-  }
-
-  get earnedSpinsElement(): HTMLElement {
-    if (!this._earnedSpinsElement) {
-      this._earnedSpinsElement = this.element.querySelector(".player-earned-spins") as HTMLElement;
-    }
-
-    return this._earnedSpinsElement;
-  }
-
-  get passedSpinsElement(): HTMLElement {
-    if (!this._passedSpinsElement) {
-      this._passedSpinsElement = this.element.querySelector(".player-passed-spins") as HTMLElement;
-    }
-
-    return this._passedSpinsElement;
-  }
-
   get scoreElement(): HTMLElement {
-    if (!this._scoreElement) {
-      this._scoreElement = this.element.querySelector(".player-score") as HTMLElement;
-    }
-
     return this._scoreElement;
   }
 
@@ -103,16 +79,16 @@ export class Player {
   // Methods
 
   displaySpins(): void {
-    this.earnedSpinsElement.innerHTML = this._earnedSpins.toString();
-    this.passedSpinsElement.innerHTML = this._passedSpins.toString();
+    this._earnedSpinsElement.innerHTML = this._earnedSpins.toString();
+    this._passedSpinsElement.innerHTML = this._passedSpins.toString();
   }
 
   displayScore(): void {
-    this.scoreElement.innerHTML = `$${this._score}`;
+    this._scoreElement.innerHTML = `$${this._score}`;
   }
 
   displayWhammies(): void {
-    this.element.querySelectorAll(".player-whammy-icon").forEach((whammyIcon, index) => {
+    this._element.querySelectorAll(".player-whammy-icon").forEach((whammyIcon, index) => {
       if (index < this._whammies) {
         whammyIcon.classList.remove("player-whammy-icon-hidden");
       } else {
@@ -128,30 +104,5 @@ export class Player {
       this._earnedSpins--;
     }
     this.displaySpins();
-  }
-
-  addScore(score: number): void {
-    this._score += score;
-    this.displayScore();
-  }
-
-  clearScore(): void {
-    this._score = 0;
-    this.displayScore();
-  }
-
-  addAddEarnedSpins(earnedSpins: number): void {
-    this._earnedSpins += earnedSpins;
-    this.displaySpins();
-  }
-
-  addAddPassedSpins(passedSpins: number): void {
-    this._passedSpins += passedSpins;
-    this.displaySpins();
-  }
-
-  addWhammy(amount = 1): void {
-    this._whammies += amount;
-    this.displayWhammies();
   }
 }

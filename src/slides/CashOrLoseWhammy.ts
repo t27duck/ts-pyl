@@ -48,7 +48,7 @@ export class CashOrLoseWhammy extends Slide {
       buttons.push(buildButton("Lose 1 Whammy", this.handleChoice, { choice: "whammy" }));
       game.displayMessage(`Stopped on ${this.description}...`, buttons);
     } else {
-      game.currentPlayer.addScore(this._value);
+      game.currentPlayer.score += this._value;
       game.displayStopMessage(`$${this._value}!`, true);
       game.proceedWithRound();
     }

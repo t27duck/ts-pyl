@@ -110,7 +110,7 @@ export class Players {
       if (player.outOfGame) {
         player.earnedSpins = 0;
         player.passedSpins = 0;
-        player.clearScore();
+        player.score = 0;
       }
       player.displaySpins();
       player.displayScore();

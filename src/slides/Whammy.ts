@@ -21,10 +21,10 @@ export class Whammy extends Slide {
   // Methods
 
   applyToPlayer(player: Player): void {
-    player.addWhammy();
-    player.clearScore();
+    player.whammies += 1;
+    player.score = 0;
     if (player.whammies < 4 && player.passedSpins > 0) {
-      player.addAddEarnedSpins(player.passedSpins);
+      player.earnedSpins = player.passedSpins;
       player.passedSpins = 0;
     }
     if (player.whammies >= 4) {

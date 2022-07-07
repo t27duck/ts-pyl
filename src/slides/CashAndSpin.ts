@@ -24,7 +24,7 @@ export class CashAndSpin extends Slide {
   // Methods
 
   applyToPlayer(player: Player): void {
-    player.addScore(this._value);
-    player.addAddEarnedSpins(1);
+    player.score += this._value;
+    player.earnedSpins += 1;
   }
 }
