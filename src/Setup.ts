@@ -2,64 +2,36 @@ import { Game } from "./Game";
 
 export class Setup {
   private currentRound = 0;
+  private selectRound: HTMLSelectElement;
+  private player1Spins: HTMLInputElement;
+  private player2Spins: HTMLInputElement;
+  private player3Spins: HTMLInputElement;
+  private player1PassedSpins: HTMLInputElement;
+  private player2PassedSpins: HTMLInputElement;
+  private player3PassedSpins: HTMLInputElement;
+  private player1Whammies: HTMLSelectElement;
+  private player2Whammies: HTMLSelectElement;
+  private player3Whammies: HTMLSelectElement;
+  private player1Score: HTMLInputElement;
+  private player2Score: HTMLInputElement;
+  private player3Score: HTMLInputElement;
 
   constructor(private dialog: HTMLDialogElement, private game: Game) {
     this.dialog = dialog;
     this.game = game;
-  }
-
-  // getters
-
-  get selectRound(): HTMLSelectElement {
-    return this.dialog.querySelector("#select-round") as HTMLSelectElement;
-  }
-
-  get player1Spins(): HTMLInputElement {
-    return document.getElementById("select-player-1-spins") as HTMLInputElement;
-  }
-
-  get player2Spins(): HTMLInputElement {
-    return document.getElementById("select-player-2-spins") as HTMLInputElement;
-  }
-
-  get player3Spins(): HTMLInputElement {
-    return document.getElementById("select-player-3-spins") as HTMLInputElement;
-  }
-
-  get player1PassedSpins(): HTMLInputElement {
-    return document.getElementById("select-player-1-passed-spins") as HTMLInputElement;
-  }
-
-  get player2PassedSpins(): HTMLInputElement {
-    return document.getElementById("select-player-2-passed-spins") as HTMLInputElement;
-  }
-
-  get player3PassedSpins(): HTMLInputElement {
-    return document.getElementById("select-player-3-passed-spins") as HTMLInputElement;
-  }
-
-  get player1Whammies(): HTMLSelectElement {
-    return document.getElementById("select-player-1-whammies") as HTMLSelectElement;
-  }
-
-  get player2Whammies(): HTMLSelectElement {
-    return document.getElementById("select-player-2-whammies") as HTMLSelectElement;
-  }
-
-  get player3Whammies(): HTMLSelectElement {
-    return document.getElementById("select-player-3-whammies") as HTMLSelectElement;
-  }
-
-  get player1Score(): HTMLInputElement {
-    return document.getElementById("select-player-1-score") as HTMLInputElement;
-  }
-
-  get player2Score(): HTMLInputElement {
-    return document.getElementById("select-player-2-score") as HTMLInputElement;
-  }
-
-  get player3Score(): HTMLInputElement {
-    return document.getElementById("select-player-3-score") as HTMLInputElement;
+    this.selectRound = this.dialog.querySelector("#select-round") as HTMLSelectElement;
+    this.player1Spins = document.getElementById("select-player-1-spins") as HTMLInputElement;
+    this.player2Spins = document.getElementById("select-player-2-spins") as HTMLInputElement;
+    this.player3Spins = document.getElementById("select-player-3-spins") as HTMLInputElement;
+    this.player1PassedSpins = document.getElementById("select-player-1-passed-spins") as HTMLInputElement;
+    this.player2PassedSpins = document.getElementById("select-player-2-passed-spins") as HTMLInputElement;
+    this.player3PassedSpins = document.getElementById("select-player-3-passed-spins") as HTMLInputElement;
+    this.player1Whammies = document.getElementById("select-player-1-whammies") as HTMLSelectElement;
+    this.player2Whammies = document.getElementById("select-player-2-whammies") as HTMLSelectElement;
+    this.player3Whammies = document.getElementById("select-player-3-whammies") as HTMLSelectElement;
+    this.player1Score = document.getElementById("select-player-1-score") as HTMLInputElement;
+    this.player2Score = document.getElementById("select-player-2-score") as HTMLInputElement;
+    this.player3Score = document.getElementById("select-player-3-score") as HTMLInputElement;
   }
 
   // Methods
