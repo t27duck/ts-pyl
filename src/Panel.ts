@@ -1,4 +1,5 @@
 import { Slide } from "./Slide";
+import { enter, leave } from "./el-transition";
 
 export class Panel {
   private currentSlideIndex = 0;
@@ -23,37 +24,31 @@ export class Panel {
     return this.htmlElement;
   }
 
-  get innerElement(): HTMLElement {
-    return this.innerHtmlElement;
-  }
-
   get slidesSum(): number {
     return this.slides.reduce((sum, slide) => sum + slide.value, 0);
   }
 
   // Methods
 
-  next(): Slide {
-    return Math.floor(Math.random() * 2) == 0 ? this.previousSlide() : this.nextSlide();
-  }
-
-  nextSlide(): Slide {
-    this.currentSlideIndex++;
-    if (this.currentSlideIndex >= this.slides.length) {
-      this.currentSlideIndex = 0;
-    }
-    return this.currentSlide;
-  }
-
-  previousSlide(): Slide {
-    this.currentSlideIndex--;
-    if (this.currentSlideIndex < 0) {
-      this.currentSlideIndex = this.slides.length - 1;
-    }
-    return this.currentSlide;
+  rotate(): void {
+    enter(this.innerHtmlElement, "slide").then(() => {
+      if (Math.floor(Math.random() * 2) == 0) {
+        this.currentSlideIndex--;
+        if (this.currentSlideIndex < 0) {
+          this.currentSlideIndex = this.slides.length - 1;
+        }
+      } else {
+        this.currentSlideIndex++;
+        if (this.currentSlideIndex >= this.slides.length) {
+          this.currentSlideIndex = 0;
+        }
+      }
+      this.displaySlide();
+      leave(this.innerHtmlElement, "slide");
+    });
   }
 
   displaySlide(displayType = ""): void {
-    this.currentSlide.display(this.innerElement, displayType);
+    this.currentSlide.display(this.innerHtmlElement, displayType);
   }
 }

@@ -9,7 +9,6 @@ import {
   START_OF_ROUND_SLIDE_DURATION,
   END_OF_GAME_FLASH_DURATION
 } from "./config";
-import { enter, leave } from "./el-transition";
 
 export class Board {
   private currentPanelIndex = 0;
@@ -198,22 +197,13 @@ export class Board {
     });
   }
 
-  displayPanels(display = ""): void {
+  displayPanels(displayType = ""): void {
     this._panels.forEach((panel) => {
-      panel.displaySlide(display);
+      panel.displaySlide(displayType);
     });
   }
 
   rotatePanels(): void {
-    this._panels.forEach((panel) => {
-      const innerElement = panel.innerElement;
-      if (innerElement) {
-        enter(innerElement, "slide").then(() => {
-          panel.next();
-          panel.displaySlide();
-          leave(innerElement, "slide");
-        });
-      }
-    });
+    this._panels.forEach((panel) => panel.rotate());
   }
 }
