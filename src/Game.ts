@@ -215,7 +215,7 @@ export class Game {
     }
 
     message += topScorePlayers.map((player) => player.name).join(" and ");
-    message += `with a score of $${topScorePlayers[0].score} in case and prizes!`;
+    message += ` with a score of $${topScorePlayers[0].score} in cash and prizes!`;
 
     this.displayMessage(message);
     this._board.allLightsFlash();
