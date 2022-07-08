@@ -120,27 +120,17 @@ export class Players {
     }
   }
 
-  resetSpins(spins: Array<number>): void {
-    this._players.forEach((player, index) => {
-      player.earnedSpins = spins[index];
-    });
-  }
-
-  resetPassedSpins(spins: Array<number>): void {
-    this._players.forEach((player, index) => {
-      player.passedSpins = spins[index];
-    });
-  }
-
-  resetWhammies(whammies: Array<number>): void {
-    this._players.forEach((player, index) => {
-      player.whammies = whammies[index];
-    });
-  }
-
-  resetScores(scores: Array<number>): void {
+  resetPlayerData(
+    scores: Array<number>,
+    earnedSpins: Array<number>,
+    passedSpins: Array<number>,
+    whammies: Array<number>
+  ): void {
     this._players.forEach((player, index) => {
       player.score = scores[index];
+      player.earnedSpins = earnedSpins[index];
+      player.passedSpins = passedSpins[index];
+      player.whammies = whammies[index];
     });
   }
 }

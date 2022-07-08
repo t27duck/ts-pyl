@@ -93,22 +93,25 @@ export class Setup {
     const p1Spins = parseInt(this.player1Spins.value);
     const p2Spins = parseInt(this.player2Spins.value);
     const p3Spins = parseInt(this.player3Spins.value);
-    this.game.players.resetSpins([p1Spins, p2Spins, p3Spins]);
 
     const p1PassedSpins = parseInt(this.player1PassedSpins.value);
     const p2PassedSpins = parseInt(this.player2PassedSpins.value);
     const p3PassedSpins = parseInt(this.player3PassedSpins.value);
-    this.game.players.resetPassedSpins([p1PassedSpins, p2PassedSpins, p3PassedSpins]);
 
     const p1Whammies = parseInt(this.player1Whammies.value);
     const p2Whammies = parseInt(this.player2Whammies.value);
     const p3Whammies = parseInt(this.player3Whammies.value);
-    this.game.players.resetWhammies([p1Whammies, p2Whammies, p3Whammies]);
 
     const p1Score = parseInt(this.player1Score.value);
     const p2Score = parseInt(this.player2Score.value);
     const p3Score = parseInt(this.player3Score.value);
-    this.game.players.resetScores([p1Score, p2Score, p3Score]);
+
+    this.game.players.resetPlayerData(
+      [p1Score, p2Score, p3Score],
+      [p1Spins, p2Spins, p3Spins],
+      [p1PassedSpins, p2PassedSpins, p3PassedSpins],
+      [p1Whammies, p2Whammies, p3Whammies]
+    );
 
     this.game.startRound();
   }
