@@ -52,6 +52,7 @@ export class Game {
   }
 
   async startRound() {
+    this._playersElement.classList.remove("hide");
     transitionBodyBackground(false);
     this._players.refreshPlayerOutputs();
     let message = `Welcome to round ${this.round + 1}!`;
@@ -195,6 +196,7 @@ export class Game {
 
   nextRound = (): void => {
     if (this.round === 0) {
+      this._playersElement.classList.add("hide");
       this.resetRound(1);
       this._board.allLightsOff();
       this._setup.show(this.round);
