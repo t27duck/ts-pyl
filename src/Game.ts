@@ -173,7 +173,7 @@ export class Game {
     const target = event.target as HTMLButtonElement;
     const playerNumber = target.dataset.playerNumber;
     if (playerNumber) {
-      const passedPlayer = this._players.getPlayerByNumber(parseInt(playerNumber));
+      const passedPlayer = this._players.players.find((player) => player.number === parseInt(playerNumber));
       if (passedPlayer) {
         passedPlayer.passedSpins += this.currentPlayer.earnedSpins;
         this.currentPlayer.earnedSpins = 0;

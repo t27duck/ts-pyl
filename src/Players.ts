@@ -1,5 +1,6 @@
 import { Player } from "./Player";
 
+// Represents a logical grouping of the three players.
 export class Players {
   private _players: Player[] = [];
   private _currentPlayer: Player | undefined = undefined;
@@ -34,6 +35,8 @@ export class Players {
 
   // Methods
 
+  // The player with the highest score that is not the current player is the only one that can receive passed spins.
+  // In the case of a tie, both players are selectable to receive them.
   passablePlayers(): Player[] {
     const passablePlayers = this._players.filter((player) => player !== this.currentPlayer && player.whammies < 4);
     if (passablePlayers.length > 1) {
@@ -49,17 +52,15 @@ export class Players {
     return passablePlayers;
   }
 
-  getPlayerByNumber(number: number): Player | undefined {
-    return this._players.find((player) => player.number === number);
-  }
-
+  // Order is determined by the player with the lowest score to the highest score.
+  // In the case of a tie, the player with the least amount of spins goes before the other.
+  // In the case of a tie in spins, order is resolved by player number low to high.
+  // This sets the initial order for a round and is called again once all available players have had a turn.
   setPlayerOrder(): void {
     const playerStructure = this._players
       .filter((player) => player.totalSpins > 0 && player.whammies < 4)
       .map((player) => player);
 
-    // Sort by score low to high
-    // and then by total spins low to high
     playerStructure.sort((a: Player, b: Player): number => {
       if (a.score < b.score) {
         return -1;
@@ -80,6 +81,8 @@ export class Players {
     this._playerOrder = playerStructure;
   }
 
+  // Runs through the player order. If all players have had a turn, then a new order is determined.
+  // An undefined current player results in the end of the round.
   determineCurrentPlayer(): void {
     if (this._playerOrder.length !== 0) {
       this._currentPlayer = this._playerOrder.shift();
@@ -120,6 +123,7 @@ export class Players {
     }
   }
 
+  // Used by Setup to prepopulate/update all player stats for the start of a round.
   resetPlayerData(
     scores: Array<number>,
     earnedSpins: Array<number>,

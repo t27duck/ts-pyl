@@ -87,6 +87,7 @@ export class Player {
     });
   }
 
+  // Passed spins must be used before earned spins.
   useSpin(): void {
     if (this._passedSpins > 0) {
       this._passedSpins--;
