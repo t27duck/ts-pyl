@@ -15,8 +15,8 @@ export class Game {
   private _playersElement: HTMLElement;
 
   constructor() {
-    this._board.displayPanels("backgroundOnly");
-    this._board.allLightsOff();
+    this._board.displayPanelsBackgroundOnly();
+    this._board.allLights(false);
     this._centerPanel = document.getElementById("center-panel") as HTMLElement;
     this._playersElement = document.getElementById("players") as HTMLElement;
     this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this);
@@ -236,7 +236,7 @@ export class Game {
       await this._board.revealPanels("backgroundOnly");
       this._playersElement.classList.add("hide");
       this.resetRound(1);
-      this._board.allLightsOff();
+      this._board.allLights(false);
       this._setup.show(this.round);
     } else {
       this.gameOver();
