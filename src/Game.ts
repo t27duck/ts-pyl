@@ -47,7 +47,6 @@ export class Game {
     if (round !== this.round) {
       this.round = round;
       this._board.resetRound(round);
-      this._board.displayPanels("backgroundOnly");
     }
   }
 
@@ -194,17 +193,6 @@ export class Game {
     }
   };
 
-  nextRound = (): void => {
-    if (this.round === 0) {
-      this._playersElement.classList.add("hide");
-      this.resetRound(1);
-      this._board.allLightsOff();
-      this._setup.show(this.round);
-    } else {
-      this.gameOver();
-    }
-  };
-
   gameOver(): void {
     const topScorePlayers = this._players.topScorePlayers();
     let message = "That's the end of the game!<br />";
@@ -241,11 +229,17 @@ export class Game {
     this.displayMessage(messageText, [buildButton("Press my luck!", this.pressMyLuck)]);
   }
 
-  endOfRound(): void {
+  async endOfRound() {
     if (this.round === 0) {
       transitionBodyBackground(true);
-      this._board.revealPanels("backgroundOnly");
+      this.displayMessage(`That's the end of round ${this.round + 1}!`);
+      await this._board.revealPanels("backgroundOnly");
+      this._playersElement.classList.add("hide");
+      this.resetRound(1);
+      this._board.allLightsOff();
+      this._setup.show(this.round);
+    } else {
+      this.gameOver();
     }
-    this.displayMessage(`That's the end of round ${this.round + 1}!`, [buildButton("Continue...", this.nextRound)]);
   }
 }

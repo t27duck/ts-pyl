@@ -154,25 +154,17 @@ export class Board {
     this.currentInterval = setInterval(() => {
       counter++;
       if (this.currentInterval) {
-        if (counter % 2 == 0) {
-          this.allLightsOff();
-        } else {
-          this.allLightsOn();
-        }
+        counter % 2 == 0 ? this.allLightsOff() : this.allLightsOn();
       }
     }, END_OF_GAME_FLASH_DURATION);
   }
 
   allLightsOn(): void {
-    this._panels.forEach((panel) => {
-      panel.element.classList.add("panel-active");
-    });
+    this._panels.forEach((panel) => panel.element.classList.add("panel-active"));
   }
 
   allLightsOff(): void {
-    this._panels.forEach((panel) => {
-      panel.element.classList.remove("panel-active");
-    });
+    this._panels.forEach((panel) => panel.element.classList.remove("panel-active"));
   }
 
   clearCurrentInterval(): void {
