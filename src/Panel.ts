@@ -24,12 +24,14 @@ export class Panel {
     return this.htmlElement;
   }
 
+  // Summation of all current values of all slides in the panel.
   get slidesSum(): number {
     return this.slides.reduce((sum, slide) => sum + slide.value, 0);
   }
 
   // Methods
 
+  // Changes the slide to a new one. Will always transition to a random slide that is not the current one.
   rotate(): void {
     enter(this.innerHtmlElement, "slide").then(() => {
       if (Math.floor(Math.random() * 2) == 0) {
@@ -48,6 +50,7 @@ export class Panel {
     });
   }
 
+  // Proxies presenting the current slide
   displaySlide(displayType = ""): void {
     this.currentSlide.display(this.innerHtmlElement, displayType);
   }
