@@ -1,5 +1,5 @@
 import { Slide } from "./Slide";
-import { enter, leave } from "./el-transition";
+import { enter, leave } from "./vendor/el-transition";
 
 export class Panel {
   private currentSlideIndex = 0;
