@@ -73,7 +73,7 @@ export function buildButton(
 }
 
 // Implements a random selection from an array.
-export const sample = (array: Array<string | number>) => {
+export const sample = (array: string[] | never[] | number[][]) => {
   const length = array.length;
   return array[Math.floor(Math.random() * length)];
 };
