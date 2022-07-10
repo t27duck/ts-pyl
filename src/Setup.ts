@@ -1,4 +1,5 @@
 import { Game } from "./Game";
+import { spinDistributions } from "./utils";
 
 export class Setup {
   private currentRound = 0;
@@ -15,6 +16,8 @@ export class Setup {
   private player1Score: HTMLInputElement;
   private player2Score: HTMLInputElement;
   private player3Score: HTMLInputElement;
+  private randomSpinsButton: HTMLAnchorElement;
+  private randomSpinsFormPoolButton: HTMLAnchorElement;
 
   constructor(private dialog: HTMLDialogElement, private game: Game) {
     this.dialog = dialog;
@@ -32,6 +35,11 @@ export class Setup {
     this.player1Score = document.getElementById("select-player-1-score") as HTMLInputElement;
     this.player2Score = document.getElementById("select-player-2-score") as HTMLInputElement;
     this.player3Score = document.getElementById("select-player-3-score") as HTMLInputElement;
+    this.randomSpinsButton = document.getElementById("random-spins") as HTMLAnchorElement;
+    this.randomSpinsFormPoolButton = document.getElementById("random-spins-pool") as HTMLAnchorElement;
+
+    this.randomSpinsButton.addEventListener("click", this.pullRandomSpins);
+    this.randomSpinsFormPoolButton.addEventListener("click", this.pullRandomSpinsFromPool);
   }
 
   // Methods
@@ -66,21 +74,15 @@ export class Setup {
       this.player1Score.disabled = false;
       this.player2Score.disabled = false;
       this.player3Score.disabled = false;
-
-      this.player1Spins.value = "2";
-      this.player2Spins.value = "4";
-      this.player3Spins.value = "3";
     } else {
       this.selectRound.disabled = true;
-
       this.player1Score.disabled = true;
       this.player2Score.disabled = true;
       this.player3Score.disabled = true;
-
-      this.player1Spins.value = "3";
-      this.player2Spins.value = "5";
-      this.player3Spins.value = "4";
     }
+
+    this.pullRandomSpinsFromPool();
+
     this.player1PassedSpins.value = "0";
     this.player2PassedSpins.value = "0";
     this.player3PassedSpins.value = "0";
@@ -115,4 +117,24 @@ export class Setup {
 
     this.game.startRound();
   }
+
+  pullRandomSpinsFromPool = (event: Event | undefined = undefined) => {
+    if (event) {
+      event.preventDefault();
+    }
+    const spins = spinDistributions[Math.floor(Math.random() * spinDistributions.length)];
+    this.player1Spins.value = spins[0].toString();
+    this.player2Spins.value = spins[1].toString();
+    this.player3Spins.value = spins[2].toString();
+  };
+
+  pullRandomSpins = (event: Event | undefined = undefined) => {
+    if (event) {
+      event.preventDefault();
+    }
+    const spins = Math.floor(Math.random() * 12);
+    this.player1Spins.value = spins.toString();
+    this.player2Spins.value = spins.toString();
+    this.player3Spins.value = spins.toString();
+  };
 }
