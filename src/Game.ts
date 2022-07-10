@@ -51,7 +51,7 @@ export class Game {
     transitionBodyBackground(false);
     this._players.refreshPlayerOutputs();
     let message = `Welcome to round ${this.round + 1}!`;
-    message += `<br />There's over $${this._board.totalRoundAmount} in cash and prizes up for grabs.`;
+    message += `<br />There's over $${this._board.totalRoundAmount.toLocaleString()} in cash and prizes up for grabs.`;
     this.displayMessage(message);
 
     this._board.spinLightOnly();
@@ -199,7 +199,7 @@ export class Game {
     }
 
     message += topScorePlayers.map((player) => player.name).join(" and ");
-    message += ` with a score of $${topScorePlayers[0].score} in cash and prizes!`;
+    message += ` with a score of $${topScorePlayers[0].score.toLocaleString()} in cash and prizes!`;
 
     this.displayMessage(message);
     this._board.allLightsFlash();
