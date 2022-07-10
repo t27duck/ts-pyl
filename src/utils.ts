@@ -1,7 +1,7 @@
+// A close enough implementation of "sleep".
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-const PRESS_OR_PASS_MESSAGES = ["Press your luck or pass?", "What are you going to do?", "What's it going to be?"];
-
+// A list of spin distributions from question rounds from actual episodes.
 export const spinDistributions = [
   [2, 5, 4],
   [3, 4, 7],
@@ -55,6 +55,7 @@ export const spinDistributions = [
   [6, 6, 8]
 ];
 
+// "Macro" for making a HTML button to present a choice to the player.
 export function buildButton(
   buttonText: string,
   clickHandler: (event: Event) => void,
@@ -71,11 +72,15 @@ export function buildButton(
   return button;
 }
 
+// Implements a random selection from an array.
 export const sample = (array: Array<string | number>) => {
   const length = array.length;
   return array[Math.floor(Math.random() * length)];
 };
 
+const PRESS_OR_PASS_MESSAGES = ["Press your luck or pass?", "What are you going to do?", "What's it going to be?"];
+
+// Picks a random "question" to present to the player
 export function pressOrPassMessage(): string {
   return sample(PRESS_OR_PASS_MESSAGES).toString();
 }
@@ -93,6 +98,8 @@ const backgroundProgression: string[][] = [
   ["#d20226", "#99021d"]
 ];
 
+// There is no native background gradient transition in CSS. This (with the above array)
+// implements a similar effect.
 export function transitionBodyBackground(reverse: boolean): void {
   const firstStylePart = window
     .getComputedStyle(document.body, null)
