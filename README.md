@@ -2,6 +2,13 @@
 
 An implmeentation of the 1980s Press Your Luck game in Typescript, CSS, and HTML.
 
+## Running
+
+1. Clone repo
+2. Run `$ npm install`
+3. Run `$ npx run start`
+4. Visit `http://localhost:8000`
+
 ## Big Board
 
 Round 1 Big Board is based off of the Season 2 Sepember 17, 1984 to February 4, 1985 configuration. Round 2 Big Board is based off of the Season 2 February 5, 1985 to Augest 21, 1985 configuration.
