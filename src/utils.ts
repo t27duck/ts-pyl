@@ -72,17 +72,11 @@ export function buildButton(
   return button;
 }
 
-// Implements a random selection from an array.
-export const sample = (array: string[] | never[] | number[][]) => {
-  const length = array.length;
-  return array[Math.floor(Math.random() * length)];
-};
-
 const PRESS_OR_PASS_MESSAGES = ["Press your luck or pass?", "What are you going to do?", "What's it going to be?"];
 
 // Picks a random "question" to present to the player
 export function pressOrPassMessage(): string {
-  return sample(PRESS_OR_PASS_MESSAGES).toString();
+  return PRESS_OR_PASS_MESSAGES[Math.floor(Math.random() * PRESS_OR_PASS_MESSAGES.length)];
 }
 
 const backgroundProgression: string[][] = [

@@ -1,5 +1,5 @@
 import { Game } from "./Game";
-import { spinDistributions, sample } from "./utils";
+import { spinDistributions } from "./utils";
 
 export class Setup {
   private currentRound = 0;
@@ -122,7 +122,7 @@ export class Setup {
     if (event) {
       event.preventDefault();
     }
-    const spins = sample(spinDistributions);
+    const spins = spinDistributions[Math.floor(Math.random() * spinDistributions.length)];
     this.player1Spins.value = spins[0].toString();
     this.player2Spins.value = spins[1].toString();
     this.player3Spins.value = spins[2].toString();
