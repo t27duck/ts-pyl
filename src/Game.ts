@@ -37,10 +37,6 @@ export class Game {
     return this._board;
   }
 
-  get centerPanel(): HTMLElement {
-    return this._centerPanel;
-  }
-
   // Methods
 
   resetRound(round: number): void {
@@ -165,7 +161,7 @@ export class Game {
   }
 
   pressMyLuck = (): void => {
-    this.centerPanel.innerHTML = "";
+    this._centerPanel.innerHTML = "";
     this.spin();
   };
 
@@ -217,8 +213,8 @@ export class Game {
     message.innerHTML = messageString;
     outerContainer.appendChild(message);
     buttons.forEach((button) => outerContainer.appendChild(button));
-    this.centerPanel.innerHTML = "";
-    this.centerPanel.appendChild(outerContainer);
+    this._centerPanel.innerHTML = "";
+    this._centerPanel.appendChild(outerContainer);
   }
 
   newPlayerTurn(): void {
