@@ -18,6 +18,7 @@
   --panel-border-radius: 8px;
   --full-width: calc(var(--box-unit) * 6 + calc(var(--board-gap) * 6))
 }
+
 body {
   background-image: url("images/background.png"), linear-gradient(#2944c3, #282698);
   background-repeat: no-repeat;
@@ -260,74 +261,64 @@ body.in-round {
 .hide {
   display: none !important;
 }
+
 /* Leave empty for el-transition */
 .hidden {}
+/* BEGIN el-transition styles which are infferred based on transition name */
 .slide-enter {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 100ms;
 }
-
 .slide-enter-start {
   filter: brightness(100%);
 }
 .slide-enter-end {
   filter: brightness(40%);
 }
-
 .slide-leave {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-
 .slide-leave-start {
   filter: brightness(40%);
 }
-
 .slide-leave-end {
   filter: brightness(100%);
 }
+/* END el-transition styles which are infferred based on transition name */
 
+/* BEGIN STyles for setup modal */
 #setup {
   max-width: 540px;
 }
-
 #setup #player-options {
   display: block;
 }
-
 #setup .select-spins {
   display: flex;
   justify-content: space-between;
 }
-
-#setup .select-spin {
-}
-
 #setup .select-spin input {
   width: 30px;
 }
-
 #setup fieldset {
   width: 500px;
   margin-bottom: 8px;
 }
-
 #setup fieldset div {
   margin-top: 6px;
 }
-
 #setup fieldset label {
   display: inline-block;
 }
-
 #setup .start {
   margin-top: 8px;
   display: flex;
   justify-content: space-between;
 }
-
 #setup .select-score {
   width: 90%;
 }
+/* END STyles for setup modal */
