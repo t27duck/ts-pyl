@@ -9,13 +9,19 @@ An implmeentation of the 1980s Press Your Luck game in Typescript, CSS, and HTML
 3. Run `$ npx run start`
 4. Visit `http://localhost:8000`
 
+### Playing
+
+Set up the round to your liking by assigning spins and optional handicap (passed spins, score, and Whammies) to each player. To play against the house or with less than three players, give the unneeded players four Whammies.
+
+Scores are not editable once the game starts (ie, you cannot change scores transitioning from round one to two).
+
 ## Big Board
 
 Round 1 Big Board is based off of the Season 2 Sepember 17, 1984 to February 4, 1985 configuration. Round 2 Big Board is based off of the Season 2 February 5, 1985 to Augest 21, 1985 configuration.
 
 For both rounds, the following "liberties" were taken:
 
-- No repeat Whammy panels. All Whammy positions use a unite Whammy pose.
+- No repeat Whammy panels. All Whammy positions use a unique Whammy pose.
 - Pirze spaces are picked randomly from a pool, so while the pool is exclusive to a round, they are scattered throughout the board and do not have deadicated places where you would have normally found them on the show.
 - Prize spaces do not have a unique icon per prize, only the name of the prize. The slide's background color is accurate to what was used for that space.
 
