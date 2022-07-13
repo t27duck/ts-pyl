@@ -15,6 +15,8 @@ Set up the round to your liking by assigning spins and optional handicap (passed
 
 Scores are not editable once the game starts (ie, you cannot change scores transitioning from round one to two).
 
+During a spin, you may stop the board by either pressing the space bar or clicking the logo in the center of the Big Board.
+
 ## Big Board
 
 Round 1 Big Board is based off of the Season 2 Sepember 17, 1984 to February 4, 1985 configuration. Round 2 Big Board is based off of the Season 2 February 5, 1985 to Augest 21, 1985 configuration.
