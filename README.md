@@ -6,7 +6,7 @@ An implmeentation of the 1980s Press Your Luck game in Typescript, CSS, and HTML
 
 1. Clone repo
 2. Run `$ npm install`
-3. Run `$ npx run start`
+3. Run `$ npm run start`
 4. Visit `http://localhost:8000`
 
 ### Playing
