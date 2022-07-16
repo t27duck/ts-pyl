@@ -136,5 +136,6 @@ export class Players {
       player.passedSpins = passedSpins[index];
       player.whammies = whammies[index];
     });
+    this.refreshPlayerOutputs();
   }
 }

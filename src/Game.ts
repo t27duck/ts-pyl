@@ -43,6 +43,15 @@ export class Game {
     this._setup.show();
   }
 
+  newGame = (): void => {
+    this._playersElement.classList.add("hide");
+    this._board.clearCurrentInterval();
+    this._board.displayPanelsBackgroundOnly();
+    this._board.allLights(false);
+    this._players.resetPlayerData([0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]);
+    this._setup.show(0);
+  };
+
   resetRound(round: number): void {
     if (round !== this.round) {
       this.round = round;
@@ -205,7 +214,7 @@ export class Game {
     message += topScorePlayers.map((player) => player.name).join(" and ");
     message += ` with a score of $${topScorePlayers[0].score.toLocaleString()} in cash and prizes!`;
 
-    this.displayMessage(message);
+    this.displayMessage(message, [buildButton("Start a New Game", this.newGame)]);
     this._board.allLightsFlash();
   }
 
