@@ -20,7 +20,6 @@ export class Game {
     this._centerPanel = document.getElementById("center-panel") as HTMLElement;
     this._playersElement = document.getElementById("players") as HTMLElement;
     this._setup = new Setup(document.getElementById("setup") as HTMLDialogElement, this);
-    this._setup.show();
   }
 
   // Getters
@@ -38,6 +37,11 @@ export class Game {
   }
 
   // Methods
+
+  showSetup(): void {
+    this._centerPanel.innerHTML = "";
+    this._setup.show();
+  }
 
   resetRound(round: number): void {
     if (round !== this.round) {
