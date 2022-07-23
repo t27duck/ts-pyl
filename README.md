@@ -43,3 +43,5 @@ http://users.btes.tv/syoder/pylboard/index.html
 https://gameshows.fandom.com/wiki/Press_Your_Luck
 
 https://press-your-luck.fandom.com/wiki/Press_Your_Luck_Wikia
+
+Fonts Used: Eggcrate Regular and Franklin Gothic Condensed
