@@ -19,7 +19,10 @@ export class Setup {
   private randomSpinsButton: HTMLAnchorElement;
   private randomSpinsFormPoolButton: HTMLAnchorElement;
 
-  constructor(private dialog: HTMLDialogElement, private game: Game) {
+  constructor(
+    private dialog: HTMLDialogElement,
+    private game: Game
+  ) {
     this.dialog = dialog;
     this.game = game;
     this.selectRound = this.dialog.querySelector("#select-round") as HTMLSelectElement;

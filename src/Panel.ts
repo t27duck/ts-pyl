@@ -6,7 +6,10 @@ export class Panel {
   private htmlElement: HTMLElement;
   private innerHtmlElement: HTMLElement;
 
-  constructor(private identifier: string, private slides: Slide[]) {
+  constructor(
+    private identifier: string,
+    private slides: Slide[]
+  ) {
     this.slides = slides;
     this.identifier = identifier;
     this.currentSlideIndex = Math.floor(Math.random() * this.slides.length);
