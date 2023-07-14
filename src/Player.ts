@@ -8,7 +8,11 @@ export class Player {
   private _passedSpinsElement: HTMLElement;
   private _scoreElement: HTMLElement;
 
-  constructor(private identifier: string, private _name: string, private _number: number) {
+  constructor(
+    private identifier: string,
+    private _name: string,
+    private _number: number
+  ) {
     this.identifier = identifier;
     this._name = _name;
     this._number = _number;
