@@ -168,7 +168,11 @@ export class Board {
     this.currentInterval = setInterval(() => {
       counter++;
       if (this.currentInterval) {
-        counter % 2 == 0 ? this.allLights(false) : this.allLights(true);
+        if (counter % 2 == 0) {
+          this.allLights(false);
+        } else {
+          this.allLights(true);
+        }
       }
     }, END_OF_GAME_FLASH_DURATION);
   }
