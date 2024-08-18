@@ -44,7 +44,7 @@ export class Slide {
 
   // Methods
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyToPlayer(player: Player): void {}
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
