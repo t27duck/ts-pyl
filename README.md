@@ -4,7 +4,7 @@ An implmeentation of the 1980s Press Your Luck game in Typescript, CSS, and HTML
 
 ## Play Now
 
-http://stuff.t27duck.xyz/pyl/
+http://pyl.t27duck.xyz
 
 ## Running
 

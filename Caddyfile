@@ -1,0 +1,4 @@
+http://pyl.t27duck.xyz {
+  root * /var/www/html
+  file_server
+}
